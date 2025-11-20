@@ -5,14 +5,31 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>GrAL Bootstrap</title>
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      padding-top: 200px;
+    }
 
+    .navbar-custom {
+      transition: all 0.3s ease;
+      height: 250px;
+    }
+
+    .navbar-shrink {
+      height: 50px;
+    }
+
+    .navbar-brand, .nav-link {
+      line-height: 1; 
+    }
+  </style>
 </head>
 <body>
 
   <div id="navbar-placeholder"></div>
   
   <script>
-  fetch("components/navbar.html")
+  fetch("/components/navbar.html")
   .then(resp => resp.text())
   .then(html => {
       document.getElementById("navbar-placeholder").innerHTML = html;
@@ -26,11 +43,10 @@
       navbar.classList.remove("navbar-shrink");
     }
   });
-
 </script>
   <div class="container mt-5">
-    <h1>About Us</h1>
-    <p>Hemen about us atala</p>
+    <h1>Gradu Amaierako Lana</h1>
+    <p>Hemen hasierako orriaren azalpena</p>
     <div style="height: 500px;"></div>
   </div>
 
