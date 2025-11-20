@@ -1,0 +1,76 @@
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top navbar-custom" id="navbar">
+
+  <a class="navbar-brand" href="index.html">Gradu Amaierako Lana</a>
+
+  <button class="navbar-toggler" type="button" data-toggle="collapse" 
+          data-target="#navbarNav" aria-controls="navbarNav" 
+          aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarNav">
+
+    <ul class="navbar-nav ml-auto">
+
+      <!-- Hasiera -->
+      <li class="nav-item">
+        <a class="nav-link" href="index.html">Hasiera</a>
+      </li>
+
+      <!-- Arautegia (Dropdown) -->
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" role="button" 
+           data-toggle="dropdown" aria-expanded="false">
+          Arautegia
+        </a>
+
+        <div class="dropdown-menu">
+          <a class="dropdown-item" href="araudia-infor.html">Ingenieritza Informatikoa</a>
+          <a class="dropdown-item" href="araudia-ia.html">Adimen Artifiziala</a>
+        </div>
+      </li>
+
+      <!-- Egutegia -->
+      <li class="nav-item">
+        <a class="nav-link" href="egutegia.html">Egutegia</a>
+      </li>
+
+      <!-- Aurreko urteetako memoriak -->
+      <li class="nav-item">
+        <a class="nav-link" href="memoriak.html">Aurreko urteetako memoriak</a>
+      </li>
+
+      <!-- About us -->
+      <li class="nav-item">
+        <a class="nav-link" href="about-us.html">About us</a>
+      </li>
+
+      <!-- Autoebaluazioa -->
+      <li class="nav-item">
+        <a class="nav-link" href="galdetegia.html">Autoebaluazio galdetegia</a>
+      </li>
+
+    </ul>
+  </div>
+</nav>
+
+<!-- NAVBAR STYLE (necesario para el efecto shrink) -->
+<style>
+  body {
+    padding-top: 200px;
+  }
+
+  .navbar-custom {
+    transition: all 0.3s ease;
+    height: 250px;
+  }
+
+  .navbar-shrink {
+    height: 50px;
+  }
+
+  .navbar-brand, .nav-link {
+    line-height: 1;
+  }
+</style>
