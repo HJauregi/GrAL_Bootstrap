@@ -1,42 +1,178 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="eu">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GrAL Bootstrap</title>
+  <title>Memoriak - GrAL</title>
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      padding-top: 0; /* JS bidez aldatuko da */
+      margin: 0;
+    }
 
+    .container {
+      padding-top: 1rem;
+      padding-bottom: 4rem;
+    }
+
+    /* Memoria cards */
+    .memoria-card {
+      margin-bottom: 2rem;
+      transition: transform 0.3s ease;
+    }
+
+    .memoria-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .image-wrapper {
+      width: 100%;
+      max-width: 400px;
+      height: 400px;
+      overflow: hidden;
+      margin: 0 auto;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      border-radius: 8px;
+    }
+  
+    .image-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 8px;
+      transition: transform 0.3s ease;
+    }
+
+    .memoria-card:hover .image-wrapper img {
+      transform: scale(1.05);
+    }
+
+    .memoria-card h3 {
+      max-width: 400px;
+      margin: 15px auto 0;
+      text-align: center;
+      font-size: 1.3rem;
+      color: #343a40;
+      font-weight: 600;
+    }
+
+    .memoria-card a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .memoria-card a:hover h3 {
+      color: #007bff;
+    }
+
+    /* Footer */
+    .footer {
+      background-color: #343a40;
+      color: white;
+      text-align: center;
+      padding: 1.5rem 0;
+      margin-top: auto;
+    }
+
+    .footer a {
+      color: #ffffff;
+      text-decoration: underline;
+    }
+
+    .footer a:hover {
+      color: #adb5bd;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .image-wrapper {
+        max-width: 100%;
+        height: 300px;
+      }
+
+      .memoria-card h3 {
+        font-size: 1.1rem;
+      }
+    }
+  </style>
 </head>
 <body>
 
   <div id="navbar-placeholder"></div>
   
-  <script>
-  fetch("/components/navbar.html")
-  .then(resp => resp.text())
-  .then(html => {
-      document.getElementById("navbar-placeholder").innerHTML = html;
-    });
+  <div class="container mt-4 mb-5">
+    <h1 class="mb-3 text-center">Aurreko GrALen memoriak</h1>
+    <p class="text-center mb-5 lead">
+      Jarraian, Ingenieritza Informatikoko graduan aurreko urteetan defendatutako memoriak aurkituko dituzu hizkuntza eta espazialitate ezberdinetan.
+    </p>
 
-    window.addEventListener("scroll", function () {
-    var navbar = document.getElementById("navbar");
-    if (window.pageYOffset > 50) {
-      navbar.classList.add("navbar-shrink");
-    } else {
-      navbar.classList.remove("navbar-shrink");
-    }
-  });
+    <div class="row justify-content-center">
+      <div class="col-md-6 col-lg-5">
+        <div class="memoria-card text-center">
+          <a href="memoriak_informatika.html">
+            <div class="image-wrapper">
+              <img src="https://www.eseit.edu.co/wp-content/uploads/banner-ing-informatica-1.png" alt="Ingenieritza Informatika">
+            </div>
+            <h3>Ingenieritza Informatikako Memoriak</h3>
+          </a>
+        </div>
+      </div>
 
-</script>
-  <div class="container mt-5">
-    <h1>Aurreko urteetako memoriak</h1>
-    <p>Hemen memorien zatia</p>
-    <div style="height: 500px;"></div>
+      <div class="col-md-6 col-lg-5">
+        <div class="memoria-card text-center">
+          <a href="memoriak_ia.html">
+            <div class="image-wrapper">
+              <img src="https://observatorio-ametic.ai/sites/observatorio/files/public/styles/large_800/public/content-images/media/2024/EL%20CONSUMO%20ENERGETICO%20DE%20LA%20IA%20GENERATIVA%20-%20%20OCTUBRE%202024_Page_01_Image_0001.jpg?itok=1ACHeKVX" alt="Adimen Artifiziala">
+            </div>
+            <h3>Adimen Artifizialeko Memoriak</h3>
+          </a>
+        </div>
+      </div>
+    </div>
   </div>
+
+  <footer class="footer">
+    <div class="container">
+      <p class="mb-0">&copy; 2025 Enpresa Izena. Helbidea: Kalea 123, Hiria. Email: <a href="mailto:info@enpresa.com">info@enpresa.com</a></p>
+    </div>
+  </footer>
+
+  <script>
+    // Navbar kargatzea
+    fetch("../components/navbar.html")
+      .then(resp => resp.text())
+      .then(html => {
+        document.getElementById("navbar-placeholder").innerHTML = html;
+
+        // Padding dinamikoa
+        function adjustBodyPadding() {
+          var navbar = document.getElementById("navbar");
+          if (navbar) {
+            document.body.style.paddingTop = navbar.offsetHeight + 10 + "px";
+          }
+        }
+
+        adjustBodyPadding();
+        window.addEventListener("resize", adjustBodyPadding);
+      });
+
+    // Shrink navbar scroll egitean
+    window.addEventListener("scroll", function () {
+      var navbar = document.getElementById("navbar");
+      if (navbar) {
+        if (window.pageYOffset > 50) {
+          navbar.classList.add("navbar-shrink");
+        } else {
+          navbar.classList.remove("navbar-shrink");
+        }
+      }
+    });
+  </script>
 
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script> 
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script> 
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
 
 </body>
 </html>
