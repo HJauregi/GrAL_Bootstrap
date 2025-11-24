@@ -6,14 +6,12 @@
   <title>GrAL Bootstrap</title>
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
   <style>
-    /* Navbar shrink */
     .navbar-shrink {
       padding-top: 0.25rem !important;
       padding-bottom: 0.25rem !important;
       transition: padding 0.3s;
     }
 
-    /* PDF responsive */
     .pdf-container {
       position: relative;
       width: 100%;
@@ -45,17 +43,15 @@
     }
 
     body {
-      padding-top: 0; /* Se ajustará dinámicamente */
+      padding-top: 0; 
       margin: 0;
     }
 
-    /* Espacio extra para el contenido */
     .container {
       padding-top: 1rem;
-      padding-bottom: 4rem; /* espacio para el footer */
+      padding-bottom: 4rem; 
     }
 
-    /* Footer fijo */
     .footer {
       background-color: #343a40;
       color: white;
@@ -99,13 +95,11 @@
   </footer>
 
   <script>
-    // Cargar navbar
     fetch("/components/navbar.html")
       .then(resp => resp.text())
       .then(html => {
         document.getElementById("navbar-placeholder").innerHTML = html;
 
-        // Ajustar padding-top dinámico según altura del navbar
         function adjustBodyPadding() {
           var navbar = document.getElementById("navbar");
           if (navbar) {
@@ -117,7 +111,6 @@
         window.addEventListener("resize", adjustBodyPadding);
       });
 
-    // Shrink navbar al hacer scroll
     window.addEventListener("scroll", function () {
       var navbar = document.getElementById("navbar");
       if (navbar) {
