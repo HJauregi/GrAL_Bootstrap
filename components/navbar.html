@@ -1,23 +1,21 @@
-<!-- components/navbar.html -->
+<!-- NAVBAR -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top navbar-custom" id="navbar">
 
-  <!-- Brand -->
-  <a class="navbar-brand" href="/index.html">Gradu Amaierako Lana</a>
+  <a class="navbar-brand" href="index.html">Gradu Amaierako Lana</a>
 
-  <!-- Toggler (mobile) -->
   <button class="navbar-toggler" type="button" data-toggle="collapse" 
           data-target="#navbarNav" aria-controls="navbarNav" 
           aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
-  <!-- Navbar links -->
   <div class="collapse navbar-collapse" id="navbarNav">
+
     <ul class="navbar-nav ml-auto">
 
       <!-- Hasiera -->
       <li class="nav-item">
-        <a class="nav-link" href="/index.html">Hasiera</a>
+        <a class="nav-link" href="index.html">Hasiera</a>
       </li>
 
       <!-- Arautegia (Dropdown) -->
@@ -26,6 +24,7 @@
            data-toggle="dropdown" aria-expanded="false">
           Arautegia
         </a>
+
         <div class="dropdown-menu">
           <a class="dropdown-item" href="/windows/araudia-infor.html">Ingenieritza Informatikoa</a>
           <a class="dropdown-item" href="/windows/araudia-ia.html">Adimen Artifiziala</a>
@@ -38,8 +37,19 @@
       </li>
 
       <!-- Aurreko urteetako memoriak -->
-      <li class="nav-item">
-        <a class="nav-link" href="/windows/memoriak.html">Aurreko urteetako memoriak</a>
+      <li class="nav-item dropdown">
+        <div class="btn-group">
+        <a class="nav-link" href="/windows/memoriak.html">GrAL Memoriak</a>
+
+        <a class="nav-link dropdown-toggle dropdown-toggle-split" href="#" id="memoriakDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <span class="sr-only">Toggle Dropdown</span>
+        </a>
+
+        <div class="dropdown-menu" aria-labelledby="memoriakDropdown">
+          <a class="dropdown-item" href="/windows/memoriak_informatika.html">Ingenieritza Informatikako Memoriak</a>
+          <a class="dropdown-item" href="/windows/memoriak_ia.html">Adimen Artifizialeko Memoriak</a>
+        </div>
+        </div>
       </li>
 
       <!-- About us -->
@@ -56,46 +66,22 @@
   </div>
 </nav>
 
-<!-- NAVBAR STYLE -->
+<!-- NAVBAR STYLE (necesario para el efecto shrink) -->
 <style>
+  body {
+    padding-top: 200px;
+  }
+
   .navbar-custom {
     transition: all 0.3s ease;
-    height: 250px; /* hasieran handia */
+    height: 250px;
   }
 
   .navbar-shrink {
-    height: 50px; /* scroll egin ahala txikiagotua */
+    height: 50px;
   }
 
   .navbar-brand, .nav-link {
     line-height: 1;
   }
 </style>
-
-<!-- NAVBAR JS (body padding dinamikoa + shrink efektua) -->
-<script>
-  document.addEventListener("DOMContentLoaded", function() {
-    const navbar = document.getElementById("navbar");
-
-    function adjustBodyPadding() {
-      if(navbar){
-        document.body.style.paddingTop = navbar.offsetHeight + "px";
-      }
-    }
-
-    // Lehen exekuzioa
-    adjustBodyPadding();
-
-    // Scroll & resize listener
-    window.addEventListener("scroll", function(){
-      if(window.pageYOffset > 50){
-        navbar.classList.add("navbar-shrink");
-      } else{
-        navbar.classList.remove("navbar-shrink");
-      }
-      adjustBodyPadding();
-    });
-
-    window.addEventListener("resize", adjustBodyPadding);
-  });
-</script>
