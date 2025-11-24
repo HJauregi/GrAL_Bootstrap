@@ -6,14 +6,39 @@
   <title>Memoriak - GrAL</title>
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
   <style>
+      /* Navbar shrink */
+    .navbar-shrink {
+      padding-top: 0.25rem !important;
+      padding-bottom: 0.25rem !important;
+      transition: padding 0.3s;
+    }
     body {
-      padding-top: 0; /* JS bidez aldatuko da */
+      padding-top: 0; /* Se ajustará dinámicamente */
       margin: 0;
     }
 
+    /* Espacio extra para el contenido */
     .container {
       padding-top: 1rem;
-      padding-bottom: 4rem;
+      padding-bottom: 4rem; /* espacio para el footer */
+    }
+
+    /* Footer fijo */
+    .footer {
+      background-color: #343a40;
+      color: white;
+      text-align: center;
+      padding: 1.5rem 0;
+      margin-top: auto;
+    }
+
+    .footer a {
+      color: #ffffff;
+      text-decoration: underline;
+    }
+
+    .footer a:hover {
+      color: #adb5bd;
     }
 
     /* Memoria cards */
@@ -64,24 +89,6 @@
 
     .memoria-card a:hover h3 {
       color: #007bff;
-    }
-
-    /* Footer */
-    .footer {
-      background-color: #343a40;
-      color: white;
-      text-align: center;
-      padding: 1.5rem 0;
-      margin-top: auto;
-    }
-
-    .footer a {
-      color: #ffffff;
-      text-decoration: underline;
-    }
-
-    .footer a:hover {
-      color: #adb5bd;
     }
 
     /* Responsive */
