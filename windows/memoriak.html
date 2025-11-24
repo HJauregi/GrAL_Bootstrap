@@ -153,8 +153,8 @@
 
   <!-- Scripts -->
   <script>
-    // Cargar navbar de manera relativa para GitHub Pages
-    fetch("components/navbar.html")
+    // Navbar: subir un nivel desde /windows/ para llegar a components/
+    fetch("../components/navbar.html")
       .then(resp => resp.text())
       .then(html => {
         document.getElementById("navbar-placeholder").innerHTML = html;
@@ -171,7 +171,7 @@
         window.addEventListener("resize", adjustBodyPadding);
       });
 
-    // Navbar shrink al hacer scroll
+    // Shrink navbar al hacer scroll
     window.addEventListener("scroll", function () {
       var navbar = document.getElementById("navbar");
       if (navbar) {
