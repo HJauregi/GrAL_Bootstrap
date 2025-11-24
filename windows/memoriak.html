@@ -147,7 +147,7 @@
 
   <script>
     // Navbar kargatzea
-    fetch("../components/navbar.html")
+    fetch("./components/navbar.html")
       .then(resp => resp.text())
       .then(html => {
         document.getElementById("navbar-placeholder").innerHTML = html;

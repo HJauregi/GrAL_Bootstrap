@@ -81,11 +81,11 @@
     </p>
 
     <div class="pdf-container mt-4 mb-3">
-      <embed src="/media/2025_26_IIG_GrAL_Egutegia_ eus_signed.pdf" type="application/pdf">
+      <embed src="./media/2025_26_IIG_GrAL_Egutegia_ eus_signed.pdf" type="application/pdf">
     </div>
 
     <p>Hobeto ikusi nahiko bazeun, mesedez erabili esteka hau:</p> 
-    <a href="/media/2025_26_IIG_GrAL_Egutegia_ eus_signed.pdf" target="_blank" class="text-decoration-underline">GrAL-aren egutegia</a>
+    <a href="./media/2025_26_IIG_GrAL_Egutegia_ eus_signed.pdf" target="_blank" class="text-decoration-underline">GrAL-aren egutegia</a>
   </div>
 
   <footer class="footer">
@@ -95,7 +95,7 @@
   </footer>
 
   <script>
-    fetch("/components/navbar.html")
+    fetch("./components/navbar.html")
       .then(resp => resp.text())
       .then(html => {
         document.getElementById("navbar-placeholder").innerHTML = html;
