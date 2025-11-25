@@ -3,14 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GrAL Bootstrap</title>
+  <title>GrAL Bootstrap - Egutegia</title>
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
   <style>
-    .navbar-shrink {
-      padding-top: 0.25rem !important;
-      padding-bottom: 0.25rem !important;
-      transition: padding 0.3s;
-    }
+    .navbar-shrink { padding-top: 0.25rem !important; padding-bottom: 0.25rem !important; transition: padding 0.3s; }
 
     .pdf-container {
       position: relative;
@@ -19,61 +15,32 @@
     }
 
     @media (max-width: 767px) {
-      .pdf-container {
-        padding-bottom: 75%;
-        height: 0;
-      }
-      .pdf-container embed {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-      }
+      .pdf-container { padding-bottom: 75%; height: 0; }
+      .pdf-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
     }
 
     @media (min-width: 768px) {
-      .pdf-container {
-        height: 80vh;
-      }
-      .pdf-container embed {
-        width: 100%;
-        height: 100%;
-      }
+      .pdf-container { height: 80vh; }
+      .pdf-container embed { width: 100%; height: 100%; }
     }
 
-    body {
-      padding-top: 0; 
-      margin: 0;
-    }
-
-    .container {
-      padding-top: 1rem;
-      padding-bottom: 4rem; 
-    }
+    body { padding-top: 0; margin: 0; }
+    .container { padding-top: 1rem; padding-bottom: 4rem; }
 
     .footer {
-      background-color: #343a40;
-      color: white;
-      text-align: center;
-      padding: 1.5rem 0;
-      margin-top: auto;
+      background-color: #343a40; color: white; text-align: center; padding: 1.5rem 0; margin-top: auto;
     }
-
-    .footer a {
-      color: #ffffff;
-      text-decoration: underline;
-    }
-
-    .footer a:hover {
-      color: #adb5bd;
-    }
+    .footer a { color: #ffffff; text-decoration: underline; }
+    .footer a:hover { color: #adb5bd; }
   </style>
 </head>
 <body>
 
+  <!-- Navbar dinámico externo -->
   <div id="navbar-placeholder"></div>
-  
+  <script src="/GrAL/components/navbar.js"></script>
+
+  <!-- Contenido principal -->
   <div class="container mt-4 mb-5">
     <h1 class="mb-3">Egutegia</h1>
     <p>Jarraian aurki dezakezu IIG zein AA graduetako GrAL-arentzat zehaztu den egutegia 2025/2026 urteetarako. Ikusiko duzun bezala rol desberdinak agertzen
@@ -81,62 +48,30 @@
     </p>
 
     <div class="pdf-container mt-4 mb-3">
-      <embed src="/media/2025_26_IIG_GrAL_Egutegia_ eus_signed.pdf" type="application/pdf">
+      <embed src="/GrAL/media/2025_26_IIG_GrAL_Egutegia_eus_signed.pdf" type="application/pdf">
     </div>
 
     <p>Hobeto ikusi nahiko bazeun, mesedez erabili esteka hau:</p> 
-    <a href="/media/2025_26_IIG_GrAL_Egutegia_ eus_signed.pdf" target="_blank" class="text-decoration-underline">GrAL-aren egutegia</a>
+    <a href="/GrAL/media/2025_26_IIG_GrAL_Egutegia_eus_signed.pdf" target="_blank" class="text-decoration-underline">GrAL-aren egutegia</a>
   </div>
 
-<footer class="footer">
-  <div class="container">
-    <div class="footer-warning text-center">
-      <strong>⚠️ Abisua:</strong> Web orri hau ez da ofiziala. PKE2.02 taldeak hezkuntza xedeengatik sortutako informazio-gunea da.
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-warning text-center">
+        <strong>⚠️ Abisua:</strong> Web orri hau ez da ofiziala. PKE2.02 taldeak hezkuntza xedeengatik sortutako informazio-gunea da.
+      </div>
+      <div class="text-center footer-info">
+        <p class="mb-2"><strong>PKE2.02 Taldea</strong> - Euskal Herriko Unibertsitatea (UPV/EHU)</p>
+        <p class="mb-0">&copy; 2025 PKE2.02. Gradu Amaierako Lanaren inguruko informazio-gunea.</p>
+      </div>
     </div>
-    <div class="text-center footer-info">
-      <p class="mb-2">
-        <strong>PKE2.02 Taldea</strong> - Euskal Herriko Unibertsitatea (UPV/EHU)
-      </p>
-      <p class="mb-0">
-        &copy; 2025 PKE2.02. Gradu Amaierako Lanaren inguruko informazio-gunea.
-      </p>
-    </div>
-  </div>
-</footer>
+  </footer>
 
-  <script>
-    fetch("/components/navbar.html")
-      .then(resp => resp.text())
-      .then(html => {
-        document.getElementById("navbar-placeholder").innerHTML = html;
-
-        function adjustBodyPadding() {
-          var navbar = document.getElementById("navbar");
-          if (navbar) {
-            document.body.style.paddingTop = navbar.offsetHeight + 10 + "px"; // 10px extra
-          }
-        }
-
-        adjustBodyPadding();
-        window.addEventListener("resize", adjustBodyPadding);
-      });
-
-    window.addEventListener("scroll", function () {
-      var navbar = document.getElementById("navbar");
-      if (navbar) {
-        if (window.pageYOffset > 50) {
-          navbar.classList.add("navbar-shrink");
-        } else {
-          navbar.classList.remove("navbar-shrink");
-        }
-      }
-    });
-  </script>
-
+  <!-- Scripts de Bootstrap -->
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script> 
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script> 
 
 </body>
 </html>
-\

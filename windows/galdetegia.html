@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GrAL Bootstrap</title>
+  <title>GrAL Bootstrap - Autoebaluazio galdetegia</title>
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
   <style>
     /* Navbar shrink */
@@ -45,6 +45,7 @@
 </head>
 <body>
 
+  <!-- Navbar placeholder -->
   <div id="navbar-placeholder"></div>
   
   <div class="container mt-4 mb-5">
@@ -52,54 +53,26 @@
     <p>Hemen galdetegia</p>
   </div>
 
-<footer class="footer">
-  <div class="container">
-    <div class="footer-warning text-center">
-      <strong>⚠️ Abisua:</strong> Web orri hau ez da ofiziala. PKE2.02 taldeak hezkuntza xedeengatik sortutako informazio-gunea da.
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-warning text-center">
+        <strong>⚠️ Abisua:</strong> Web orri hau ez da ofiziala. PKE2.02 taldeak hezkuntza xedeengatik sortutako informazio-gunea da.
+      </div>
+      <div class="text-center footer-info">
+        <p class="mb-2">
+          <strong>PKE2.02 Taldea</strong> - Euskal Herriko Unibertsitatea (UPV/EHU)
+        </p>
+        <p class="mb-0">
+          &copy; 2025 PKE2.02. Gradu Amaierako Lanaren inguruko informazio-gunea.
+        </p>
+      </div>
     </div>
-    <div class="text-center footer-info">
-      <p class="mb-2">
-        <strong>PKE2.02 Taldea</strong> - Euskal Herriko Unibertsitatea (UPV/EHU)
-      </p>
-      <p class="mb-0">
-        &copy; 2025 PKE2.02. Gradu Amaierako Lanaren inguruko informazio-gunea.
-      </p>
-    </div>
-  </div>
-</footer>
+  </footer>
 
-  <script>
-    // Cargar navbar
-    fetch("/components/navbar.html")
-      .then(resp => resp.text())
-      .then(html => {
-        document.getElementById("navbar-placeholder").innerHTML = html;
-
-        // Ajustar padding-top dinámico según altura del navbar
-        function adjustBodyPadding() {
-          var navbar = document.getElementById("navbar");
-          if (navbar) {
-            document.body.style.paddingTop = navbar.offsetHeight + 10 + "px"; // 10px extra
-          }
-        }
-
-        adjustBodyPadding();
-        window.addEventListener("resize", adjustBodyPadding);
-      });
-
-    // Shrink navbar al hacer scroll
-    window.addEventListener("scroll", function () {
-      var navbar = document.getElementById("navbar");
-      if (navbar) {
-        if (window.pageYOffset > 50) {
-          navbar.classList.add("navbar-shrink");
-        } else {
-          navbar.classList.remove("navbar-shrink");
-        }
-      }
-    });
-  </script>
-
+  <!-- Scripts -->
+  <!-- Navbar dinámico -->
+  <script src="../components/navbar.js"></script>
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script> 
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script> 
