@@ -59,9 +59,16 @@ document.getElementById("navbar-placeholder").innerHTML = `
 </nav>
 
 <style>
-  .navbar-custom { transition: all 0.3s ease; height: 250px; }
-  .navbar-shrink { height: 50px; }
-  .navbar-brand, .nav-link { line-height: 1; }
+  .navbar-custom { 
+    transition: all 0.3s ease; 
+    height: 250px; 
+  }
+  .navbar-shrink { 
+    height: 50px; 
+  }
+  .navbar-brand, .nav-link { 
+    line-height: 1; 
+  }
 </style>
 `;
 
@@ -70,13 +77,22 @@ function adjustBodyPadding() {
   const navbar = document.getElementById("navbar");
   if (navbar) document.body.style.paddingTop = navbar.offsetHeight + 10 + "px";
 }
+
+// Ejecutar al cargar
 adjustBodyPadding();
 window.addEventListener("resize", adjustBodyPadding);
 
-// Efecto shrink al hacer scroll
+// Efecto shrink al hacer scroll Y ajustar padding
 window.addEventListener("scroll", function () {
   const navbar = document.getElementById("navbar");
   if (!navbar) return;
-  if (window.pageYOffset > 50) navbar.classList.add("navbar-shrink");
-  else navbar.classList.remove("navbar-shrink");
+  
+  if (window.pageYOffset > 50) {
+    navbar.classList.add("navbar-shrink");
+  } else {
+    navbar.classList.remove("navbar-shrink");
+  }
+  
+  // CRÍTICO: Ajustar padding después de cambiar la clase
+  adjustBodyPadding();
 });
