@@ -15,7 +15,7 @@ document.getElementById("navbar-placeholder").innerHTML = `
       <!-- Hasiera -->
       <li class="nav-item"><a class="nav-link" href="${basePath}index.html">Hasiera</a></li>
 
-      <!-- Arautegia Dropdown -->
+      <!-- Arautegia Dropdown como botón principal + split -->
       <li class="nav-item dropdown">
         <div class="btn-group">
           <a class="nav-link" href="${basePath}windows/araudia.html">Arautegia</a>
@@ -59,33 +59,24 @@ document.getElementById("navbar-placeholder").innerHTML = `
 </nav>
 
 <style>
-  .navbar-custom {
-    transition: height 0.2s ease, padding 0.2s ease;
-    height: 250px;
-    padding: 1rem 1rem;
-  }
-  .navbar-brand, .nav-link {
-    line-height: 1;
-  }
+  .navbar-custom { transition: all 0.3s ease; height: 250px; }
+  .navbar-shrink { height: 50px; }
+  .navbar-brand, .nav-link { line-height: 1; }
 </style>
 `;
 
-// Configuración de altura
-const navbar = document.getElementById("navbar");
-const maxHeight = 250; // altura inicial
-const minHeight = 50;  // altura mínima al hacer scroll
-
-// Función para ajustar la altura del navbar según el scroll
-function adjustNavbar() {
-  const scroll = window.pageYOffset;
-  const newHeight = Math.max(minHeight, maxHeight - scroll);
-  navbar.style.height = newHeight + "px";
-
-  // Ajustamos el padding del body para que el contenido no quede flotando
-  document.body.style.paddingTop = navbar.offsetHeight + 10 + "px";
+// Ajusta el padding del body según la altura del navbar
+function adjustBodyPadding() {
+  const navbar = document.getElementById("navbar");
+  if (navbar) document.body.style.paddingTop = navbar.offsetHeight + 10 + "px";
 }
+adjustBodyPadding();
+window.addEventListener("resize", adjustBodyPadding);
 
-// Inicializar
-adjustNavbar();
-window.addEventListener("scroll", adjustNavbar);
-window.addEventListener("resize", adjustNavbar);
+// Efecto shrink al hacer scroll
+window.addEventListener("scroll", function () {
+  const navbar = document.getElementById("navbar");
+  if (!navbar) return;
+  if (window.pageYOffset > 50) navbar.classList.add("navbar-shrink");
+  else navbar.classList.remove("navbar-shrink");
+});
