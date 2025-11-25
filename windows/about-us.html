@@ -3,17 +3,28 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GrAL - About Us</title>
+  <title>GrAL Bootstrap - Autoebaluazio galdetegia</title>
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
   <style>
+    /* Navbar shrink */
+    .navbar-shrink {
+      padding-top: 0.25rem !important;
+      padding-bottom: 0.25rem !important;
+      transition: padding 0.3s;
+    }
+
     body {
-      padding-top: 0; /* se ajustará dinámicamente según navbar */
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      padding-top: 0; /* Se ajustará dinámicamente */
       margin: 0;
     }
 
+    /* Espacio extra para el contenido */
     .container {
       padding-top: 1rem;
-      padding-bottom: 4rem; /* espacio para footer */
+      padding-bottom: 2rem;
     }
 
     /* Footer */
@@ -21,8 +32,8 @@
       background-color: #343a40;
       color: white;
       text-align: center;
-      padding: 1.5rem 0;
-      margin-top: 3rem;
+      padding: 1rem 0;
+      margin-top: auto;
     }
 
     .footer a {
@@ -33,57 +44,100 @@
     .footer a:hover {
       color: #adb5bd;
     }
+
+  /* Card estilo glassmorphism */
+  .card {
+    border-radius: 1rem; /* borobilduak */
+    background: rgba(255, 255, 255, 0.15); /* kristal garden */
+    backdrop-filter: blur(10px); /* blur efektua */
+    -webkit-backdrop-filter: blur(10px); /* Safari bateragarritasuna */
+    border: 1px solid rgba(255, 255, 255, 0.3); /* lerro subtila */
+    box-shadow: 0 8px 32px rgba(0,0,0,0.1); /* subtile shadow */
+    overflow: hidden;
+    transition: all 0.3s ease;
+  }
+
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 48px rgba(0,0,0,0.15);
+  }
+
+  .card-header {
+    background: rgba(0,0,0,0.25); /* header gutxiago gordina */
+    color: #fff;
+    font-weight: 600;
+    font-size: 1.1rem;
+    border-bottom: 1px solid rgba(255,255,255,0.3);
+  }
+
+  .card-body {
+    background: transparent; /* card body garden geratzen da */
+    color: #f8f9fa;
+    padding: 2rem;
+  }
+
+  /* Galderak */
+  .form-check {
+    margin-bottom: 0.75rem;
+  }
+
+  .form-check-input:checked + .form-check-label {
+    font-weight: 600;
+    color: #0d6efd; /* aukeratutako kolorea */
+  }
+
+  /* Button estilo */
+  .btn-primary {
+    background-color: rgba(13,110,253,0.85);
+    border-color: rgba(13,110,253,0.85);
+    transition: all 0.3s ease;
+  }
+
+  .btn-primary:hover {
+    background-color: rgba(13,110,253,1);
+    border-color: rgba(13,110,253,1);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  }
+
+  /* Kontagailua */
+  #contador {
+    font-size: 1.25rem;
+    color: #ffc107;
+  }
+
+  /* Emaitza alert */
+  #emaitza .alert {
+    font-weight: 600;
+    font-size: 1rem;
+  }
+
+  /* Galdera separazioa */
+  .mb-4 {
+    padding: 1rem;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+    border-radius: 0.5rem;
+    background-color: rgba(255,255,255,0.05);
+    transition: background 0.3s ease, transform 0.3s ease;
+  }
+
+  .mb-4:hover {
+    background-color: rgba(255,255,255,0.1);
+    transform: translateY(-2px);
+  }
   </style>
 </head>
 <body>
 
-  <!-- Navbar dinámico -->
+  <!-- Navbar placeholder -->
   <div id="navbar-placeholder"></div>
-  <script src="../components/navbar.js"></script> <!-- <-- usa navbar.js -->
   
-  <div class="container mt-5">
-    <h1 class="text-center mb-4">Nor gara?</h1>
-    <p class="text-center mb-4">
-      Web orri honen sortzaileak <strong>UPV/EHUko Informatika Fakultateko</strong> 
-      <strong>Hodei Jauregi</strong>, <strong>Maialen Velazquez</strong> eta <strong>Maitane Rodriguez</strong> 
-      ikasleek sortu dute, bertan irakasten den <strong>Pertsona eta Konputagailuen arteko Elkarrekintza</strong> 
-      irakasgaiaren partaide bezala.
-    </p>
-
-    <h2 class="text-center mb-4">Zergatik sortu da web orri hau?</h2>
-    <p class="text-center mb-4">
-      Bertan aurkitzen den guztia eskolan eskatutako lan bat burutzeko eginik dago, besterik ez.
-    </p>
-
-    <h2 class="text-center mb-4">Zer lortu nahi dugu web orri honekin?</h2>
-    <p class="text-center mb-4">
-      Helburu nagusia, eskolako lana egiteaz aparte, <strong>Gradu Amaierako Lanei</strong> buruzko informazioa ematea da, 
-      kontuan izanda hauek burutzeko hainbat arau eta epe bete behar direla. Informazio asko dagoenez interneten, 
-      ahalik eta gehien laburtzea eta modu ulerterraz batean biltzea da gure nahia.
-    </p>
-  </div>
-
-  <!-- Footer -->
-  <footer class="footer">
-    <div class="container">
-      <div class="footer-warning text-center">
-        <strong>⚠️ Abisua:</strong> Web orri hau ez da ofiziala. PKE2.02 taldeak hezkuntza xedeengatik sortutako informazio-gunea da.
-      </div>
-      <div class="text-center footer-info">
-        <p class="mb-2">
-          <strong>PKE2.02 Taldea</strong> - Euskal Herriko Unibertsitatea (UPV/EHU)
-        </p>
-        <p class="mb-0">
-          &copy; 2025 PKE2.02. Gradu Amaierako Lanaren inguruko informazio-gunea.
-        </p>
-      </div>
+  <div class="container mt-4 mb-5">
+    <h1 class="mb-3">Autoebaluazio galdetegia</h1>
+    <!-- Galdetegi panela -->
+  <div class="card bg-dark text-white mb-4">
+    <div class="card-header">
+      <strong>Galderek erantzun dituzun kopurua: <span id="contador">0</span>/10</strong>
     </div>
-  </footer>
-
-  <!-- Bootstrap JS -->
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script> 
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script> 
-
-</body>
-</html>
+    <div class="card-body bg-light text-dark">
+      <p>Galdetegi honek 10 galdera ditu. Galdera bakoitzak hiru erantzun aukera ditu, baina bakarra da zuzena.
