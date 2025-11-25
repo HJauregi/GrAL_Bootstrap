@@ -3,7 +3,7 @@ const basePath = window.location.pathname.includes("/windows/") ? "../" : "";
 
 // Inserta el navbar en el placeholder
 document.getElementById("navbar-placeholder").innerHTML = `
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNavbar">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top navbar-custom" id="navbar">
   <a class="navbar-brand" href="${basePath}index.html">Gradu Amaierako Lana</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -11,8 +11,11 @@ document.getElementById("navbar-placeholder").innerHTML = `
   </button>
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav ml-auto">
+
+      <!-- Hasiera -->
       <li class="nav-item"><a class="nav-link" href="${basePath}index.html">Hasiera</a></li>
 
+      <!-- Arautegia Dropdown como botón principal + split -->
       <li class="nav-item dropdown">
         <div class="btn-group">
           <a class="nav-link" href="${basePath}windows/araudia.html">Arautegia</a>
@@ -27,8 +30,10 @@ document.getElementById("navbar-placeholder").innerHTML = `
         </div>
       </li>
 
+      <!-- Egutegia -->
       <li class="nav-item"><a class="nav-link" href="${basePath}windows/egutegia.html">Egutegia</a></li>
 
+      <!-- Memoriak Dropdown -->
       <li class="nav-item dropdown">
         <div class="btn-group">
           <a class="nav-link" href="${basePath}windows/memoriak.html">GrAL Memoriak</a>
@@ -43,74 +48,51 @@ document.getElementById("navbar-placeholder").innerHTML = `
         </div>
       </li>
 
+      <!-- About us -->
       <li class="nav-item"><a class="nav-link" href="${basePath}windows/about-us.html">About us</a></li>
+
+      <!-- Autoebaluazioa -->
       <li class="nav-item"><a class="nav-link" href="${basePath}windows/galdetegia.html">Autoebaluazio galdetegia</a></li>
+
     </ul>
   </div>
 </nav>
 
 <style>
-  #mainNavbar {
-    padding: 1rem 1rem;
-    transition: padding 0.3s ease;
+  .navbar-custom { 
+    transition: all 0.3s ease; 
+    height: 250px; 
   }
-  
-  #mainNavbar.navbar-scrolled {
-    padding: 0.5rem 1rem;
+  .navbar-shrink { 
+    height: 50px; 
   }
-  
-  @media (max-width: 991px) {
-    .navbar-collapse {
-      max-height: 80vh;
-      overflow-y: auto;
-    }
+  .navbar-brand, .nav-link { 
+    line-height: 1; 
   }
 </style>
 `;
 
-// Funtzio nagusia: body padding egokitzeko
-function updateBodyPadding() {
-  const navbar = document.getElementById("mainNavbar");
-  if (navbar) {
-    document.body.style.paddingTop = navbar.offsetHeight + "px";
-  }
+// Ajusta el padding del body según la altura del navbar
+function adjustBodyPadding() {
+  const navbar = document.getElementById("navbar");
+  if (navbar) document.body.style.paddingTop = navbar.offsetHeight + 10 + "px";
 }
 
-// Hasierako karga
-updateBodyPadding();
-setTimeout(updateBodyPadding, 50);
+// Ejecutar al cargar
+adjustBodyPadding();
+window.addEventListener("resize", adjustBodyPadding);
 
-// Resize eta load eventetan
-window.addEventListener("resize", updateBodyPadding);
-window.addEventListener("load", updateBodyPadding);
-
-// Navbar toggle (mobile)
-document.addEventListener("DOMContentLoaded", function() {
-  const toggler = document.querySelector(".navbar-toggler");
-  if (toggler) {
-    toggler.addEventListener("click", function() {
-      setTimeout(updateBodyPadding, 350);
-    });
+// Efecto shrink al hacer scroll Y ajustar padding
+window.addEventListener("scroll", function () {
+  const navbar = document.getElementById("navbar");
+  if (!navbar) return;
+  
+  if (window.pageYOffset > 50) {
+    navbar.classList.add("navbar-shrink");
+  } else {
+    navbar.classList.remove("navbar-shrink");
   }
-});
-
-// Scroll efektua - optimizatuta
-let scrolling = false;
-
-window.addEventListener("scroll", function() {
-  if (!scrolling) {
-    window.requestAnimationFrame(function() {
-      const navbar = document.getElementById("mainNavbar");
-      if (navbar) {
-        if (window.scrollY > 50) {
-          navbar.classList.add("navbar-scrolled");
-        } else {
-          navbar.classList.remove("navbar-scrolled");
-        }
-        updateBodyPadding();
-      }
-      scrolling = false;
-    });
-    scrolling = true;
-  }
+  
+  // CRÍTICO: Ajustar padding después de cambiar la clase
+  adjustBodyPadding();
 });
