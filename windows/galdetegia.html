@@ -17,11 +17,10 @@
       display: flex;
       flex-direction: column;
       min-height: 100vh;
-      padding-top: 0; /* Se ajustará dinámicamente */
+      padding-top: 0;
       margin: 0;
     }
 
-    /* Espacio extra para el contenido */
     .container {
       padding-top: 1rem;
       padding-bottom: 2rem;
@@ -53,103 +52,103 @@
       color: #adb5bd;
     }
 
-  /* Card estilo glassmorphism */
-  .card {
-    border-radius: 1rem; /* borobilduak */
-    background: rgba(255, 255, 255, 0.15); /* kristal garden */
-    backdrop-filter: blur(10px); /* blur efektua */
-    -webkit-backdrop-filter: blur(10px); /* Safari bateragarritasuna */
-    border: 1px solid rgba(255, 255, 255, 0.3); /* lerro subtila */
-    box-shadow: 0 8px 32px rgba(0,0,0,0.1); /* subtile shadow */
-    overflow: hidden;
-    transition: all 0.3s ease;
-  }
+    /* Card estilo glassmorphism */
+    .card {
+      border-radius: 1rem;
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
 
-  .card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 12px 48px rgba(0,0,0,0.15);
-  }
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 48px rgba(0,0,0,0.15);
+    }
 
-  .card-header {
-    background: rgba(0,0,0,0.25); /* header gutxiago gordina */
-    color: #fff;
-    font-weight: 600;
-    font-size: 1.1rem;
-    border-bottom: 1px solid rgba(255,255,255,0.3);
-  }
+    .card-header {
+      background: rgba(0,0,0,0.25);
+      color: #fff;
+      font-weight: 600;
+      font-size: 1.1rem;
+      border-bottom: 1px solid rgba(255,255,255,0.3);
+    }
 
-  .card-body {
-    background: rgba(255, 255, 255, 0.9); /* argiago eta kristal-efektua */
-    color: #212529;
-    padding: 2rem;
-  }
-  
-  /* Reset button */
-  .btn-reset {
-    font-size: 0.75rem;
-    padding: 0.15rem 0.5rem;
-    margin-left: 0.5rem;
-    background-color: rgba(220, 53, 69, 0.85);
-    border-color: rgba(220, 53, 69, 0.85);
-    color: white;
-    transition: all 0.3s ease;
-  }
+    .card-body {
+      background: rgba(255, 255, 255, 0.9);
+      color: #212529;
+      padding: 2rem;
+    }
 
-  .btn-reset:hover {
-    background-color: rgba(220, 53, 69, 1);
-    border-color: rgba(220, 53, 69, 1);
-    transform: scale(1.05);
-  }
+    /* Reset button */
+    .btn-reset {
+      font-size: 0.75rem;
+      padding: 0.15rem 0.5rem;
+      margin-left: 0.5rem;
+      background-color: rgba(220, 53, 69, 0.85);
+      border-color: rgba(220, 53, 69, 0.85);
+      color: white;
+      transition: all 0.3s ease;
+    }
 
-  /* Galderak */
-  .form-check {
-    margin-bottom: 0.75rem;
-  }
+    .btn-reset:hover {
+      background-color: rgba(220, 53, 69, 1);
+      border-color: rgba(220, 53, 69, 1);
+      transform: scale(1.05);
+    }
 
-  .form-check-input:checked + .form-check-label {
-    font-weight: 600;
-    color: #0d6efd; /* aukeratutako kolorea */
-  }
+    /* Galderak */
+    .form-check {
+      margin-bottom: 0.75rem;
+    }
 
-  /* Button estilo */
-  .btn-primary {
-    background-color: rgba(13,110,253,0.85);
-    border-color: rgba(13,110,253,0.85);
-    transition: all 0.3s ease;
-  }
+    .form-check-input:checked + .form-check-label {
+      font-weight: 600;
+      color: #0d6efd;
+    }
 
-  .btn-primary:hover {
-    background-color: rgba(13,110,253,1);
-    border-color: rgba(13,110,253,1);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-  }
+    /* Button estilo */
+    .btn-primary {
+      background-color: rgba(13,110,253,0.85);
+      border-color: rgba(13,110,253,0.85);
+      transition: all 0.3s ease;
+    }
 
-  /* Kontagailua */
-  #contador {
-    font-size: 1.25rem;
-    color: #ffc107;
-  }
+    .btn-primary:hover {
+      background-color: rgba(13,110,253,1);
+      border-color: rgba(13,110,253,1);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
 
-  /* Emaitza alert */
-  #emaitza .alert {
-    font-weight: 600;
-    font-size: 1rem;
-  }
+    /* Kontagailua */
+    #contador {
+      font-size: 1.25rem;
+      color: #ffc107;
+    }
 
-  /* Galdera separazioa */
-  .mb-4 {
-    padding: 1rem;
-    border-bottom: 1px solid rgba(255,255,255,0.2);
-    border-radius: 0.5rem;
-    background-color: rgba(255,255,255,0.05);
-    transition: background 0.3s ease, transform 0.3s ease;
-  }
+    /* Emaitza alert */
+    #emaitza .alert {
+      font-weight: 600;
+      font-size: 1rem;
+    }
 
-  .mb-4:hover {
-    background-color: rgba(255,255,255,0.1);
-    transform: translateY(-2px);
-  }
+    /* Galdera separazioa */
+    .mb-4 {
+      padding: 1rem;
+      border-bottom: 1px solid rgba(255,255,255,0.2);
+      border-radius: 0.5rem;
+      background-color: rgba(255,255,255,0.05);
+      transition: background 0.3s ease, transform 0.3s ease;
+    }
+
+    .mb-4:hover {
+      background-color: rgba(255,255,255,0.1);
+      transform: translateY(-2px);
+    }
   </style>
 </head>
 <body>
@@ -159,212 +158,225 @@
   
   <div class="container mt-4 mb-5">
     <h1 class="mb-3">Autoebaluazio galdetegia</h1>
-    <!-- Galdetegi panela -->
-  <div class="card bg-dark text-white mb-4">
-    <div class="card-header">
-      <strong>Galderek erantzun dituzun kopurua: <span id="contador">0</span>/10</strong>
-    </div>
-    <div class="card-body">
-      <p>Galdetegi honek 10 galdera ditu. Galdera bakoitzak hiru erantzun aukera ditu, baina bakarra da zuzena. Aukeratu zure erantzuna eta bidali galdetegia amaitutakoan.</p>
-    <form id="galdetegiaForm">
-
-</strong> Hemen galdera idatzi</p>
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="q1" id="q1a" value="a">
-          <label class="form-check-label" for="q1a">Erantzun A</label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="q1" id="q1b" value="b">
-          <label class="form-check-label" for="q1b">Erantzun B</label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="q1" id="q1c" value="c">
-          <label class="form-check-label" for="q1c">Erantzun C</label>
-        </div>
+    
+    <div class="card bg-dark text-white mb-4">
+      <div class="card-header">
+        <strong>Galderek erantzun dituzun kopurua: <span id="contador">0</span>/10</strong>
       </div>
+      <div class="card-body">
+        <p>Galdetegi honek 10 galdera ditu. Galdera bakoitzak hiru erantzun aukera ditu, baina bakarra da zuzena. Aukeratu zure erantzuna eta bidali galdetegia amaitutakoan.</p>
+        
+        <form id="galdetegiaForm">
 
-      <div class="mb-4">
-        <p>
-          <strong>2. Galdera 2:</strong> Hemen galdera idatzi
-          <button type="button" class="btn btn-reset btn-sm" onclick="garbituGaldera(2)">✕ Garbitu</button>
-        </p>
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="q2" id="q2a" value="a">
-          <label class="form-check-label" for="q2a">Erantzun A</label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="q2" id="q2b" value="b">
-          <label class="form-check-label" for="q2b">Erantzun B</label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="q2" id="q2c" value="c">
-          <label class="form-check-label" for="q2c">Erantzun C</label>
-        </div>
+          <!-- Galdera 1 -->
+          <div class="mb-4">
+            <p>
+              <strong>1. Galdera 1:</strong> Hemen galdera idatzi
+              <button type="button" class="btn btn-reset btn-sm" onclick="garbituGaldera(1)">✕ Garbitu</button>
+            </p>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="q1" id="q1a" value="a">
+              <label class="form-check-label" for="q1a">Erantzun A</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="q1" id="q1b" value="b">
+              <label class="form-check-label" for="q1b">Erantzun B</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="q1" id="q1c" value="c">
+              <label class="form-check-label" for="q1c">Erantzun C</label>
+            </div>
+          </div>
+
+          <!-- Galdera 2 -->
+          <div class="mb-4">
+            <p>
+              <strong>2. Galdera 2:</strong> Hemen galdera idatzi
+              <button type="button" class="btn btn-reset btn-sm" onclick="garbituGaldera(2)">✕ Garbitu</button>
+            </p>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="q2" id="q2a" value="a">
+              <label class="form-check-label" for="q2a">Erantzun A</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="q2" id="q2b" value="b">
+              <label class="form-check-label" for="q2b">Erantzun B</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="q2" id="q2c" value="c">
+              <label class="form-check-label" for="q2c">Erantzun C</label>
+            </div>
+          </div>
+
+          <!-- Galdera 3 -->
+          <div class="mb-4">
+            <p>
+              <strong>3. Galdera 3:</strong> Hemen galdera idatzi
+              <button type="button" class="btn btn-reset btn-sm" onclick="garbituGaldera(3)">✕ Garbitu</button>
+            </p>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="q3" id="q3a" value="a">
+              <label class="form-check-label" for="q3a">Erantzun A</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="q3" id="q3b" value="b">
+              <label class="form-check-label" for="q3b">Erantzun B</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="q3" id="q3c" value="c">
+              <label class="form-check-label" for="q3c">Erantzun C</label>
+            </div>
+          </div>
+
+          <!-- Galdera 4 -->
+          <div class="mb-4">
+            <p>
+              <strong>4. Galdera 4:</strong> Hemen galdera idatzi
+              <button type="button" class="btn btn-reset btn-sm" onclick="garbituGaldera(4)">✕ Garbitu</button>
+            </p>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="q4" id="q4a" value="a">
+              <label class="form-check-label" for="q4a">Erantzun A</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="q4" id="q4b" value="b">
+              <label class="form-check-label" for="q4b">Erantzun B</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="q4" id="q4c" value="c">
+              <label class="form-check-label" for="q4c">Erantzun C</label>
+            </div>
+          </div>
+
+          <!-- Galdera 5 -->
+          <div class="mb-4">
+            <p>
+              <strong>5. Galdera 5:</strong> Hemen galdera idatzi
+              <button type="button" class="btn btn-reset btn-sm" onclick="garbituGaldera(5)">✕ Garbitu</button>
+            </p>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="q5" id="q5a" value="a">
+              <label class="form-check-label" for="q5a">Erantzun A</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="q5" id="q5b" value="b">
+              <label class="form-check-label" for="q5b">Erantzun B</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="q5" id="q5c" value="c">
+              <label class="form-check-label" for="q5c">Erantzun C</label>
+            </div>
+          </div>
+
+          <!-- Galdera 6 -->
+          <div class="mb-4">
+            <p>
+              <strong>6. Galdera 6:</strong> Hemen galdera idatzi
+              <button type="button" class="btn btn-reset btn-sm" onclick="garbituGaldera(6)">✕ Garbitu</button>
+            </p>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="q6" id="q6a" value="a">
+              <label class="form-check-label" for="q6a">Erantzun A</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="q6" id="q6b" value="b">
+              <label class="form-check-label" for="q6b">Erantzun B</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="q6" id="q6c" value="c">
+              <label class="form-check-label" for="q6c">Erantzun C</label>
+            </div>
+          </div>
+
+          <!-- Galdera 7 -->
+          <div class="mb-4">
+            <p>
+              <strong>7. Galdera 7:</strong> Hemen galdera idatzi
+              <button type="button" class="btn btn-reset btn-sm" onclick="garbituGaldera(7)">✕ Garbitu</button>
+            </p>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="q7" id="q7a" value="a">
+              <label class="form-check-label" for="q7a">Erantzun A</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="q7" id="q7b" value="b">
+              <label class="form-check-label" for="q7b">Erantzun B</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="q7" id="q7c" value="c">
+              <label class="form-check-label" for="q7c">Erantzun C</label>
+            </div>
+          </div>
+
+          <!-- Galdera 8 -->
+          <div class="mb-4">
+            <p>
+              <strong>8. Galdera 8:</strong> Hemen galdera idatzi
+              <button type="button" class="btn btn-reset btn-sm" onclick="garbituGaldera(8)">✕ Garbitu</button>
+            </p>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="q8" id="q8a" value="a">
+              <label class="form-check-label" for="q8a">Erantzun A</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="q8" id="q8b" value="b">
+              <label class="form-check-label" for="q8b">Erantzun B</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="q8" id="q8c" value="c">
+              <label class="form-check-label" for="q8c">Erantzun C</label>
+            </div>
+          </div>
+
+          <!-- Galdera 9 -->
+          <div class="mb-4">
+            <p>
+              <strong>9. Galdera 9:</strong> Hemen galdera idatzi
+              <button type="button" class="btn btn-reset btn-sm" onclick="garbituGaldera(9)">✕ Garbitu</button>
+            </p>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="q9" id="q9a" value="a">
+              <label class="form-check-label" for="q9a">Erantzun A</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="q9" id="q9b" value="b">
+              <label class="form-check-label" for="q9b">Erantzun B</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="q9" id="q9c" value="c">
+              <label class="form-check-label" for="q9c">Erantzun C</label>
+            </div>
+          </div>
+
+          <!-- Galdera 10 -->
+          <div class="mb-4">
+            <p>
+              <strong>10. Galdera 10:</strong> Hemen galdera idatzi
+              <button type="button" class="btn btn-reset btn-sm" onclick="garbituGaldera(10)">✕ Garbitu</button>
+            </p>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="q10" id="q10a" value="a">
+              <label class="form-check-label" for="q10a">Erantzun A</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="q10" id="q10b" value="b">
+              <label class="form-check-label" for="q10b">Erantzun B</label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="radio" name="q10" id="q10c" value="c">
+              <label class="form-check-label" for="q10c">Erantzun C</label>
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-primary">Bidali</button>
+        </form>
+
+        <div id="emaitza" class="mt-4"></div>
       </div>
-
-      <div class="mb-4">
-        <p>
-          <strong>3. Galdera 3:</strong> Hemen galdera idatzi
-          <button type="button" class="btn btn-reset btn-sm" onclick="garbituGaldera(3)">✕ Garbitu</button>
-        </p>
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="q3" id="q3a" value="a">
-          <label class="form-check-label" for="q3a">Erantzun A</label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="q3" id="q3b" value="b">
-          <label class="form-check-label" for="q3b">Erantzun B</label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="q3" id="q3c" value="c">
-          <label class="form-check-label" for="q3c">Erantzun C</label>
-        </div>
-      </div>
-
-      <div class="mb-4">
-        <p>
-          <strong>4. Galdera 4:</strong> Hemen galdera idatzi
-          <button type="button" class="btn btn-reset btn-sm" onclick="garbituGaldera(4)">✕ Garbitu</button>
-        </p>
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="q4" id="q4a" value="a">
-          <label class="form-check-label" for="q4a">Erantzun A</label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="q4" id="q4b" value="b">
-          <label class="form-check-label" for="q4b">Erantzun B</label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="q4" id="q4c" value="c">
-          <label class="form-check-label" for="q4c">Erantzun C</label>
-        </div>
-      </div>
-
-      <div class="mb-4">
-        <p>
-          <strong>5. Galdera 5:</strong> Hemen galdera idatzi
-          <button type="button" class="btn btn-reset btn-sm" onclick="garbituGaldera(5)">✕ Garbitu</button>
-        </p>
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="q5" id="q5a" value="a">
-          <label class="form-check-label" for="q5a">Erantzun A</label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="q5" id="q5b" value="b">
-          <label class="form-check-label" for="q5b">Erantzun B</label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="q5" id="q5c" value="c">
-          <label class="form-check-label" for="q5c">Erantzun C</label>
-        </div>
-      </div>
-
-      <div class="mb-4">
-        <p>
-          <strong>6. Galdera 6:</strong> Hemen galdera idatzi
-          <button type="button" class="btn btn-reset btn-sm" onclick="garbituGaldera(6)">✕ Garbitu</button>
-        </p>
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="q6" id="q6a" value="a">
-          <label class="form-check-label" for="q6a">Erantzun A</label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="q6" id="q6b" value="b">
-          <label class="form-check-label" for="q6b">Erantzun B</label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="q6" id="q6c" value="c">
-          <label class="form-check-label" for="q6c">Erantzun C</label>
-        </div>
-      </div>
-
-      <div class="mb-4">
-        <p>
-          <strong>7. Galdera 7:</strong> Hemen galdera idatzi
-          <button type="button" class="btn btn-reset btn-sm" onclick="garbituGaldera(7)">✕ Garbitu</button>
-        </p>
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="q7" id="q7a" value="a">
-          <label class="form-check-label" for="q7a">Erantzun A</label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="q7" id="q7b" value="b">
-          <label class="form-check-label" for="q7b">Erantzun B</label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="q7" id="q7c" value="c">
-          <label class="form-check-label" for="q7c">Erantzun C</label>
-        </div>
-      </div>
-
-      <div class="mb-4">
-        <p>
-          <strong>8. Galdera 8:</strong> Hemen galdera idatzi
-          <button type="button" class="btn btn-reset btn-sm" onclick="garbituGaldera(8)">✕ Garbitu</button>
-        </p>
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="q8" id="q8a" value="a">
-          <label class="form-check-label" for="q8a">Erantzun A</label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="q8" id="q8b" value="b">
-          <label class="form-check-label" for="q8b">Erantzun B</label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="q8" id="q8c" value="c">
-          <label class="form-check-label" for="q8c">Erantzun C</label>
-        </div>
-      </div>
-
-      <div class="mb-4">
-        <p>
-          <strong>9. Galdera 9:</strong> Hemen galdera idatzi
-          <button type="button" class="btn btn-reset btn-sm" onclick="garbituGaldera(9)">✕ Garbitu</button>
-        </p>
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="q9" id="q9a" value="a">
-          <label class="form-check-label" for="q9a">Erantzun A</label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="q9" id="q9b" value="b">
-          <label class="form-check-label" for="q9b">Erantzun B</label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="q9" id="q9c" value="c">
-          <label class="form-check-label" for="q9c">Erantzun C</label>
-        </div>
-      </div>
-
-      <div class="mb-4">
-        <p>
-          <strong>10. Galdera 10:</strong> Hemen galdera idatzi
-          <button type="button" class="btn btn-reset btn-sm" onclick="garbituGaldera(10)">✕ Garbitu</button>
-        </p>
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="q10" id="q10a" value="a">
-          <label class="form-check-label" for="q10a">Erantzun A</label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="q10" id="q10b" value="b">
-          <label class="form-check-label" for="q10b">Erantzun B</label>
-        </div>
-        <div class="form-check">
-          <input class="form-check-input" type="radio" name="q10" id="q10c" value="c">
-          <label class="form-check-label" for="q10c">Erantzun C</label>
-        </div>
-      </div>
-
-      <button type="submit" class="btn btn-primary">Bidali</button>
-    </form>
-
-    <!-- Ondoren emaitza erakusteko div -->
-    <div id="emaitza" class="mt-4"></div>
     </div>
   </div>
-</div>
 
   <!-- Scripts -->
-  <!-- Navbar dinámico -->
   <script src="../components/navbar.js"></script>
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script> 
