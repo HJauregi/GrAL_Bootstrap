@@ -42,23 +42,34 @@
       color: #adb5bd;
     }
 
-  /* Card estilo politagoa */
+  /* Card estilo glassmorphism */
   .card {
-    border-radius: 0.5rem;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    border-radius: 1rem; /* borobilduak */
+    background: rgba(255, 255, 255, 0.15); /* kristal garden */
+    backdrop-filter: blur(10px); /* blur efektua */
+    -webkit-backdrop-filter: blur(10px); /* Safari bateragarritasuna */
+    border: 1px solid rgba(255, 255, 255, 0.3); /* lerro subtila */
+    box-shadow: 0 8px 32px rgba(0,0,0,0.1); /* subtile shadow */
     overflow: hidden;
+    transition: all 0.3s ease;
+  }
+
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 48px rgba(0,0,0,0.15);
   }
 
   .card-header {
-    background: linear-gradient(90deg, #343a40, #495057);
+    background: rgba(0,0,0,0.25); /* header gutxiago gordina */
     color: #fff;
-    font-size: 1.1rem;
     font-weight: 600;
+    font-size: 1.1rem;
+    border-bottom: 1px solid rgba(255,255,255,0.3);
   }
 
   .card-body {
-    background-color: #f8f9fa;
-    color: #212529;
+    background: transparent; /* card body garden geratzen da */
+    color: #f8f9fa;
     padding: 2rem;
   }
 
@@ -69,30 +80,30 @@
 
   .form-check-input:checked + .form-check-label {
     font-weight: 600;
-    color: #0d6efd; /* Bootstrap primary kolorea */
+    color: #0d6efd; /* aukeratutako kolorea */
   }
 
   /* Button estilo */
   .btn-primary {
-    background-color: #0d6efd;
-    border-color: #0d6efd;
+    background-color: rgba(13,110,253,0.85);
+    border-color: rgba(13,110,253,0.85);
     transition: all 0.3s ease;
   }
 
   .btn-primary:hover {
-    background-color: #0b5ed7;
-    border-color: #0a58ca;
+    background-color: rgba(13,110,253,1);
+    border-color: rgba(13,110,253,1);
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(0,0,0,0.2);
   }
 
-  /* Kontagailua estilo */
+  /* Kontagailua */
   #contador {
     font-size: 1.25rem;
-    color: #ffc107; /* horia ikusgarriago */
+    color: #ffc107;
   }
 
-  /* Emaitzak div estilo */
+  /* Emaitza alert */
   #emaitza .alert {
     font-weight: 600;
     font-size: 1rem;
@@ -101,14 +112,15 @@
   /* Galdera separazioa */
   .mb-4 {
     padding: 1rem;
-    border-bottom: 1px solid #dee2e6;
-    border-radius: 0.25rem;
-    background-color: #ffffff;
-    transition: background 0.3s ease;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+    border-radius: 0.5rem;
+    background-color: rgba(255,255,255,0.05);
+    transition: background 0.3s ease, transform 0.3s ease;
   }
 
   .mb-4:hover {
-    background-color: #e9ecef;
+    background-color: rgba(255,255,255,0.1);
+    transform: translateY(-2px);
   }
   </style>
 </head>
