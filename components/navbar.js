@@ -60,14 +60,26 @@ document.getElementById("navbar-placeholder").innerHTML = `
 
 <style>
   .navbar-custom { 
-    transition: all 0.3s ease; 
-    height: 250px; 
+    transition: padding 0.3s ease;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
   }
+  
   .navbar-shrink { 
-    height: 50px; 
+    padding-top: 0.25rem !important;
+    padding-bottom: 0.25rem !important;
   }
+  
   .navbar-brand, .nav-link { 
     line-height: 1; 
+  }
+
+  /* Asegurar que el menú colapsado funcione bien */
+  @media (max-width: 991px) {
+    .navbar-collapse {
+      max-height: 80vh;
+      overflow-y: auto;
+    }
   }
 </style>
 `;
@@ -75,24 +87,44 @@ document.getElementById("navbar-placeholder").innerHTML = `
 // Ajusta el padding del body según la altura del navbar
 function adjustBodyPadding() {
   const navbar = document.getElementById("navbar");
-  if (navbar) document.body.style.paddingTop = navbar.offsetHeight + 10 + "px";
+  if (navbar) {
+    const navbarHeight = navbar.offsetHeight;
+    document.body.style.paddingTop = navbarHeight + 10 + "px";
+  }
 }
 
-// Ejecutar al cargar
+// Ejecutar al cargar y después de un pequeño delay para asegurar renderizado
 adjustBodyPadding();
+setTimeout(adjustBodyPadding, 100);
+
 window.addEventListener("resize", adjustBodyPadding);
+window.addEventListener("load", adjustBodyPadding);
+
+// Ajustar padding cuando se abre/cierra el menú móvil
+const navbarToggler = document.querySelector('.navbar-toggler');
+if (navbarToggler) {
+  navbarToggler.addEventListener('click', function() {
+    setTimeout(adjustBodyPadding, 350); // Esperar a que termine la animación
+  });
+}
 
 // Efecto shrink al hacer scroll Y ajustar padding
+let lastScrollPos = 0;
 window.addEventListener("scroll", function () {
   const navbar = document.getElementById("navbar");
   if (!navbar) return;
   
-  if (window.pageYOffset > 50) {
+  const currentScrollPos = window.pageYOffset;
+  
+  if (currentScrollPos > 50) {
     navbar.classList.add("navbar-shrink");
   } else {
     navbar.classList.remove("navbar-shrink");
   }
   
-  // CRÍTICO: Ajustar padding después de cambiar la clase
-  adjustBodyPadding();
+  // Ajustar padding si hay cambio significativo
+  if (Math.abs(currentScrollPos - lastScrollPos) > 10) {
+    adjustBodyPadding();
+    lastScrollPos = currentScrollPos;
+  }
 });
