@@ -59,20 +59,28 @@ document.getElementById("navbar-placeholder").innerHTML = `
 </nav>
 
 <style>
-  /* Desktop navbar - SE AGRANDA Y ENCOGE */
+  /* Desktop navbar - MÁS GRANDE cuando está expandido */
   @media (min-width: 992px) {
     .navbar-custom { 
       transition: all 0.3s ease; 
-      height: 200px; 
+      height: 300px; /* MÁS GRANDE - antes 200px */
     }
     .navbar-shrink { 
       height: 50px; 
     }
     .navbar-brand, .nav-link { 
-      line-height: 2; 
+      line-height: 2.5; /* MÁS GRANDE - antes 2 */
+      font-size: 1.1rem; /* Texto más grande */
     }
     .navbar-shrink .navbar-brand, .navbar-shrink .nav-link { 
       line-height: 1.5; 
+      font-size: 1rem;
+    }
+    .navbar-brand {
+      font-size: 1.5rem; /* Brand más grande */
+    }
+    .navbar-shrink .navbar-brand {
+      font-size: 1.25rem;
     }
   }
   
@@ -80,13 +88,13 @@ document.getElementById("navbar-placeholder").innerHTML = `
   @media (max-width: 991px) {
     .navbar-custom {
       transition: all 0.3s ease;
-      padding: 2.5rem 1rem; /* MÁS GRANDE - antes 1.5rem */
+      padding: 2.5rem 1rem; /* MÁS GRANDE */
     }
     .navbar-shrink {
       padding: 0.5rem 1rem; /* PEQUEÑO al hacer scroll */
     }
     .navbar-brand {
-      font-size: 1.8rem; /* MÁS GRANDE - antes 1.5rem */
+      font-size: 1.8rem; /* MÁS GRANDE */
       transition: font-size 0.3s ease;
     }
     .navbar-shrink .navbar-brand {
