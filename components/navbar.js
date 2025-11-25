@@ -60,9 +60,14 @@ document.getElementById("navbar-placeholder").innerHTML = `
 
 <style>
   .navbar-custom { 
-    transition: padding 0.3s ease;
+    transition: transform 0.3s ease, padding 0.3s ease;
     padding-top: 1rem;
     padding-bottom: 1rem;
+    transform: translateY(0);
+  }
+  
+  .navbar-hidden {
+    transform: translateY(-100%);
   }
   
   .navbar-shrink { 
@@ -89,7 +94,12 @@ function adjustBodyPadding() {
   const navbar = document.getElementById("navbar");
   if (navbar) {
     const navbarHeight = navbar.offsetHeight;
-    document.body.style.paddingTop = navbarHeight + 10 + "px";
+    // Solo ajustar padding cuando el navbar está visible
+    if (!navbar.classList.contains("navbar-hidden")) {
+      document.body.style.paddingTop = navbarHeight + 10 + "px";
+    } else {
+      document.body.style.paddingTop = "0px";
+    }
   }
 }
 
@@ -112,7 +122,7 @@ if (navbarToggler) {
 let ticking = false;
 let lastKnownScrollPosition = 0;
 
-// Efecto shrink al hacer scroll - OPTIMIZADO
+// Efecto mostrar/ocultar navbar según scroll
 window.addEventListener("scroll", function () {
   lastKnownScrollPosition = window.pageYOffset;
 
@@ -121,10 +131,13 @@ window.addEventListener("scroll", function () {
       const navbar = document.getElementById("navbar");
       if (!navbar) return;
       
-      if (lastKnownScrollPosition > 50) {
-        navbar.classList.add("navbar-shrink");
-      } else {
+      // Si estamos en el top (menos de 10px), mostrar navbar
+      if (lastKnownScrollPosition < 10) {
+        navbar.classList.remove("navbar-hidden");
         navbar.classList.remove("navbar-shrink");
+      } else {
+        // Si hemos hecho scroll, ocultar navbar
+        navbar.classList.add("navbar-hidden");
       }
       
       adjustBodyPadding();
