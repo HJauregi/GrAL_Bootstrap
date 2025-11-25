@@ -59,11 +59,38 @@ document.getElementById("navbar-placeholder").innerHTML = `
 </nav>
 
 <style>
-  .navbar-custom { transition: all 0.3s ease; height: 200px; }
-  .navbar-shrink { height: 50px; }
-  .navbar-brand, .nav-link { line-height: 2; }
-  .navbar-shrink .navbar-brand, .navbar-shrink .nav-link { line-height: 1.5; }
-  .padding-top-body { padding-top: 210px; }
+  /* Desktop navbar */
+  @media (min-width: 992px) {
+    .navbar-custom { 
+      transition: all 0.3s ease; 
+      height: 200px; 
+    }
+    .navbar-shrink { 
+      height: 50px; 
+    }
+    .navbar-brand, .nav-link { 
+      line-height: 2; 
+    }
+    .navbar-shrink .navbar-brand, .navbar-shrink .nav-link { 
+      line-height: 1.5; 
+    }
+  }
+  
+  /* Mobile navbar */
+  @media (max-width: 991px) {
+    .navbar-custom {
+      height: auto !important;
+      min-height: 56px;
+      padding: 0.5rem 1rem;
+    }
+    .navbar-brand, .nav-link {
+      line-height: 1.5;
+    }
+    .navbar-collapse {
+      max-height: 80vh;
+      overflow-y: auto;
+    }
+  }
 </style>
 `;
 
@@ -72,13 +99,44 @@ function adjustBodyPadding() {
   const navbar = document.getElementById("navbar");
   if (navbar) document.body.style.paddingTop = navbar.offsetHeight + 10 + "px";
 }
-adjustBodyPadding();
-window.addEventListener("resize", adjustBodyPadding);
 
-// Efecto shrink al hacer scroll
+// Ejecutar al cargar
+adjustBodyPadding();
+setTimeout(adjustBodyPadding, 100);
+window.addEventListener("resize", adjustBodyPadding);
+window.addEventListener("load", adjustBodyPadding);
+
+// Listener para cuando se abre/cierra el menú móvil
+document.addEventListener("DOMContentLoaded", function() {
+  const toggler = document.querySelector('.navbar-toggler');
+  if (toggler) {
+    toggler.addEventListener('click', function() {
+      setTimeout(adjustBodyPadding, 350);
+    });
+  }
+});
+
+// Efecto shrink al hacer scroll - optimizado
+let ticking = false;
+
 window.addEventListener("scroll", function () {
-  const navbar = document.getElementById("navbar");
-  if (!navbar) return;
-  if (window.pageYOffset > 50) navbar.classList.add("navbar-shrink");
-  else navbar.classList.remove("navbar-shrink");
+  if (!ticking) {
+    window.requestAnimationFrame(function() {
+      const navbar = document.getElementById("navbar");
+      if (!navbar) {
+        ticking = false;
+        return;
+      }
+      
+      if (window.pageYOffset > 50) {
+        navbar.classList.add("navbar-shrink");
+      } else {
+        navbar.classList.remove("navbar-shrink");
+      }
+      
+      adjustBodyPadding();
+      ticking = false;
+    });
+    ticking = true;
+  }
 });
