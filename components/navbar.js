@@ -60,14 +60,16 @@ document.getElementById("navbar-placeholder").innerHTML = `
 
 <style>
   .navbar-custom { 
-    transition: transform 0.3s ease, padding 0.3s ease;
+    transition: transform 0.6s ease-in-out, padding 0.6s ease-in-out, opacity 0.6s ease-in-out;
     padding-top: 1rem;
     padding-bottom: 1rem;
     transform: translateY(0);
+    opacity: 1;
   }
   
   .navbar-hidden {
-    transform: translateY(-100%);
+    transform: translateY(-100%) !important;
+    opacity: 0 !important;
   }
   
   .navbar-shrink { 
@@ -129,18 +131,27 @@ window.addEventListener("scroll", function () {
   if (!ticking) {
     window.requestAnimationFrame(function() {
       const navbar = document.getElementById("navbar");
-      if (!navbar) return;
+      if (!navbar) {
+        ticking = false;
+        return;
+      }
       
-      // Si estamos en el top (menos de 10px), mostrar navbar
-      if (lastKnownScrollPosition < 10) {
+      console.log("Scroll position:", lastKnownScrollPosition); // DEBUG
+      
+      // Si estamos en el top (menos de 50px), mostrar navbar
+      if (lastKnownScrollPosition < 50) {
+        console.log("Mostrando navbar"); // DEBUG
         navbar.classList.remove("navbar-hidden");
         navbar.classList.remove("navbar-shrink");
       } else {
         // Si hemos hecho scroll, ocultar navbar
+        console.log("Ocultando navbar"); // DEBUG
         navbar.classList.add("navbar-hidden");
+        navbar.classList.add("navbar-shrink");
       }
       
-      adjustBodyPadding();
+      // Esperar a que termine la animación antes de ajustar padding
+      setTimeout(adjustBodyPadding, 100);
       ticking = false;
     });
 
