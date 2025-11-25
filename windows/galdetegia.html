@@ -24,7 +24,7 @@
     /* Espacio extra para el contenido */
     .container {
       padding-top: 1rem;
-      padding-bottom: 4rem; /* espacio para el footer */
+      padding-bottom: 2rem;
     }
 
     /* Footer */
@@ -32,7 +32,7 @@
       background-color: #343a40;
       color: white;
       text-align: center;
-      padding: 1.5rem 0;
+      padding: 1rem 0;
       margin-top: auto;
     }
 
@@ -308,12 +308,11 @@
       <button type="submit" class="btn btn-primary">Bidali</button>
     </form>
 
-     <!-- Ondoren emaitza erakusteko div -->
+    <!-- Ondoren emaitza erakusteko div -->
     <div id="emaitza" class="mt-4"></div>
     </div>
   </div>
 </div>
-
 
   <!-- Scripts -->
   <!-- Navbar dinámico -->
@@ -324,31 +323,31 @@
 
   <script>
     const form = document.getElementById("galdetegiaForm");
-  const contador = document.getElementById("contador");
+    const contador = document.getElementById("contador");
 
-  // Funtzioa galdera erantzunak kontatzeko
-  function actualizarContador() {
-    let erantzunak = 0;
-    for(let i=1; i<=10; i++){
-      if(form[`q${i}`].value){
-        erantzunak++;
+    // Funtzioa galdera erantzunak kontatzeko
+    function actualizarContador() {
+      let erantzunak = 0;
+      for(let i=1; i<=10; i++){
+        if(form[`q${i}`].value){
+          erantzunak++;
+        }
       }
+      contador.textContent = erantzunak;
     }
-    contador.textContent = erantzunak;
-  }
 
-  // Event listener bakoitzaren aldaketarako
-  form.addEventListener("change", function(e){
-    let name = e.target.name;
-    if(name.startsWith("q")) actualizarContador();
-  });
+    // Event listener bakoitzaren aldaketarako
+    form.addEventListener("change", function(e){
+      let name = e.target.name;
+      if(name.startsWith("q")) actualizarContador();
+    });
 
-  // Submit handler
-  form.addEventListener("submit", function(e){
-    e.preventDefault();
-    const emaitzaDiv = document.getElementById("emaitza");
-    emaitzaDiv.innerHTML = `<div class="alert alert-info">Zure emaitza hemen erakutsiko da.</div>`;
-  });
+    // Submit handler
+    form.addEventListener("submit", function(e){
+      e.preventDefault();
+      const emaitzaDiv = document.getElementById("emaitza");
+      emaitzaDiv.innerHTML = `<div class="alert alert-info">Zure emaitza hemen erakutsiko da.</div>`;
+    });
   </script>
 
   <!-- Footer -->
