@@ -41,6 +41,75 @@
     .footer a:hover {
       color: #adb5bd;
     }
+
+  /* Card estilo politagoa */
+  .card {
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    overflow: hidden;
+  }
+
+  .card-header {
+    background: linear-gradient(90deg, #343a40, #495057);
+    color: #fff;
+    font-size: 1.1rem;
+    font-weight: 600;
+  }
+
+  .card-body {
+    background-color: #f8f9fa;
+    color: #212529;
+    padding: 2rem;
+  }
+
+  /* Galderak */
+  .form-check {
+    margin-bottom: 0.75rem;
+  }
+
+  .form-check-input:checked + .form-check-label {
+    font-weight: 600;
+    color: #0d6efd; /* Bootstrap primary kolorea */
+  }
+
+  /* Button estilo */
+  .btn-primary {
+    background-color: #0d6efd;
+    border-color: #0d6efd;
+    transition: all 0.3s ease;
+  }
+
+  .btn-primary:hover {
+    background-color: #0b5ed7;
+    border-color: #0a58ca;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  }
+
+  /* Kontagailua estilo */
+  #contador {
+    font-size: 1.25rem;
+    color: #ffc107; /* horia ikusgarriago */
+  }
+
+  /* Emaitzak div estilo */
+  #emaitza .alert {
+    font-weight: 600;
+    font-size: 1rem;
+  }
+
+  /* Galdera separazioa */
+  .mb-4 {
+    padding: 1rem;
+    border-bottom: 1px solid #dee2e6;
+    border-radius: 0.25rem;
+    background-color: #ffffff;
+    transition: background 0.3s ease;
+  }
+
+  .mb-4:hover {
+    background-color: #e9ecef;
+  }
   </style>
 </head>
 <body>
@@ -50,11 +119,18 @@
   
   <div class="container mt-4 mb-5">
     <h1 class="mb-3">Autoebaluazio galdetegia</h1>
+    <!-- Galdetegi panela -->
+  <div class="card bg-dark text-white mb-4">
+    <div class="card-header">
+      <strong>Galderek erantzun dituzun kopurua: <span id="contador">0</span>/10</strong>
+    </div>
+    <div class="card-body bg-light text-dark">
+      <p>Galdetegi honek 10 galdera ditu. Galdera bakoitzak hiru erantzun aukera ditu, baina bakarra da zuzena. Aukeratu zure erantzuna eta bidali galdetegia amaitutakoan.</p>
     <form id="galdetegiaForm">
 
       <!-- Galderak 1-10 -->
       <!-- Galdera plantilla, 3 erantzun aukerarekin -->
-      <div class="mb-4">
+      <div class="mb-3">
         <p><strong>1. Galdera 1:</strong> Hemen galdera idatzi</p>
         <div class="form-check">
           <input class="form-check-input" type="radio" name="q1" id="q1a" value="a">
@@ -246,13 +322,32 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script> 
 
   <script>
-    document.getElementById("galdetegiaForm").addEventListener("submit", function(e) {
-      e.preventDefault();
-      
-      // Hemen zuk jar dezakezu logika: zenbat galdera zuzena, eta emaitza erakutsi
-      const emaitzaDiv = document.getElementById("emaitza");
-      emaitzaDiv.innerHTML = `<div class="alert alert-info">Zure emaitza hemen erakutsiko da.</div>`;
-    });
+    const form = document.getElementById("galdetegiaForm");
+  const contador = document.getElementById("contador");
+
+  // Funtzioa galdera erantzunak kontatzeko
+  function actualizarContador() {
+    let erantzunak = 0;
+    for(let i=1; i<=10; i++){
+      if(form[`q${i}`].value){
+        erantzunak++;
+      }
+    }
+    contador.textContent = erantzunak;
+  }
+
+  // Event listener bakoitzaren aldaketarako
+  form.addEventListener("change", function(e){
+    let name = e.target.name;
+    if(name.startsWith("q")) actualizarContador();
+  });
+
+  // Submit handler
+  form.addEventListener("submit", function(e){
+    e.preventDefault();
+    const emaitzaDiv = document.getElementById("emaitza");
+    emaitzaDiv.innerHTML = `<div class="alert alert-info">Zure emaitza hemen erakutsiko da.</div>`;
+  });
   </script>
 
 </body>
