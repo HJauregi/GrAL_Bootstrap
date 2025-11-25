@@ -15,7 +15,7 @@ document.getElementById("navbar-placeholder").innerHTML = `
       <!-- Hasiera -->
       <li class="nav-item"><a class="nav-link" href="${basePath}index.html">Hasiera</a></li>
 
-      <!-- Arautegia Dropdown como botón principal + split -->
+      <!-- Arautegia Dropdown -->
       <li class="nav-item dropdown">
         <div class="btn-group">
           <a class="nav-link" href="${basePath}windows/araudia.html">Arautegia</a>
@@ -59,46 +59,46 @@ document.getElementById("navbar-placeholder").innerHTML = `
 </nav>
 
 <style>
-  /* Desktop navbar - MÁS GRANDE cuando está expandido */
+  /* Desktop navbar */
   @media (min-width: 992px) {
     .navbar-custom { 
       transition: all 0.3s ease; 
-      height: 300px; /* MÁS GRANDE - antes 200px */
+      height: 300px;
     }
     .navbar-shrink { 
       height: 50px; 
     }
     .navbar-brand, .nav-link { 
-      line-height: 2.5; /* MÁS GRANDE - antes 2 */
-      font-size: 1.1rem; /* Texto más grande */
+      line-height: 2.5;
+      font-size: 1.1rem;
     }
     .navbar-shrink .navbar-brand, .navbar-shrink .nav-link { 
       line-height: 1.5; 
       font-size: 1rem;
     }
     .navbar-brand {
-      font-size: 1.5rem; /* Brand más grande */
+      font-size: 1.5rem;
     }
     .navbar-shrink .navbar-brand {
       font-size: 1.25rem;
     }
   }
   
-  /* Mobile navbar - MÁS GRANDE cuando está expandido */
+  /* Mobile navbar */
   @media (max-width: 991px) {
     .navbar-custom {
       transition: all 0.3s ease;
-      padding: 2.5rem 1rem; /* MÁS GRANDE */
+      padding: 2.5rem 1rem;
     }
     .navbar-shrink {
-      padding: 0.5rem 1rem; /* PEQUEÑO al hacer scroll */
+      padding: 0.5rem 1rem;
     }
     .navbar-brand {
-      font-size: 1.8rem; /* MÁS GRANDE */
+      font-size: 1.8rem;
       transition: font-size 0.3s ease;
     }
     .navbar-shrink .navbar-brand {
-      font-size: 1.1rem; /* PEQUEÑO al hacer scroll */
+      font-size: 1.1rem;
     }
     .navbar-toggler {
       transition: all 0.3s ease;
@@ -115,19 +115,20 @@ document.getElementById("navbar-placeholder").innerHTML = `
 </style>
 `;
 
-// Ajusta el padding del body según la altura del navbar
+// FUNCION: Ajusta padding del body según altura real de la navbar
 function adjustBodyPadding() {
   const navbar = document.getElementById("navbar");
   if (navbar) document.body.style.paddingTop = navbar.offsetHeight + 10 + "px";
 }
 
-// Ejecutar al cargar
-adjustBodyPadding();
-setTimeout(adjustBodyPadding, 100);
-window.addEventListener("resize", adjustBodyPadding);
+// EJECUTAR al cargar, resize, scroll y wheel
 window.addEventListener("load", adjustBodyPadding);
+window.addEventListener("resize", adjustBodyPadding);
+window.addEventListener("scroll", adjustBodyPadding);
+window.addEventListener("wheel", adjustBodyPadding);
+setTimeout(adjustBodyPadding, 100);
 
-// Listener para cuando se abre/cierra el menú móvil
+// Listener para menú móvil
 document.addEventListener("DOMContentLoaded", function() {
   const toggler = document.querySelector('.navbar-toggler');
   if (toggler) {
@@ -137,9 +138,8 @@ document.addEventListener("DOMContentLoaded", function() {
   }
 });
 
-// Efecto shrink al hacer scroll - FUNCIONA EN DESKTOP Y MOBILE
+// Efecto shrink al hacer scroll
 let ticking = false;
-
 window.addEventListener("scroll", function () {
   if (!ticking) {
     window.requestAnimationFrame(function() {
@@ -148,13 +148,11 @@ window.addEventListener("scroll", function () {
         ticking = false;
         return;
       }
-      
       if (window.pageYOffset > 50) {
         navbar.classList.add("navbar-shrink");
       } else {
         navbar.classList.remove("navbar-shrink");
       }
-      
       adjustBodyPadding();
       ticking = false;
     });

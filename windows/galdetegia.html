@@ -19,6 +19,9 @@
       min-height: 100vh;
       padding-top: 0;
       margin: 0;
+  padding-top: 300px; /* altura máxima de la navbar */
+  transition: padding-top 0.3s ease;
+
     }
 
     .container {
@@ -171,180 +174,180 @@
           <!-- Galdera 1 -->
           <div class="mb-4">
             <p>
-              <strong>1. Galdera 1:</strong> Hemen galdera idatzi
+              <strong>1. Galdera:</strong> Zein da Gradu Amaierako Lanaren (GrAL) helburu nagusietako bat?
               <button type="button" class="btn btn-reset btn-sm" onclick="garbituGaldera(1)">✕ Garbitu</button>
             </p>
             <div class="form-check">
               <input class="form-check-input" type="radio" name="q1" id="q1a" value="a">
-              <label class="form-check-label" for="q1a">Erantzun A</label>
+              <label class="form-check-label" for="q1a">Ikasleek taldeka irakasleak proposatutako proiektu bat garatzea.</label>
             </div>
             <div class="form-check">
               <input class="form-check-input" type="radio" name="q1" id="q1b" value="b">
-              <label class="form-check-label" for="q1b">Erantzun B</label>
+              <label class="form-check-label" for="q1b">Ikasleak jasotako ezagutza, gaitasun eta trebetasunak aplikatzea.</label>
             </div>
             <div class="form-check">
               <input class="form-check-input" type="radio" name="q1" id="q1c" value="c">
-              <label class="form-check-label" for="q1c">Erantzun C</label>
+              <label class="form-check-label" for="q1c">Ikasleek graduko ikasgai guztien inguruko laburpen bat egitea.</label>
             </div>
           </div>
 
           <!-- Galdera 2 -->
           <div class="mb-4">
             <p>
-              <strong>2. Galdera 2:</strong> Hemen galdera idatzi
+              <strong>2. Galdera 2:</strong> Zenbat denbora du ikasleak bere Gradu Amaierako Lana (GrAL) defendatzeko?
               <button type="button" class="btn btn-reset btn-sm" onclick="garbituGaldera(2)">✕ Garbitu</button>
             </p>
             <div class="form-check">
               <input class="form-check-input" type="radio" name="q2" id="q2a" value="a">
-              <label class="form-check-label" for="q2a">Erantzun A</label>
+              <label class="form-check-label" for="q2a">10 minutu</label>
             </div>
             <div class="form-check">
               <input class="form-check-input" type="radio" name="q2" id="q2b" value="b">
-              <label class="form-check-label" for="q2b">Erantzun B</label>
+              <label class="form-check-label" for="q2b">30 minutu</label>
             </div>
             <div class="form-check">
               <input class="form-check-input" type="radio" name="q2" id="q2c" value="c">
-              <label class="form-check-label" for="q2c">Erantzun C</label>
+              <label class="form-check-label" for="q2c">Ez dago denbora mugarik.</label>
             </div>
           </div>
 
           <!-- Galdera 3 -->
           <div class="mb-4">
             <p>
-              <strong>3. Galdera 3:</strong> Hemen galdera idatzi
+              <strong>3. Galdera 3:</strong> Zer kalifikazio eskala erabiltzen da Gradu Amaierako Lana (GrAL) ebaluatzeko?
               <button type="button" class="btn btn-reset btn-sm" onclick="garbituGaldera(3)">✕ Garbitu</button>
             </p>
             <div class="form-check">
               <input class="form-check-input" type="radio" name="q3" id="q3a" value="a">
-              <label class="form-check-label" for="q3a">Erantzun A</label>
+              <label class="form-check-label" for="q3a">Leku bakoitzean eskala desberdin bat erabiltzen da, bertako irakasleek erabakitzen dutena.</label>
             </div>
             <div class="form-check">
               <input class="form-check-input" type="radio" name="q3" id="q3b" value="b">
-              <label class="form-check-label" for="q3b">Erantzun B</label>
+              <label class="form-check-label" for="q3b">0tik 10era bitarteko eskala, hamartar batekin eta kalifikazio kualitatiboarekin.</label>
             </div>
             <div class="form-check">
               <input class="form-check-input" type="radio" name="q3" id="q3c" value="c">
-              <label class="form-check-label" for="q3c">Erantzun C</label>
+              <label class="form-check-label" for="q3c">Gainditua edo Ez Gainditua.</label>
             </div>
           </div>
 
           <!-- Galdera 4 -->
           <div class="mb-4">
             <p>
-              <strong>4. Galdera 4:</strong> Hemen galdera idatzi
+              <strong>4. Galdera 4:</strong> Nork zuzendu dezake Gradu Amaierako Lana (GrAL)?
               <button type="button" class="btn btn-reset btn-sm" onclick="garbituGaldera(4)">✕ Garbitu</button>
             </p>
             <div class="form-check">
               <input class="form-check-input" type="radio" name="q4" id="q4a" value="a">
-              <label class="form-check-label" for="q4a">Erantzun A</label>
+              <label class="form-check-label" for="q4a">Unibertsitateko dekanoak.</label>
             </div>
             <div class="form-check">
               <input class="form-check-input" type="radio" name="q4" id="q4b" value="b">
-              <label class="form-check-label" for="q4b">Erantzun B</label>
+              <label class="form-check-label" for="q4b">Fakultateko irakasle batek, edo kasu batzuetan, kanpoko erakunde bateko tutore batek.</label>
             </div>
             <div class="form-check">
               <input class="form-check-input" type="radio" name="q4" id="q4c" value="c">
-              <label class="form-check-label" for="q4c">Erantzun C</label>
+              <label class="form-check-label" for="q4c">Unibertsitateko edozein langilek.</label>
             </div>
           </div>
 
           <!-- Galdera 5 -->
           <div class="mb-4">
             <p>
-              <strong>5. Galdera 5:</strong> Hemen galdera idatzi
+              <strong>5. Galdera 5:</strong> Noiz defendatu eta ebaluatu daiteke Gradu Amaierako Lana (GrAL)?
               <button type="button" class="btn btn-reset btn-sm" onclick="garbituGaldera(5)">✕ Garbitu</button>
             </p>
             <div class="form-check">
               <input class="form-check-input" type="radio" name="q5" id="q5a" value="a">
-              <label class="form-check-label" for="q5a">Erantzun A</label>
+              <label class="form-check-label" for="q5a">Ikasleak ikasketako nahitaezko kreditu guztiak lortu dituenean, Gradu Amaierako Lana izan ezik.</label>
             </div>
             <div class="form-check">
               <input class="form-check-input" type="radio" name="q5" id="q5b" value="b">
-              <label class="form-check-label" for="q5b">Erantzun B</label>
+              <label class="form-check-label" for="q5b">Edozein momentutan defendatu eta ebaluatu daiteke.</label>
             </div>
             <div class="form-check">
               <input class="form-check-input" type="radio" name="q5" id="q5c" value="c">
-              <label class="form-check-label" for="q5c">Erantzun C</label>
+              <label class="form-check-label" for="q5c">Ikasleak unibertsitateko dekanoaren baimena jasotzen duenean.</label>
             </div>
           </div>
 
           <!-- Galdera 6 -->
           <div class="mb-4">
             <p>
-              <strong>6. Galdera 6:</strong> Hemen galdera idatzi
+              <strong>6. Galdera 6:</strong> Nola egin behar da Gradu Amaierako Lanaren (GrAL) defentsa?
               <button type="button" class="btn btn-reset btn-sm" onclick="garbituGaldera(6)">✕ Garbitu</button>
             </p>
             <div class="form-check">
               <input class="form-check-input" type="radio" name="q6" id="q6a" value="a">
-              <label class="form-check-label" for="q6a">Erantzun A</label>
+              <label class="form-check-label" for="q6a">Galdetegi baten bidez.</label>
             </div>
             <div class="form-check">
               <input class="form-check-input" type="radio" name="q6" id="q6b" value="b">
-              <label class="form-check-label" for="q6b">Erantzun B</label>
+              <label class="form-check-label" for="q6b">Idatziz entregatuz, ahoz aurkeztu behar izan gabe.</label>
             </div>
             <div class="form-check">
               <input class="form-check-input" type="radio" name="q6" id="q6c" value="c">
-              <label class="form-check-label" for="q6c">Erantzun C</label>
+              <label class="form-check-label" for="q6c">Aurrez aurre eta jendaurrean, epaimahai baten aurrean.</label>
             </div>
           </div>
 
           <!-- Galdera 7 -->
           <div class="mb-4">
             <p>
-              <strong>7. Galdera 7:</strong> Hemen galdera idatzi
+              <strong>7. Galdera 7:</strong> Non ikus ditzakezu aurreko urteetan defendatutako Gradu Amaierako Lanak (GrAL)?
               <button type="button" class="btn btn-reset btn-sm" onclick="garbituGaldera(7)">✕ Garbitu</button>
             </p>
             <div class="form-check">
               <input class="form-check-input" type="radio" name="q7" id="q7a" value="a">
-              <label class="form-check-label" for="q7a">Erantzun A</label>
+              <label class="form-check-label" for="q7a">GAUR</label>
             </div>
             <div class="form-check">
               <input class="form-check-input" type="radio" name="q7" id="q7b" value="b">
-              <label class="form-check-label" for="q7b">Erantzun B</label>
+              <label class="form-check-label" for="q7b">ADDI</label>
             </div>
             <div class="form-check">
               <input class="form-check-input" type="radio" name="q7" id="q7c" value="c">
-              <label class="form-check-label" for="q7c">Erantzun C</label>
+              <label class="form-check-label" for="q7c">eGela</label>
             </div>
           </div>
 
           <!-- Galdera 8 -->
           <div class="mb-4">
             <p>
-              <strong>8. Galdera 8:</strong> Hemen galdera idatzi
+              <strong>8. Galdera 8:</strong> Zeri buruz egin dezakezu Gradu Amaierako Lana (GrAL)?
               <button type="button" class="btn btn-reset btn-sm" onclick="garbituGaldera(8)">✕ Garbitu</button>
             </p>
             <div class="form-check">
               <input class="form-check-input" type="radio" name="q8" id="q8a" value="a">
-              <label class="form-check-label" for="q8a">Erantzun A</label>
+              <label class="form-check-label" for="q8a">Edozein gradut edo espezialitateko gai bati buruz, ez du axola.</label>
             </div>
             <div class="form-check">
               <input class="form-check-input" type="radio" name="q8" id="q8b" value="b">
-              <label class="form-check-label" for="q8b">Erantzun B</label>
+              <label class="form-check-label" for="q8b">Ikasitako gradu/espezialitateari buruz, betiere irakasle baten zuzendaritzapean.</label>
             </div>
             <div class="form-check">
               <input class="form-check-input" type="radio" name="q8" id="q8c" value="c">
-              <label class="form-check-label" for="q8c">Erantzun C</label>
+              <label class="form-check-label" for="q8c">Ikasitako gradu/espezialitatearekin lotutako edozein gairi buruz.</label>
             </div>
           </div>
 
           <!-- Galdera 9 -->
           <div class="mb-4">
             <p>
-              <strong>9. Galdera 9:</strong> Hemen galdera idatzi
+              <strong>9. Galdera 9:</strong> Non ematen da izena Gradu Amaierako Lan (GrAL) egiteko?
               <button type="button" class="btn btn-reset btn-sm" onclick="garbituGaldera(9)">✕ Garbitu</button>
             </p>
             <div class="form-check">
               <input class="form-check-input" type="radio" name="q9" id="q9a" value="a">
-              <label class="form-check-label" for="q9a">Erantzun A</label>
+              <label class="form-check-label" for="q9a">GAUR</label>
             </div>
             <div class="form-check">
               <input class="form-check-input" type="radio" name="q9" id="q9b" value="b">
-              <label class="form-check-label" for="q9b">Erantzun B</label>
+              <label class="form-check-label" for="q9b">Posta elektroniko bat bidaliz</label>
             </div>
             <div class="form-check">
               <input class="form-check-input" type="radio" name="q9" id="q9c" value="c">
-              <label class="form-check-label" for="q9c">Erantzun C</label>
+              <label class="form-check-label" for="q9c">ADDI</label>
             </div>
           </div>
 
