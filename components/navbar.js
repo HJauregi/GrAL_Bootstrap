@@ -11,11 +11,8 @@ document.getElementById("navbar-placeholder").innerHTML = `
   </button>
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav ml-auto">
-
-      <!-- Hasiera -->
       <li class="nav-item"><a class="nav-link" href="${basePath}index.html">Hasiera</a></li>
 
-      <!-- Arautegia Dropdown -->
       <li class="nav-item dropdown">
         <div class="btn-group">
           <a class="nav-link" href="${basePath}windows/araudia.html">Arautegia</a>
@@ -30,10 +27,8 @@ document.getElementById("navbar-placeholder").innerHTML = `
         </div>
       </li>
 
-      <!-- Egutegia -->
       <li class="nav-item"><a class="nav-link" href="${basePath}windows/egutegia.html">Egutegia</a></li>
 
-      <!-- Memoriak Dropdown -->
       <li class="nav-item dropdown">
         <div class="btn-group">
           <a class="nav-link" href="${basePath}windows/memoriak.html">GrAL Memoriak</a>
@@ -48,24 +43,23 @@ document.getElementById("navbar-placeholder").innerHTML = `
         </div>
       </li>
 
-      <!-- About us -->
       <li class="nav-item"><a class="nav-link" href="${basePath}windows/about-us.html">About us</a></li>
-
-      <!-- Autoebaluazioa -->
       <li class="nav-item"><a class="nav-link" href="${basePath}windows/galdetegia.html">Autoebaluazio galdetegia</a></li>
-
     </ul>
   </div>
 </nav>
 
 <style>
   .navbar-custom {
-    transition: height 0.2s ease, padding 0.2s ease;
+    transition: height 0.3s ease, padding 0.3s ease;
     height: 250px;
     padding: 1rem 1rem;
   }
   .navbar-brand, .nav-link {
     line-height: 1;
+  }
+  body {
+    transition: padding-top 0.3s ease;
   }
 </style>
 `;
@@ -75,14 +69,22 @@ const navbar = document.getElementById("navbar");
 const maxHeight = 250; // altura inicial
 const minHeight = 50;  // altura mínima al hacer scroll
 
-// Función para ajustar la altura del navbar según el scroll
+// Función para ajustar la altura del navbar según el scroll de manera progresiva
 function adjustNavbar() {
   const scroll = window.pageYOffset;
-  const newHeight = Math.max(minHeight, maxHeight - scroll);
-  navbar.style.height = newHeight + "px";
-
-  // Ajustamos el padding del body para que el contenido no quede flotando
-  document.body.style.paddingTop = navbar.offsetHeight + 10 + "px";
+  const targetHeight = Math.max(minHeight, maxHeight - scroll);
+  
+  // Animación suave usando requestAnimationFrame
+  const currentHeight = parseFloat(navbar.style.height) || maxHeight;
+  const diff = targetHeight - currentHeight;
+  if (Math.abs(diff) > 0.5) { // evitar microajustes innecesarios
+    navbar.style.height = currentHeight + diff * 0.2 + "px"; // 0.2 = velocidad de transición
+    document.body.style.paddingTop = navbar.offsetHeight + 10 + "px";
+    requestAnimationFrame(adjustNavbar);
+  } else {
+    navbar.style.height = targetHeight + "px";
+    document.body.style.paddingTop = navbar.offsetHeight + 10 + "px";
+  }
 }
 
 // Inicializar
