@@ -60,34 +60,30 @@ document.getElementById("navbar-placeholder").innerHTML = `
 
 <style>
   .navbar-custom { 
-    transition: all 0.3s ease;
-    min-height: 56px;
+    transition: all 0.3s ease; 
+    height: 250px; 
+  }
+  .navbar-shrink { 
+    height: 50px; 
+  }
+  .navbar-brand, .nav-link { 
+    line-height: 1; 
   }
   
-  /* Desktop: navbar handia */
-  @media (min-width: 992px) {
-    .navbar-custom { 
-      height: 250px; 
-    }
-    .navbar-shrink { 
-      height: 50px !important; 
-    }
-  }
-  
-  /* Mobile: navbar normala beti */
+  /* Mobile responsive */
   @media (max-width: 991px) {
     .navbar-custom {
-      height: auto !important;
-      padding: 0.5rem 1rem;
+      height: auto;
+      min-height: 56px;
+    }
+    .navbar-shrink {
+      height: auto;
+      min-height: 56px;
     }
     .navbar-collapse {
       max-height: 80vh;
       overflow-y: auto;
     }
-  }
-  
-  .navbar-brand, .nav-link { 
-    line-height: 1; 
   }
 </style>
 `;
@@ -95,9 +91,7 @@ document.getElementById("navbar-placeholder").innerHTML = `
 // Ajusta el padding del body según la altura del navbar
 function adjustBodyPadding() {
   const navbar = document.getElementById("navbar");
-  if (navbar) {
-    document.body.style.paddingTop = navbar.offsetHeight + 10 + "px";
-  }
+  if (navbar) document.body.style.paddingTop = navbar.offsetHeight + 10 + "px";
 }
 
 // Ejecutar al cargar
@@ -107,14 +101,16 @@ window.addEventListener("resize", adjustBodyPadding);
 window.addEventListener("load", adjustBodyPadding);
 
 // Listener para el toggle móvil
-const navbarToggler = document.querySelector('.navbar-toggler');
-if (navbarToggler) {
-  navbarToggler.addEventListener('click', function() {
-    setTimeout(adjustBodyPadding, 350);
-  });
-}
+document.addEventListener("DOMContentLoaded", function() {
+  const navbarToggler = document.querySelector('.navbar-toggler');
+  if (navbarToggler) {
+    navbarToggler.addEventListener('click', function() {
+      setTimeout(adjustBodyPadding, 350);
+    });
+  }
+});
 
-// Optimización scroll con requestAnimationFrame
+// Efecto shrink al hacer scroll - OPTIMIZADO con requestAnimationFrame
 let ticking = false;
 
 window.addEventListener("scroll", function () {
@@ -132,6 +128,7 @@ window.addEventListener("scroll", function () {
         navbar.classList.remove("navbar-shrink");
       }
       
+      // Ajustar padding después de cambiar la clase
       adjustBodyPadding();
       ticking = false;
     });
