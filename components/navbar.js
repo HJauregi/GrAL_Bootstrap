@@ -12,11 +12,7 @@ document.getElementById("navbar-placeholder").innerHTML = `
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ml-auto">
-
-        <!-- Hasiera -->
         <li class="nav-item"><a class="nav-link" href="${basePath}index.html">Hasiera</a></li>
-
-        <!-- Arautegia Dropdown como botón principal + split -->
         <li class="nav-item dropdown">
           <div class="btn-group">
             <a class="nav-link" href="${basePath}windows/araudia.html">Arautegia</a>
@@ -30,11 +26,7 @@ document.getElementById("navbar-placeholder").innerHTML = `
             </div>
           </div>
         </li>
-
-        <!-- Egutegia -->
         <li class="nav-item"><a class="nav-link" href="${basePath}windows/egutegia.html">Egutegia</a></li>
-
-        <!-- Memoriak Dropdown -->
         <li class="nav-item dropdown">
           <div class="btn-group">
             <a class="nav-link" href="${basePath}windows/memoriak.html">GrAL Memoriak</a>
@@ -48,148 +40,48 @@ document.getElementById("navbar-placeholder").innerHTML = `
             </div>
           </div>
         </li>
-
-        <!-- About us -->
         <li class="nav-item"><a class="nav-link" href="${basePath}windows/about-us.html">About us</a></li>
-
-        <!-- Autoebaluazioa -->
         <li class="nav-item"><a class="nav-link" href="${basePath}windows/galdetegia.html">Autoebaluazio galdetegia</a></li>
-
       </ul>
     </div>
   </div>
 </nav>
 
 <style>
-  /* Desktop navbar - Layout cambia según tamaño */
-  @media (min-width: 992px) {
-    .navbar-custom { 
-      transition: all 0.3s ease; 
-      height: 300px;
-    }
-    
-    /* Cuando está GRANDE: título centro, menú arriba */
-    .navbar-custom .navbar-content {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: space-between;
-      height: 100%;
-      padding-top: 1rem;
-      padding-bottom: 1rem;
-    }
-    
-    .navbar-custom .navbar-brand {
-      font-size: 2.5rem;
-      order: 2; /* Título en el centro */
-      margin: auto 0;
-    }
-    
-    .navbar-custom .navbar-collapse {
-      order: 1; /* Menú arriba */
-      flex-grow: 0;
-    }
-    
-    .navbar-custom .navbar-toggler {
-      display: none;
-    }
-    
-    /* Cuando se ENCOGE: todo en línea normal */
-    .navbar-shrink { 
-      height: 60px;
-    }
-    
-    .navbar-shrink .navbar-content {
-      flex-direction: row !important;
-      justify-content: space-between !important;
-      padding-top: 0;
-      padding-bottom: 0;
-    }
-    
-    .navbar-shrink .navbar-brand {
-      font-size: 1.25rem !important;
-      order: 0 !important;
-      margin: 0 !important;
-    }
-    
-    .navbar-shrink .navbar-collapse {
-      order: 0 !important;
-    }
-  }
-  
-  /* Mobile navbar */
-  @media (max-width: 991px) {
-    .navbar-custom {
-      transition: all 0.3s ease;
-      padding: 2.5rem 1rem;
-    }
-    .navbar-shrink {
-      padding: 0.5rem 1rem;
-    }
-    .navbar-brand {
-      font-size: 1.8rem;
-      transition: font-size 0.3s ease;
-    }
-    .navbar-shrink .navbar-brand {
-      font-size: 1.1rem;
-    }
-    .navbar-toggler {
-      transition: all 0.3s ease;
-      padding: 0.5rem 0.75rem;
-    }
-    .navbar-collapse {
-      max-height: 80vh;
-      overflow-y: auto;
-    }
-  }
+/* Desktop navbar */
+@media (min-width: 992px) {
+  .navbar-custom { transition: all 0.3s ease; height: 300px; }
+  .navbar-custom .navbar-content { display: flex; flex-direction: column; align-items: center; justify-content: space-between; height: 100%; padding: 1rem 0; }
+  .navbar-custom .navbar-brand { font-size: 2.5rem; order: 2; margin: auto 0; }
+  .navbar-custom .navbar-collapse { order: 1; flex-grow: 0; }
+  .navbar-custom .navbar-toggler { display: none; }
+  .navbar-shrink { height: 60px; }
+  .navbar-shrink .navbar-content { flex-direction: row !important; justify-content: space-between !important; padding: 0; }
+  .navbar-shrink .navbar-brand { font-size: 1.25rem !important; order: 0 !important; margin: 0 !important; }
+  .navbar-shrink .navbar-collapse { order: 0 !important; }
+}
+
+/* Mobile navbar */
+@media (max-width: 991px) {
+  .navbar-custom { transition: all 0.3s ease; padding: 2.5rem 1rem; }
+  .navbar-shrink { padding: 0.5rem 1rem; }
+  .navbar-brand { font-size: 1.8rem; transition: font-size 0.3s ease; }
+  .navbar-shrink .navbar-brand { font-size: 1.1rem; }
+  .navbar-toggler { transition: all 0.3s ease; padding: 0.5rem 0.75rem; }
+  .navbar-collapse { max-height: 80vh; overflow-y: auto; }
+}
 </style>
 `;
 
-// Ajusta el padding del body según la altura del navbar
+// Función para ajustar padding según altura de navbar
 function adjustBodyPadding() {
   const navbar = document.getElementById("navbar");
-  if (navbar) {
-    // Altura real de la navbar en este momento
-    const height = navbar.offsetHeight;
-    document.body.style.paddingTop = height + "px";
-  }
+  if (!navbar) return;
+  document.body.style.paddingTop = navbar.offsetHeight + "px";
 }
 
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener('click', function (e) {
-    e.preventDefault();
-    const target = document.querySelector(this.getAttribute('href'));
-    if (target) {
-      const offset = document.getElementById('navbar').offsetHeight;
-      window.scrollTo({
-        top: target.offsetTop - offset,
-        behavior: 'smooth'
-      });
-    }
-  });
-});
-
-// Ejecutar al cargar
-adjustBodyPadding();
-setTimeout(adjustBodyPadding, 100);
-window.addEventListener("resize", adjustBodyPadding);
-window.addEventListener("DOMContentLoaded", adjustBodyPadding);
-window.addEventListener("load", adjustBodyPadding);
-
-// Listener para cuando se abre/cierra el menú móvil
-document.addEventListener("DOMContentLoaded", function() {
-  const toggler = document.querySelector('.navbar-toggler');
-  if (toggler) {
-    toggler.addEventListener('click', function() {
-      setTimeout(adjustBodyPadding, 350);
-    });
-  }
-});
-
-// Efecto shrink al hacer scroll
-let ticking = false;
-
-window.addEventListener("scroll", function () {
+// Scroll shrink effect
+function handleNavbarShrink() {
   const navbar = document.getElementById("navbar");
   if (!navbar) return;
 
@@ -199,6 +91,36 @@ window.addEventListener("scroll", function () {
     navbar.classList.remove("navbar-shrink");
   }
 
-  // Actualiza el padding en cada scroll
   adjustBodyPadding();
+}
+
+// Ejecutar al cargar
+window.addEventListener("DOMContentLoaded", adjustBodyPadding);
+window.addEventListener("load", adjustBodyPadding);
+window.addEventListener("resize", adjustBodyPadding);
+window.addEventListener("scroll", handleNavbarShrink);
+
+// Ajustar padding cuando se abre/cierra el menú móvil
+document.addEventListener("DOMContentLoaded", function() {
+  const toggler = document.querySelector('.navbar-toggler');
+  if (toggler) {
+    toggler.addEventListener('click', function() {
+      setTimeout(adjustBodyPadding, 350);
+    });
+  }
+});
+
+// Scroll suave para enlaces internos que respeta navbar fija
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function(e) {
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      const offset = document.getElementById('navbar').offsetHeight;
+      window.scrollTo({
+        top: target.offsetTop - offset,
+        behavior: 'smooth'
+      });
+    }
+  });
 });
