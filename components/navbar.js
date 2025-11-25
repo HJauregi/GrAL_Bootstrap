@@ -148,13 +148,32 @@ document.getElementById("navbar-placeholder").innerHTML = `
 // Ajusta el padding del body según la altura del navbar
 function adjustBodyPadding() {
   const navbar = document.getElementById("navbar");
-  if (navbar) document.body.style.paddingTop = navbar.offsetHeight + 10 + "px";
+  if (navbar) {
+    // Altura real de la navbar en este momento
+    const height = navbar.offsetHeight;
+    document.body.style.paddingTop = height + "px";
+  }
 }
+
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      const offset = document.getElementById('navbar').offsetHeight;
+      window.scrollTo({
+        top: target.offsetTop - offset,
+        behavior: 'smooth'
+      });
+    }
+  });
+});
 
 // Ejecutar al cargar
 adjustBodyPadding();
 setTimeout(adjustBodyPadding, 100);
 window.addEventListener("resize", adjustBodyPadding);
+window.addEventListener("DOMContentLoaded", adjustBodyPadding);
 window.addEventListener("load", adjustBodyPadding);
 
 // Listener para cuando se abre/cierra el menú móvil
@@ -171,23 +190,15 @@ document.addEventListener("DOMContentLoaded", function() {
 let ticking = false;
 
 window.addEventListener("scroll", function () {
-  if (!ticking) {
-    window.requestAnimationFrame(function() {
-      const navbar = document.getElementById("navbar");
-      if (!navbar) {
-        ticking = false;
-        return;
-      }
-      
-      if (window.pageYOffset > 50) {
-        navbar.classList.add("navbar-shrink");
-      } else {
-        navbar.classList.remove("navbar-shrink");
-      }
-      
-      adjustBodyPadding();
-      ticking = false;
-    });
-    ticking = true;
+  const navbar = document.getElementById("navbar");
+  if (!navbar) return;
+
+  if (window.pageYOffset > 50) {
+    navbar.classList.add("navbar-shrink");
+  } else {
+    navbar.classList.remove("navbar-shrink");
   }
+
+  // Actualiza el padding en cada scroll
+  adjustBodyPadding();
 });
