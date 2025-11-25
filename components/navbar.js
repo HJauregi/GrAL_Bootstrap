@@ -42,8 +42,8 @@ document.getElementById("navbar-placeholder").innerHTML = `
             <span class="sr-only">Toggle Dropdown</span>
           </a>
           <div class="dropdown-menu" aria-labelledby="memoriakDropdown">
-            <a class="dropdown-item" href="${basePath}windows/memoriak_informatika.html">Ingenieritza Informatikako Memoriak</a>
-            <a class="dropdown-item" href="${basePath}windows/memoriak_ia.html">Adimen Artifizialeko Memoriak</a>
+            <a class="dropdown-item" href="${basePath}windows/memoriak-informatika.html">Ingenieritza Informatikako Memoriak</a>
+            <a class="dropdown-item" href="${basePath}windows/memoriak-ia.html">Adimen Artifizialeko Memoriak</a>
           </div>
         </div>
       </li>
@@ -59,32 +59,9 @@ document.getElementById("navbar-placeholder").innerHTML = `
 </nav>
 
 <style>
-  .navbar-custom { 
-    transition: all 0.3s ease; 
-    height: 250px; 
-  }
-  .navbar-shrink { 
-    height: 50px; 
-  }
-  .navbar-brand, .nav-link { 
-    line-height: 1; 
-  }
-  
-  /* Mobile responsive */
-  @media (max-width: 991px) {
-    .navbar-custom {
-      height: auto;
-      min-height: 56px;
-    }
-    .navbar-shrink {
-      height: auto;
-      min-height: 56px;
-    }
-    .navbar-collapse {
-      max-height: 80vh;
-      overflow-y: auto;
-    }
-  }
+  .navbar-custom { transition: all 0.3s ease; height: 250px; }
+  .navbar-shrink { height: 50px; }
+  .navbar-brand, .nav-link { line-height: 1; }
 </style>
 `;
 
@@ -93,46 +70,13 @@ function adjustBodyPadding() {
   const navbar = document.getElementById("navbar");
   if (navbar) document.body.style.paddingTop = navbar.offsetHeight + 10 + "px";
 }
-
-// Ejecutar al cargar
 adjustBodyPadding();
-setTimeout(adjustBodyPadding, 100);
 window.addEventListener("resize", adjustBodyPadding);
-window.addEventListener("load", adjustBodyPadding);
 
-// Listener para el toggle móvil
-document.addEventListener("DOMContentLoaded", function() {
-  const navbarToggler = document.querySelector('.navbar-toggler');
-  if (navbarToggler) {
-    navbarToggler.addEventListener('click', function() {
-      setTimeout(adjustBodyPadding, 350);
-    });
-  }
-});
-
-// Efecto shrink al hacer scroll - OPTIMIZADO con requestAnimationFrame
-let ticking = false;
-
+// Efecto shrink al hacer scroll
 window.addEventListener("scroll", function () {
-  if (!ticking) {
-    window.requestAnimationFrame(function() {
-      const navbar = document.getElementById("navbar");
-      if (!navbar) {
-        ticking = false;
-        return;
-      }
-      
-      if (window.pageYOffset > 50) {
-        navbar.classList.add("navbar-shrink");
-      } else {
-        navbar.classList.remove("navbar-shrink");
-      }
-      
-      // Ajustar padding después de cambiar la clase
-      adjustBodyPadding();
-      ticking = false;
-    });
-    
-    ticking = true;
-  }
+  const navbar = document.getElementById("navbar");
+  if (!navbar) return;
+  if (window.pageYOffset > 50) navbar.classList.add("navbar-shrink");
+  else navbar.classList.remove("navbar-shrink");
 });
