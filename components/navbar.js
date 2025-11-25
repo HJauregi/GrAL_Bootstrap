@@ -76,17 +76,17 @@ document.getElementById("navbar-placeholder").innerHTML = `
     }
   }
   
-  /* Mobile navbar - TAMBIÉN SE AGRANDA Y ENCOGE */
+  /* Mobile navbar - MÁS GRANDE cuando está expandido */
   @media (max-width: 991px) {
     .navbar-custom {
       transition: all 0.3s ease;
-      padding: 1.5rem 1rem; /* GRANDE por defecto */
+      padding: 2.5rem 1rem; /* MÁS GRANDE - antes 1.5rem */
     }
     .navbar-shrink {
       padding: 0.5rem 1rem; /* PEQUEÑO al hacer scroll */
     }
     .navbar-brand {
-      font-size: 1.5rem; /* GRANDE por defecto */
+      font-size: 1.8rem; /* MÁS GRANDE - antes 1.5rem */
       transition: font-size 0.3s ease;
     }
     .navbar-shrink .navbar-brand {
@@ -94,6 +94,7 @@ document.getElementById("navbar-placeholder").innerHTML = `
     }
     .navbar-toggler {
       transition: all 0.3s ease;
+      padding: 0.5rem 0.75rem;
     }
     .navbar-collapse {
       max-height: 80vh;
