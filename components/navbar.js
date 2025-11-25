@@ -93,7 +93,7 @@ function adjustBodyPadding() {
   }
 }
 
-// Ejecutar al cargar y después de un pequeño delay para asegurar renderizado
+// Ejecutar al cargar
 adjustBodyPadding();
 setTimeout(adjustBodyPadding, 100);
 
@@ -104,27 +104,33 @@ window.addEventListener("load", adjustBodyPadding);
 const navbarToggler = document.querySelector('.navbar-toggler');
 if (navbarToggler) {
   navbarToggler.addEventListener('click', function() {
-    setTimeout(adjustBodyPadding, 350); // Esperar a que termine la animación
+    setTimeout(adjustBodyPadding, 350);
   });
 }
 
-// Efecto shrink al hacer scroll Y ajustar padding
-let lastScrollPos = 0;
+// Variables para optimizar el scroll
+let ticking = false;
+let lastKnownScrollPosition = 0;
+
+// Efecto shrink al hacer scroll - OPTIMIZADO
 window.addEventListener("scroll", function () {
-  const navbar = document.getElementById("navbar");
-  if (!navbar) return;
-  
-  const currentScrollPos = window.pageYOffset;
-  
-  if (currentScrollPos > 50) {
-    navbar.classList.add("navbar-shrink");
-  } else {
-    navbar.classList.remove("navbar-shrink");
-  }
-  
-  // Ajustar padding si hay cambio significativo
-  if (Math.abs(currentScrollPos - lastScrollPos) > 10) {
-    adjustBodyPadding();
-    lastScrollPos = currentScrollPos;
+  lastKnownScrollPosition = window.pageYOffset;
+
+  if (!ticking) {
+    window.requestAnimationFrame(function() {
+      const navbar = document.getElementById("navbar");
+      if (!navbar) return;
+      
+      if (lastKnownScrollPosition > 50) {
+        navbar.classList.add("navbar-shrink");
+      } else {
+        navbar.classList.remove("navbar-shrink");
+      }
+      
+      adjustBodyPadding();
+      ticking = false;
+    });
+
+    ticking = true;
   }
 });
