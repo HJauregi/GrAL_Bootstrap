@@ -4,101 +4,134 @@ const basePath = window.location.pathname.includes("/windows/") ? "../" : "";
 // Inserta el navbar en el placeholder
 document.getElementById("navbar-placeholder").innerHTML = `
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top navbar-custom" id="navbar">
-  <a class="navbar-brand" href="${basePath}index.html">Gradu Amaierako Lana</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarNav">
-    <ul class="navbar-nav ml-auto">
+  <div class="container-fluid navbar-content">
+    <a class="navbar-brand" href="${basePath}index.html">Gradu Amaierako Lana</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
 
-      <!-- Hasiera -->
-      <li class="nav-item"><a class="nav-link" href="${basePath}index.html">Hasiera</a></li>
+        <!-- Hasiera -->
+        <li class="nav-item"><a class="nav-link" href="${basePath}index.html">Hasiera</a></li>
 
-      <!-- Arautegia Dropdown como botón principal + split -->
-      <li class="nav-item dropdown">
-        <div class="btn-group">
-          <a class="nav-link" href="${basePath}windows/araudia.html">Arautegia</a>
-          <a class="nav-link dropdown-toggle dropdown-toggle-split" href="#" id="arautegiaDropdown"
-             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <span class="sr-only">Toggle Dropdown</span>
-          </a>
-          <div class="dropdown-menu" aria-labelledby="arautegiaDropdown">
-            <a class="dropdown-item" href="${basePath}windows/araudia-infor.html">Ingenieritza Informatikoa</a>
-            <a class="dropdown-item" href="${basePath}windows/araudia-ia.html">Adimen Artifiziala</a>
+        <!-- Arautegia Dropdown como botón principal + split -->
+        <li class="nav-item dropdown">
+          <div class="btn-group">
+            <a class="nav-link" href="${basePath}windows/araudia.html">Arautegia</a>
+            <a class="nav-link dropdown-toggle dropdown-toggle-split" href="#" id="arautegiaDropdown"
+               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <span class="sr-only">Toggle Dropdown</span>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="arautegiaDropdown">
+              <a class="dropdown-item" href="${basePath}windows/araudia-infor.html">Ingenieritza Informatikoa</a>
+              <a class="dropdown-item" href="${basePath}windows/araudia-ia.html">Adimen Artifiziala</a>
+            </div>
           </div>
-        </div>
-      </li>
+        </li>
 
-      <!-- Egutegia -->
-      <li class="nav-item"><a class="nav-link" href="${basePath}windows/egutegia.html">Egutegia</a></li>
+        <!-- Egutegia -->
+        <li class="nav-item"><a class="nav-link" href="${basePath}windows/egutegia.html">Egutegia</a></li>
 
-      <!-- Memoriak Dropdown -->
-      <li class="nav-item dropdown">
-        <div class="btn-group">
-          <a class="nav-link" href="${basePath}windows/memoriak.html">GrAL Memoriak</a>
-          <a class="nav-link dropdown-toggle dropdown-toggle-split" href="#" id="memoriakDropdown"
-             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <span class="sr-only">Toggle Dropdown</span>
-          </a>
-          <div class="dropdown-menu" aria-labelledby="memoriakDropdown">
-            <a class="dropdown-item" href="${basePath}windows/memoriak-informatika.html">Ingenieritza Informatikako Memoriak</a>
-            <a class="dropdown-item" href="${basePath}windows/memoriak-ia.html">Adimen Artifizialeko Memoriak</a>
+        <!-- Memoriak Dropdown -->
+        <li class="nav-item dropdown">
+          <div class="btn-group">
+            <a class="nav-link" href="${basePath}windows/memoriak.html">GrAL Memoriak</a>
+            <a class="nav-link dropdown-toggle dropdown-toggle-split" href="#" id="memoriakDropdown"
+               data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <span class="sr-only">Toggle Dropdown</span>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="memoriakDropdown">
+              <a class="dropdown-item" href="${basePath}windows/memoriak-informatika.html">Ingenieritza Informatikako Memoriak</a>
+              <a class="dropdown-item" href="${basePath}windows/memoriak-ia.html">Adimen Artifizialeko Memoriak</a>
+            </div>
           </div>
-        </div>
-      </li>
+        </li>
 
-      <!-- About us -->
-      <li class="nav-item"><a class="nav-link" href="${basePath}windows/about-us.html">About us</a></li>
+        <!-- About us -->
+        <li class="nav-item"><a class="nav-link" href="${basePath}windows/about-us.html">About us</a></li>
 
-      <!-- Autoebaluazioa -->
-      <li class="nav-item"><a class="nav-link" href="${basePath}windows/galdetegia.html">Autoebaluazio galdetegia</a></li>
+        <!-- Autoebaluazioa -->
+        <li class="nav-item"><a class="nav-link" href="${basePath}windows/galdetegia.html">Autoebaluazio galdetegia</a></li>
 
-    </ul>
+      </ul>
+    </div>
   </div>
 </nav>
 
 <style>
-  /* Desktop navbar - MÁS GRANDE cuando está expandido */
+  /* Desktop navbar - Layout cambia según tamaño */
   @media (min-width: 992px) {
     .navbar-custom { 
       transition: all 0.3s ease; 
-      height: 300px; /* MÁS GRANDE - antes 200px */
+      height: 300px;
     }
+    
+    /* Cuando está GRANDE: título centro, menú arriba */
+    .navbar-custom .navbar-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      height: 100%;
+      padding-top: 1rem;
+      padding-bottom: 1rem;
+    }
+    
+    .navbar-custom .navbar-brand {
+      font-size: 2.5rem;
+      order: 2; /* Título en el centro */
+      margin: auto 0;
+    }
+    
+    .navbar-custom .navbar-collapse {
+      order: 1; /* Menú arriba */
+      flex-grow: 0;
+    }
+    
+    .navbar-custom .navbar-toggler {
+      display: none;
+    }
+    
+    /* Cuando se ENCOGE: todo en línea normal */
     .navbar-shrink { 
-      height: 50px; 
+      height: 60px;
     }
-    .navbar-brand, .nav-link { 
-      line-height: 2.5; /* MÁS GRANDE - antes 2 */
-      font-size: 1.1rem; /* Texto más grande */
+    
+    .navbar-shrink .navbar-content {
+      flex-direction: row !important;
+      justify-content: space-between !important;
+      padding-top: 0;
+      padding-bottom: 0;
     }
-    .navbar-shrink .navbar-brand, .navbar-shrink .nav-link { 
-      line-height: 1.5; 
-      font-size: 1rem;
-    }
-    .navbar-brand {
-      font-size: 1.5rem; /* Brand más grande */
-    }
+    
     .navbar-shrink .navbar-brand {
-      font-size: 1.25rem;
+      font-size: 1.25rem !important;
+      order: 0 !important;
+      margin: 0 !important;
+    }
+    
+    .navbar-shrink .navbar-collapse {
+      order: 0 !important;
     }
   }
   
-  /* Mobile navbar - MÁS GRANDE cuando está expandido */
+  /* Mobile navbar */
   @media (max-width: 991px) {
     .navbar-custom {
       transition: all 0.3s ease;
-      padding: 2.5rem 1rem; /* MÁS GRANDE */
+      padding: 2.5rem 1rem;
     }
     .navbar-shrink {
-      padding: 0.5rem 1rem; /* PEQUEÑO al hacer scroll */
+      padding: 0.5rem 1rem;
     }
     .navbar-brand {
-      font-size: 1.8rem; /* MÁS GRANDE */
+      font-size: 1.8rem;
       transition: font-size 0.3s ease;
     }
     .navbar-shrink .navbar-brand {
-      font-size: 1.1rem; /* PEQUEÑO al hacer scroll */
+      font-size: 1.1rem;
     }
     .navbar-toggler {
       transition: all 0.3s ease;
@@ -107,9 +140,6 @@ document.getElementById("navbar-placeholder").innerHTML = `
     .navbar-collapse {
       max-height: 80vh;
       overflow-y: auto;
-    }
-    .navbar-brand, .nav-link {
-      line-height: 1.5;
     }
   }
 </style>
@@ -137,7 +167,7 @@ document.addEventListener("DOMContentLoaded", function() {
   }
 });
 
-// Efecto shrink al hacer scroll - FUNCIONA EN DESKTOP Y MOBILE
+// Efecto shrink al hacer scroll
 let ticking = false;
 
 window.addEventListener("scroll", function () {
