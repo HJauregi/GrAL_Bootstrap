@@ -59,7 +59,7 @@ document.getElementById("navbar-placeholder").innerHTML = `
 </nav>
 
 <style>
-  /* Desktop navbar */
+  /* Desktop navbar - SE AGRANDA Y ENCOGE */
   @media (min-width: 992px) {
     .navbar-custom { 
       transition: all 0.3s ease; 
@@ -76,19 +76,31 @@ document.getElementById("navbar-placeholder").innerHTML = `
     }
   }
   
-  /* Mobile navbar */
+  /* Mobile navbar - TAMBIÉN SE AGRANDA Y ENCOGE */
   @media (max-width: 991px) {
     .navbar-custom {
-      height: auto !important;
-      min-height: 56px;
-      padding: 0.5rem 1rem;
+      transition: all 0.3s ease;
+      padding: 1.5rem 1rem; /* GRANDE por defecto */
     }
-    .navbar-brand, .nav-link {
-      line-height: 1.5;
+    .navbar-shrink {
+      padding: 0.5rem 1rem; /* PEQUEÑO al hacer scroll */
+    }
+    .navbar-brand {
+      font-size: 1.5rem; /* GRANDE por defecto */
+      transition: font-size 0.3s ease;
+    }
+    .navbar-shrink .navbar-brand {
+      font-size: 1.1rem; /* PEQUEÑO al hacer scroll */
+    }
+    .navbar-toggler {
+      transition: all 0.3s ease;
     }
     .navbar-collapse {
       max-height: 80vh;
       overflow-y: auto;
+    }
+    .navbar-brand, .nav-link {
+      line-height: 1.5;
     }
   }
 </style>
@@ -116,7 +128,7 @@ document.addEventListener("DOMContentLoaded", function() {
   }
 });
 
-// Efecto shrink al hacer scroll - optimizado
+// Efecto shrink al hacer scroll - FUNCIONA EN DESKTOP Y MOBILE
 let ticking = false;
 
 window.addEventListener("scroll", function () {
