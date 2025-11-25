@@ -59,9 +59,11 @@ document.getElementById("navbar-placeholder").innerHTML = `
 </nav>
 
 <style>
-  .navbar-custom { transition: all 0.3s ease; height: 250px; }
+  .navbar-custom { transition: all 0.3s ease; height: 200px; }
   .navbar-shrink { height: 50px; }
-  .navbar-brand, .nav-link { line-height: 1; }
+  .navbar-brand, .nav-link { line-height: 2; }
+  .navbar-shrink .navbar-brand, .navbar-shrink .nav-link { line-height: 1.5; }
+  .padding-top-body { padding-top: 210px; }
 </style>
 `;
 
