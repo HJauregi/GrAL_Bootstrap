@@ -5,48 +5,37 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>GrAL - Hasiera</title>
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
- <style>
-  /* Navbar */
-  #navbar-placeholder {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1030; /* por encima del contenido */
-  }
+  <style>
+body {
+  padding-top: 200px; /* altura máxima de la navbar */
+  transition: padding-top 0.3s ease;
+}    .container { padding-top: 1rem; padding-bottom: 4rem; }
+   /* Footer */
+    .footer {
+      background-color: #343a40;
+      color: white;
+      text-align: center;
+      padding: 0.75rem 0;
+      margin-top: auto;
+    }
 
-  /* Contenido principal */
-  .container {
-    padding-top: 80px; /* Ajusta según la altura de la navbar */
-    padding-bottom: 4rem;
-  }
+    .footer p {
+      margin-bottom: 0.25rem;
+    }
 
-  /* Footer */
-  .footer {
-    background-color: #343a40;
-    color: white;
-    text-align: center;
-    padding: 0.75rem 0;
-    margin-top: auto;
-  }
+    .footer .mb-2 {
+      margin-bottom: 0.25rem !important;
+    }
 
-  .footer p {
-    margin-bottom: 0.25rem;
-  }
+    .footer a {
+      color: #ffffff;
+      text-decoration: underline;
+    }
 
-  .footer .mb-2 {
-    margin-bottom: 0.25rem !important;
-  }
-
-  .footer a {
-    color: #ffffff;
-    text-decoration: underline;
-  }
-
-  .footer a:hover {
-    color: #adb5bd;
-  }
-</style>
+    .footer a:hover {
+      color: #adb5bd;
+    }
+  </style>
 </head>
 <body>
 
