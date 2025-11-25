@@ -3,7 +3,7 @@ const basePath = window.location.pathname.includes("/windows/") ? "../" : "";
 
 // Inserta el navbar en el placeholder
 document.getElementById("navbar-placeholder").innerHTML = `
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top navbar-custom" id="navbar">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNavbar">
   <a class="navbar-brand" href="${basePath}index.html">Gradu Amaierako Lana</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -11,11 +11,8 @@ document.getElementById("navbar-placeholder").innerHTML = `
   </button>
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav ml-auto">
-
-      <!-- Hasiera -->
       <li class="nav-item"><a class="nav-link" href="${basePath}index.html">Hasiera</a></li>
 
-      <!-- Arautegia Dropdown como botón principal + split -->
       <li class="nav-item dropdown">
         <div class="btn-group">
           <a class="nav-link" href="${basePath}windows/araudia.html">Arautegia</a>
@@ -30,10 +27,8 @@ document.getElementById("navbar-placeholder").innerHTML = `
         </div>
       </li>
 
-      <!-- Egutegia -->
       <li class="nav-item"><a class="nav-link" href="${basePath}windows/egutegia.html">Egutegia</a></li>
 
-      <!-- Memoriak Dropdown -->
       <li class="nav-item dropdown">
         <div class="btn-group">
           <a class="nav-link" href="${basePath}windows/memoriak.html">GrAL Memoriak</a>
@@ -48,40 +43,22 @@ document.getElementById("navbar-placeholder").innerHTML = `
         </div>
       </li>
 
-      <!-- About us -->
       <li class="nav-item"><a class="nav-link" href="${basePath}windows/about-us.html">About us</a></li>
-
-      <!-- Autoebaluazioa -->
       <li class="nav-item"><a class="nav-link" href="${basePath}windows/galdetegia.html">Autoebaluazio galdetegia</a></li>
-
     </ul>
   </div>
 </nav>
 
 <style>
-  .navbar-custom { 
-    transition: transform 0.6s ease-in-out, padding 0.6s ease-in-out, opacity 0.6s ease-in-out;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-    transform: translateY(0);
-    opacity: 1;
+  #mainNavbar {
+    padding: 1rem 1rem;
+    transition: padding 0.3s ease;
   }
   
-  .navbar-hidden {
-    transform: translateY(-100%) !important;
-    opacity: 0 !important;
+  #mainNavbar.navbar-scrolled {
+    padding: 0.5rem 1rem;
   }
   
-  .navbar-shrink { 
-    padding-top: 0.25rem !important;
-    padding-bottom: 0.25rem !important;
-  }
-  
-  .navbar-brand, .nav-link { 
-    line-height: 1; 
-  }
-
-  /* Asegurar que el menú colapsado funcione bien */
   @media (max-width: 991px) {
     .navbar-collapse {
       max-height: 80vh;
@@ -91,70 +68,49 @@ document.getElementById("navbar-placeholder").innerHTML = `
 </style>
 `;
 
-// Ajusta el padding del body según la altura del navbar
-function adjustBodyPadding() {
-  const navbar = document.getElementById("navbar");
+// Funtzio nagusia: body padding egokitzeko
+function updateBodyPadding() {
+  const navbar = document.getElementById("mainNavbar");
   if (navbar) {
-    const navbarHeight = navbar.offsetHeight;
-    // Solo ajustar padding cuando el navbar está visible
-    if (!navbar.classList.contains("navbar-hidden")) {
-      document.body.style.paddingTop = navbarHeight + 10 + "px";
-    } else {
-      document.body.style.paddingTop = "0px";
-    }
+    document.body.style.paddingTop = navbar.offsetHeight + "px";
   }
 }
 
-// Ejecutar al cargar
-adjustBodyPadding();
-setTimeout(adjustBodyPadding, 100);
+// Hasierako karga
+updateBodyPadding();
+setTimeout(updateBodyPadding, 50);
 
-window.addEventListener("resize", adjustBodyPadding);
-window.addEventListener("load", adjustBodyPadding);
+// Resize eta load eventetan
+window.addEventListener("resize", updateBodyPadding);
+window.addEventListener("load", updateBodyPadding);
 
-// Ajustar padding cuando se abre/cierra el menú móvil
-const navbarToggler = document.querySelector('.navbar-toggler');
-if (navbarToggler) {
-  navbarToggler.addEventListener('click', function() {
-    setTimeout(adjustBodyPadding, 350);
-  });
-}
-
-// Variables para optimizar el scroll
-let ticking = false;
-let lastKnownScrollPosition = 0;
-
-// Efecto mostrar/ocultar navbar según scroll
-window.addEventListener("scroll", function () {
-  lastKnownScrollPosition = window.pageYOffset;
-
-  if (!ticking) {
-    window.requestAnimationFrame(function() {
-      const navbar = document.getElementById("navbar");
-      if (!navbar) {
-        ticking = false;
-        return;
-      }
-      
-      console.log("Scroll position:", lastKnownScrollPosition); // DEBUG
-      
-      // Si estamos en el top (menos de 50px), mostrar navbar
-      if (lastKnownScrollPosition < 50) {
-        console.log("Mostrando navbar"); // DEBUG
-        navbar.classList.remove("navbar-hidden");
-        navbar.classList.remove("navbar-shrink");
-      } else {
-        // Si hemos hecho scroll, ocultar navbar
-        console.log("Ocultando navbar"); // DEBUG
-        navbar.classList.add("navbar-hidden");
-        navbar.classList.add("navbar-shrink");
-      }
-      
-      // Esperar a que termine la animación antes de ajustar padding
-      setTimeout(adjustBodyPadding, 100);
-      ticking = false;
+// Navbar toggle (mobile)
+document.addEventListener("DOMContentLoaded", function() {
+  const toggler = document.querySelector(".navbar-toggler");
+  if (toggler) {
+    toggler.addEventListener("click", function() {
+      setTimeout(updateBodyPadding, 350);
     });
+  }
+});
 
-    ticking = true;
+// Scroll efektua - optimizatuta
+let scrolling = false;
+
+window.addEventListener("scroll", function() {
+  if (!scrolling) {
+    window.requestAnimationFrame(function() {
+      const navbar = document.getElementById("mainNavbar");
+      if (navbar) {
+        if (window.scrollY > 50) {
+          navbar.classList.add("navbar-scrolled");
+        } else {
+          navbar.classList.remove("navbar-scrolled");
+        }
+        updateBodyPadding();
+      }
+      scrolling = false;
+    });
+    scrolling = true;
   }
 });
