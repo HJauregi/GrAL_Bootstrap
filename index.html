@@ -9,13 +9,41 @@
     body {
       /* El padding-top ahora lo gestiona navbar.js */
       transition: padding-top 0.3s ease;
+      background-color: #f8f9fa;
     }
     
-    .container { 
-      padding-top: 1rem; 
-      padding-bottom: 4rem; 
+    .container {
+      padding-top: 2rem; 
+      padding-bottom: 4rem;
     }
-    
+
+    .section-card {
+      background-color: white;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      margin-bottom: 2rem;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .section-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+
+    .section-card h1 {
+      margin-bottom: 1rem;
+      color: #343a40;
+    }
+
+    .section-card p {
+      font-size: 1.05rem;
+      line-height: 1.6;
+      color: #495057;
+      margin-bottom: 1rem;
+    }
+
     /* Footer */
     .footer {
       background-color: #343a40;
@@ -27,10 +55,6 @@
 
     .footer p {
       margin-bottom: 0.25rem;
-    }
-
-    .footer .mb-2 {
-      margin-bottom: 0.25rem !important;
     }
 
     .footer a {
@@ -49,24 +73,25 @@
   <div id="navbar-placeholder"></div>
   <script src="components/navbar.js"></script>
 
-  <!-- Contenido principal -->
-  <div class="container mt-5">
-    <h1 class="text-center mb-4">Hasiera</h1>
-    <p class="text-center mb-4">
-     Gradu bat egitearen helburu nagusietako bat esparru akademiko jakin batean ezagutzak sakondu eta trebetasuna eskuratzea da, gero ingurune horretan 
-     lan egin ahal izateko. Horregatik, ikasketak amaitzeko unean, ikasleek egindako ibilbidea erakusteko frogatzat aurkezten da 
-     <strong>Gradu Amaierako Lana (GrAL)</strong>. Lan hau ezinbestekoa da gradu guztietan, baina web honetan eskainiko dugun informazioa 
-     <strong>Ingenieritza Informatiko</strong> eta <strong>Adimen Artifizialeko</strong> graduetan oinarrituta egongo da.
-    </p>
-    <p class="text-center mb-4">
-      GrALa, ikasle eta irakasleen artean adostutako gai baten inguruko ikerketa edo garapen-lana da, eta lan horrek originaltasuna eta disziplina 
-      akademikoa behar ditu. Baina noski, ahalik eta modu zuzen eta ordenatu batean egiteko, aurretik zehaztutako hainbat arau eta eskakizun bete behar 
-      izaten dira, prozesua modu eraginkorrean eta antolatuan gauzatzeko.
-    </p>
-    <p class="text-center mb-4">
-      Horregatik, webgune honek ikasle zein irakasleei zuzendutako informazioa eta baliabide praktikoak eskaintzen ditu, bakoitzak bere lana segurtasunez 
-      eta konfiantzaz garatu ahal izateko.    
-    </p>
+  <div class="container">
+    <div class="section-card">
+      <h1>Hasiera</h1>
+      <p>
+        Gradu bat egitearen helburu nagusietako bat esparru akademiko jakin batean ezagutzak sakondu eta trebetasuna eskuratzea da, gero ingurune horretan 
+        lan egin ahal izateko. Horregatik, ikasketak amaitzeko unean, ikasleek egindako ibilbidea erakusteko frogatzat aurkezten da 
+        <strong>Gradu Amaierako Lana (GrAL)</strong>. Lan hau ezinbestekoa da gradu guztietan, baina web honetan eskainiko dugun informazioa 
+        <strong>Ingenieritza Informatiko</strong> eta <strong>Adimen Artifizialeko</strong> graduetan oinarrituta egongo da.
+      </p>
+      <p>
+        GrALa, ikasle eta irakasleen artean adostutako gai baten inguruko ikerketa edo garapen-lana da, eta lan horrek originaltasuna eta disziplina 
+        akademikoa behar ditu. Baina noski, ahalik eta modu zuzen eta ordenatu batean egiteko, aurretik zehaztutako hainbat arau eta eskakizun bete behar 
+        izaten dira, prozesua modu eraginkorrean eta antolatuan gauzatzeko.
+      </p>
+      <p>
+        Horregatik, webgune honek ikasle zein irakasleei zuzendutako informazioa eta baliabide praktikoak eskaintzen ditu, bakoitzak bere lana segurtasunez 
+        eta konfiantzaz garatu ahal izateko.    
+      </p>
+    </div>
   </div>
 
  <!-- Footer placeholder -->

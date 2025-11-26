@@ -7,13 +7,41 @@
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
   <style>
     body {
-  padding-top: 300px; /* altura máxima de la navbar */
-  transition: padding-top 0.3s ease;
-}
+      padding-top: 300px; /* altura máxima de la navbar */
+      transition: padding-top 0.3s ease;
+      background-color: #f8f9fa;
+    }
 
     .container {
-      padding-top: 1rem;
+      padding-top: 2rem;
       padding-bottom: 4rem; /* espacio para footer */
+    }
+
+    .section-card {
+      background-color: white;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      margin-bottom: 2rem;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .section-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+
+    .section-card h1,
+    .section-card h2 {
+      margin-bottom: 1rem;
+      color: #343a40;
+    }
+
+    .section-card p {
+      font-size: 1.05rem;
+      line-height: 1.6;
+      color: #495057;
     }
 
     /* Footer */
@@ -27,10 +55,6 @@
 
     .footer p {
       margin-bottom: 0.25rem;
-    }
-
-    .footer .mb-2 {
-      margin-bottom: 0.25rem !important;
     }
 
     .footer a {
@@ -48,30 +72,36 @@
   <!-- Navbar dinámico -->
   <div id="navbar-placeholder"></div>
   <script src="../components/navbar.js"></script> <!-- <-- usa navbar.js -->
-  
-  <div class="container mt-5">
-    <h1 class="text-center mb-4">Nor gara?</h1>
-    <p class="text-center mb-4">
-      Web orri honen sortzaileak <strong>UPV/EHUko Informatika Fakultateko</strong> 
-      <strong>Hodei Jauregi</strong>, <strong>Maialen Velazquez</strong> eta <strong>Maitane Rodriguez</strong> 
-      ikasleek sortu dute, bertan irakasten den <strong>Pertsona eta Konputagailuen arteko Elkarrekintza</strong> 
-      irakasgaiaren partaide bezala.
-    </p>
 
-    <h2 class="text-center mb-4">Zergatik sortu da web orri hau?</h2>
-    <p class="text-center mb-4">
-      Bertan aurkitzen den guztia eskolan eskatutako lan bat burutzeko eginik dago, besterik ez.
-    </p>
+  <div class="container">
+    <div class="section-card">
+      <h1>Nor gara?</h1>
+      <p>
+        Web orri honen sortzaileak <strong>UPV/EHUko Informatika Fakultateko</strong> 
+        <strong>Hodei Jauregi</strong>, <strong>Maialen Velazquez</strong> eta <strong>Maitane Rodriguez</strong> 
+        ikasleek sortu dute, bertan irakasten den <strong>Pertsona eta Konputagailuen arteko Elkarrekintza</strong> 
+        irakasgaiaren partaide bezala.
+      </p>
+    </div>
 
-    <h2 class="text-center mb-4">Zer lortu nahi dugu web orri honekin?</h2>
-    <p class="text-center mb-4">
-      Helburu nagusia, eskolako lana egiteaz aparte, <strong>Gradu Amaierako Lanei</strong> buruzko informazioa ematea da, 
-      kontuan izanda hauek burutzeko hainbat arau eta epe bete behar direla. Informazio asko dagoenez interneten, 
-      ahalik eta gehien laburtzea eta modu ulerterraz batean biltzea da gure nahia.
-    </p>
+    <div class="section-card">
+      <h2>Zergatik sortu da web orri hau?</h2>
+      <p>
+        Bertan aurkitzen den guztia eskolan eskatutako lan bat burutzeko eginik dago, besterik ez.
+      </p>
+    </div>
+
+    <div class="section-card">
+      <h2>Zer lortu nahi dugu web orri honekin?</h2>
+      <p>
+        Helburu nagusia, eskolako lana egiteaz aparte, <strong>Gradu Amaierako Lanei</strong> buruzko informazioa ematea da, 
+        kontuan izanda hauek burutzeko hainbat arau eta epe bete behar direla. Informazio asko dagoenez interneten, 
+        ahalik eta gehien laburtzea eta modu ulerterraz batean biltzea da gure nahia.
+      </p>
+    </div>
   </div>
 
- <!-- Footer placeholder -->
+  <!-- Footer placeholder -->
   <div id="footer-placeholder"></div>
   <script src="../components/footer.js"></script>
 
