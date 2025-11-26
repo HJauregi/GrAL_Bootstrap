@@ -411,11 +411,15 @@
             </div>
           </div>
 
-          <button type="submit" class="btn btn-primary">Bidali</button>
-        </form>
+ <!-- Botoiak -->
+    <div class="text-center mt-4">
+      <button type="submit" class="btn btn-primary mx-2">Bidali</button>
+      <button type="button" class="btn btn-danger mx-2" onclick="resetGaldetegia()">Garbitu dena</button>
+    </div>
+          </form>
 
-        <div id="emaitza" class="mt-4"></div>
-      </div>
+<h3 class="text-center mt-4">Zure puntuazioa: <span id="contador">0</span>/10</h3>
+  <div id="emaitza" class="mt-3 text-center"></div>      </div>
     </div>
   </div>
 
@@ -476,85 +480,55 @@
     });
 
     // Submit handler
-    form.addEventListener("submit", function(e){
-      e.preventDefault();
-      
-      let zuzenak = 0;
-      let okerrak = 0;
+    form.addEventListener("submit", function(e) {
+  e.preventDefault();
 
-      // Comprobar cada pregunta
-      for(let i=1; i<=10; i++){
-        const pregunta = `q${i}`;
-        const respuestaUsuario = form[pregunta].value;
-        const respuestaCorrecta = respuestasCorrectas[pregunta];
-        
-        // Obtener todos los radio buttons de esta pregunta
-        const radios = document.querySelectorAll(`input[name="${pregunta}"]`);
-        
-        radios.forEach(radio => {
-          const parent = radio.closest('.form-check');
-          const label = parent.querySelector('.form-check-label');
-          
-          // Limpiar estilos previos
-          parent.classList.remove('respuesta-correcta', 'respuesta-incorrecta');
-          label.classList.remove('icono-correcto', 'icono-incorrecto');
-          
-          // Si es la respuesta correcta, marcarla en verde
-          if(radio.value === respuestaCorrecta){
-            parent.classList.add('respuesta-correcta');
-            label.classList.add('icono-correcto');
-          }
-          
-          // Si el usuario seleccionó esta y es incorrecta, marcarla en rojo
-          if(radio.checked && radio.value !== respuestaCorrecta){
-            parent.classList.add('respuesta-incorrecta');
-            label.classList.add('icono-incorrecto');
-          }
-        });
-        
-        // Contar aciertos
-        if(respuestaUsuario === respuestaCorrecta){
-          zuzenak++;
-        } else if(respuestaUsuario){
-          okerrak++;
+  let puntuazioa = 0;
+
+  for (let i = 1; i <= 10; i++) {
+    const name = "q" + i;
+    const aukerak = document.querySelectorAll(`input[name="${name}"]`);
+
+    aukerak.forEach(radio => {
+      const parent = radio.closest(".form-check");
+      const label = parent.querySelector(".form-check-label");
+
+      parent.classList.remove("respuesta-correcta", "respuesta-incorrecta");
+      label.classList.remove("icono-correcto", "icono-incorrecto");
+
+      if (radio.checked) {
+        if (radio.value === erantzunZuzena[name]) {
+          puntuazioa++;
+          parent.classList.add("respuesta-correcta");
+          label.classList.add("icono-correcto");
+        } else {
+          parent.classList.add("respuesta-incorrecta");
+          label.classList.add("icono-incorrecto");
         }
       }
-
-      // Calcular nota
-      const nota = (zuzenak / 10 * 10).toFixed(1);
-      const porcentaje = (zuzenak / 10 * 100).toFixed(0);
-
-      // Mostrar resultado
-      const emaitzaDiv = document.getElementById("emaitza");
-      let alertClass = 'alert-danger';
-      let mensaje = 'Gehiago ikasten saiatu behar duzu!';
-      
-      if(nota >= 9){
-        alertClass = 'alert-success';
-        mensaje = 'Bikain! Oso ondo ezagutzen duzu GrALa!';
-      } else if(nota >= 7){
-        alertClass = 'alert-info';
-        mensaje = 'Ondo! Baina hobetu dezakezu!';
-      } else if(nota >= 5){
-        alertClass = 'alert-warning';
-        mensaje = 'Gainditu duzu, baina azterketa gehiago egin beharko zenuke.';
-      }
-
-      emaitzaDiv.innerHTML = `
-        <div class="alert ${alertClass}">
-          <h5><strong>Emaitzak:</strong></h5>
-          <p>✓ Erantzun zuzenak: ${zuzenak}/10</p>
-          <p>✗ Erantzun okerrak: ${okerrak}/10</p>
-          <p>📊 Portzentajea: ${porcentaje}%</p>
-          <p>📝 Nota: ${nota}/10</p>
-          <hr>
-          <p>${mensaje}</p>
-        </div>
-      `;
-
-      // Scroll hasta el resultado
-      emaitzaDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
     });
+  }
+
+  contador.textContent = puntuazioa;
+  document.getElementById("emaitza").innerHTML = "<h4>Emaitza: " + puntuazioa + "/10</h4>";
+});
+function resetGaldetegia() {
+  form.reset();
+
+  for (let i = 1; i <= 10; i++) {
+    const aukerak = document.querySelectorAll(`input[name="q${i}"]`);
+    aukerak.forEach(radio => {
+      const parent = radio.closest(".form-check");
+      const label = parent.querySelector(".form-check-label");
+
+      parent.classList.remove("respuesta-correcta", "respuesta-incorrecta");
+      label.classList.remove("icono-correcto", "icono-incorrecto");
+    });
+  }
+
+  contador.textContent = "0";
+  document.getElementById("emaitza").innerHTML = "";
+}
   </script>
 
   <!-- Footer placeholder -->
