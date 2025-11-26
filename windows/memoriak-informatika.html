@@ -1,29 +1,60 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="eu">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GrAL - Memoriak Ingenieritza Informatikoa</title>
+  <title>Ingenieritza Informatikako GrAL Memoriak</title>
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
   <style>
     body {
-  padding-top: 300px; /* altura máxima de la navbar */
-  transition: padding-top 0.3s ease;
-}
+      padding-top: 300px; /* altura máxima de la navbar */
+      transition: padding-top 0.3s ease;
+    }
 
     .container {
       padding-top: 2rem;
       padding-bottom: 4rem;
     }
 
-    h3 a {
-      text-decoration: none;
-      color: inherit;
+    .memory-card {
+      margin-bottom: 2rem;
+      text-align: center;
+      padding: 1rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
-    h3 a:hover {
-      text-decoration: underline;
-      color: #007bff;
+    .memory-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    }
+
+    .memory-card h3 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+      color: #343a40;
+    }
+
+    .memory-card a {
+      display: inline-block;
+      text-decoration: none;
+      background-color: #007bff;
+      color: white;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      transition: background-color 0.3s ease;
+    }
+
+    .memory-card a:hover {
+      background-color: #0056b3;
+    }
+
+    @media (max-width: 768px) {
+      .memory-card h3 {
+        font-size: 1rem;
+      }
     }
 
     /* Footer */
@@ -39,10 +70,6 @@
       margin-bottom: 0.25rem;
     }
 
-    .footer .mb-2 {
-      margin-bottom: 0.25rem !important;
-    }
-
     .footer a {
       color: #ffffff;
       text-decoration: underline;
@@ -55,45 +82,53 @@
 </head>
 <body>
 
-  <!-- Navbar dinámico -->
+  <!-- Navbar placeholder -->
   <div id="navbar-placeholder"></div>
-  
-  <!-- Contenido principal -->
-  <div class="container text-center">
-    <h1 class="mb-4">Ingenieritza Informatikako GrALen Memoriak</h1>
-    <p class="mb-5">
-      Jarraian, Ingenieritza Informatikoko graduan aurreko urteetan defendatutako memoriak aurkituko dituzu hizkuntza eta espazialitate ezberdinetan:
+
+  <div class="container">
+    <h1 class="text-center mb-5">Ingenieritza Informatikako GrAL Memoriak</h1>
+    <p class="text-center mb-5">
+      Jarraian, Ingenieritza Informatikoko graduan aurreko urteetan defendatutako memoriak ikus ditzakezu:
     </p>
 
-    <h3 class="mb-4">
-      <a href="https://addi.ehu.es/handle/10810/13143" target="_blank">
-        GrAL Ingenieritza Informatikoa: Orokorra
-      </a>
-    </h3>
+    <div class="row justify-content-center">
+      <!-- Memoria 1 -->
+      <div class="col-md-6 col-lg-4">
+        <div class="memory-card">
+          <h3>GrAL Ingenieritza Informatikoa: Orokorra</h3>
+          <a href="https://addi.ehu.es/handle/10810/13143" target="_blank">Ikusi PDF</a>
+        </div>
+      </div>
 
-    <h3 class="mb-4">
-      <a href="https://addi.ehu.es/handle/10810/13138" target="_blank">
-        GrAL Ingenieritza Informatikoa: Konputazioa
-      </a>
-    </h3>
+      <!-- Memoria 2 -->
+      <div class="col-md-6 col-lg-4">
+        <div class="memory-card">
+          <h3>GrAL Ingenieritza Informatikoa: Konputazioa</h3>
+          <a href="https://addi.ehu.es/handle/10810/13138" target="_blank">Ikusi PDF</a>
+        </div>
+      </div>
 
-    <h3 class="mb-4">
-      <a href="https://addi.ehu.es/handle/10810/13140" target="_blank">
-        GrAL Ingenieritza Informatikoa: Software Ingenieritza
-      </a>
-    </h3>
+      <!-- Memoria 3 -->
+      <div class="col-md-6 col-lg-4">
+        <div class="memory-card">
+          <h3>GrAL Ingenieritza Informatikoa: Software Ingenieritza</h3>
+          <a href="https://addi.ehu.es/handle/10810/13140" target="_blank">Ikusi PDF</a>
+        </div>
+      </div>
 
-    <h3 class="mb-4">
-      <a href="https://addi.ehu.es/handle/10810/13139" target="_blank">
-        GrAL Ingenieritza Informatikoa: Konputagailuen Ingenieritza
-      </a>
-    </h3>
+      <!-- Memoria 4 -->
+      <div class="col-md-6 col-lg-4">
+        <div class="memory-card">
+          <h3>GrAL Ingenieritza Informatikoa: Konputagailuen Ingenieritza</h3>
+          <a href="https://addi.ehu.es/handle/10810/13139" target="_blank">Ikusi PDF</a>
+        </div>
+      </div>
+    </div>
   </div>
 
- <!-- Footer placeholder -->
+  <!-- Footer placeholder -->
   <div id="footer-placeholder"></div>
   <script src="../components/footer.js"></script>
-
   <script src="../components/navbar.js"></script>
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script> 

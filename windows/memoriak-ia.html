@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AA GrALen Memoriak</title>
+  <title>GrAL - Adimen Artifizialeko Memoriak</title>
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
   <style>
-   body {
-  padding-top: 300px; /* altura máxima de la navbar */
-  transition: padding-top 0.3s ease;
-}
+    body {
+      padding-top: 300px; /* altura máxima de la navbar */
+      transition: padding-top 0.3s ease;
+    }
 
     .container {
       padding-top: 2rem;
@@ -17,14 +17,46 @@
       text-align: center;
     }
 
-    h3 a {
-      text-decoration: none;
-      color: inherit;
+    /* Card estilo araudia */
+    .memory-card {
+      max-width: 500px;
+      margin: 0 auto;
+      padding: 1rem;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+      background-color: #f8f9fa;
     }
 
-    h3 a:hover {
-      text-decoration: underline;
-      color: #007bff;
+    .memory-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .memory-card img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+      transition: transform 0.3s ease;
+    }
+
+    .memory-card:hover img {
+      transform: scale(1.05);
+    }
+
+    .memory-card h3 {
+      font-size: 1.3rem;
+      font-weight: 600;
+      color: #343a40;
+      margin-bottom: 1rem;
+    }
+
+    .memory-card a.btn {
+      font-size: 1.1rem;
+      font-weight: 600;
+      padding: 0.75rem 1.5rem;
+      border-radius: 5px;
     }
 
     /* Footer */
@@ -36,14 +68,6 @@
       margin-top: auto;
     }
 
-    .footer p {
-      margin-bottom: 0.25rem;
-    }
-
-    .footer .mb-2 {
-      margin-bottom: 0.25rem !important;
-    }
-
     .footer a {
       color: #ffffff;
       text-decoration: underline;
@@ -52,31 +76,45 @@
     .footer a:hover {
       color: #adb5bd;
     }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .memory-card img {
+        height: 250px;
+      }
+      .memory-card h3 {
+        font-size: 1.2rem;
+      }
+    }
   </style>
 </head>
 <body>
 
   <!-- Navbar dinámico -->
   <div id="navbar-placeholder"></div>
-  
+
   <!-- Contenido principal -->
   <div class="container mt-5">
     <h1 class="mb-4">Adimen Artifizialeko GrALen Memoriak</h1>
-    <p class="mb-5">
-      Jarraian, Adimen Artifizialeko graduan aurreko urteetan defendatutako memoriak aurkituko dituzu hizkuntza eta espazialitate ezberdinetan:
+    <p class="mb-5 lead">
+      Aurreko urteetan defendatutako memoriak ikus ditzakezu hemen, Adimen Artifizialeko graduan.
     </p>
 
-    <h3 class="mb-4">
-      <a href="https://addi.ehu.es/handle/10810/73965" target="_blank">
-        GrAL Adimen Artifiziala: Orokorra
+    <div class="memory-card text-center">
+      <img src="https://observatorio-ametic.ai/sites/observatorio/files/public/styles/large_800/public/content-images/media/2024/EL%20CONSUMO%20ENERGETICO%20DE%20LA%20IA%20GENERATIVA%20-%20%20OCTUBRE%202024_Page_01_Image_0001.jpg?itok=1ACHeKVX" 
+           alt="Adimen Artifizialeko Memoriak">
+      <h3>GrAL Adimen Artifiziala: Orokorra</h3>
+      <a href="https://addi.ehu.es/handle/10810/73965" target="_blank" class="btn btn-primary">
+        Ireki PDF-a
       </a>
-    </h3>
+    </div>
   </div>
 
- <!-- Footer placeholder -->
+  <!-- Footer placeholder -->
   <div id="footer-placeholder"></div>
   <script src="../components/footer.js"></script>
 
+  <!-- Scripts -->
   <script src="../components/navbar.js"></script>
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script> 
