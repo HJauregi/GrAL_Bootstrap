@@ -24,8 +24,8 @@ document.getElementById("navbar-placeholder").innerHTML = `
             <span class="sr-only">Toggle Dropdown</span>
           </a>
           <div class="dropdown-menu" aria-labelledby="arautegiaDropdown">
-            <a class="dropdown-item" href="${basePath}windows/araudia-infor.html">Ingenieritza Informatikoa</a>
-            <a class="dropdown-item" href="${basePath}windows/araudia-ia.html">Adimen Artifiziala</a>
+            <a class="dropdown-item" href="${basePath}windows/araudia_infor.html">Ingenieritza Informatikoa</a>
+            <a class="dropdown-item" href="${basePath}windows/araudia_ia.html">Adimen Artifiziala</a>
           </div>
         </div>
       </li>
@@ -42,8 +42,8 @@ document.getElementById("navbar-placeholder").innerHTML = `
             <span class="sr-only">Toggle Dropdown</span>
           </a>
           <div class="dropdown-menu" aria-labelledby="memoriakDropdown">
-            <a class="dropdown-item" href="${basePath}windows/memoriak-informatika.html">Ingenieritza Informatikako Memoriak</a>
-            <a class="dropdown-item" href="${basePath}windows/memoriak-ia.html">Adimen Artifizialeko Memoriak</a>
+            <a class="dropdown-item" href="${basePath}windows/memoriak_informatika.html">Ingenieritza Informatikako Memoriak</a>
+            <a class="dropdown-item" href="${basePath}windows/memoriak_ia.html">Adimen Artifizialeko Memoriak</a>
           </div>
         </div>
       </li>
