@@ -6,10 +6,83 @@
   <title>GrAL - Arautegia Informatika</title>
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
   <style>
-body {
-  padding-top: 300px; /* altura máxima de la navbar */
-  transition: padding-top 0.3s ease;
-}    .container { padding-top: 1rem; padding-bottom: 8rem; }
+    body {
+      padding-top: 300px;
+      transition: padding-top 0.3s ease;
+      background: linear-gradient(135deg, #f7f9fc, #eef1f5);
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .container {
+      padding-top: 1rem;
+      padding-bottom: 6rem;
+    }
+
+    /* Tarjeta de información */
+    .info-card {
+      background: #ffffff;
+      border-radius: 1rem;
+      padding: 2rem;
+      box-shadow: 0 8px 26px rgba(0, 0, 0, 0.10);
+      transition: all .25s ease;
+      border: 1px solid rgba(0,0,0,0.06);
+    }
+
+    .info-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.18);
+    }
+
+    .info-title {
+      font-size: 2rem;
+      font-weight: 800;
+      color: #222;
+    }
+
+    .info-subtext {
+      font-size: 1.1rem;
+      color: #333;
+      margin-top: 0.75rem;
+    }
+
+    /* Caja del enlace */
+    .araudia-box {
+      margin: 3rem auto;
+      max-width: 700px;
+      background: #ffffff;
+      border-radius: 1rem;
+      padding: 2.2rem;
+      text-align: center;
+      box-shadow: 0 10px 28px rgba(0,0,0,0.12);
+      border: 1px solid rgba(0,0,0,0.07);
+    }
+
+    .araudia-titulo {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #111;
+      margin-bottom: 1rem;
+    }
+
+    .araudia-link {
+      font-size: 1.25rem;
+      font-weight: 700;
+      background: #0069d9;
+      color: #fff !important;
+      padding: 0.75rem 1.4rem;
+      border-radius: 0.75rem;
+      display: inline-block;
+      text-decoration: none;
+      transition: all .25s ease;
+    }
+
+    .araudia-link:hover {
+      background: #0053b0;
+      transform: translateY(-3px);
+      color: #fff;
+      text-decoration: none;
+    }
+
     /* Footer */
     .footer {
       background-color: #343a40;
@@ -19,25 +92,10 @@ body {
       margin-top: auto;
     }
 
-    .footer p {
-      margin-bottom: 0.25rem;
-    }
-
-    .footer .mb-2 {
-      margin-bottom: 0.25rem !important;
-    }
-
-    .footer a {
-      color: #ffffff;
-      text-decoration: underline;
-    }
-
-    .footer a:hover {
-      color: #adb5bd;
-    }
-    .pre-footer-info { text-align: center; margin: 2rem 0; }
-    .araudia-titulo { font-size: 1.4rem; font-weight: 700; margin-bottom: 0.5rem; }
-    .pre-footer-info a { font-size: 1.3rem; font-weight: 700; color: #000; text-decoration: underline; }
+    .footer p { margin-bottom: 0.25rem; }
+    .footer .mb-2 { margin-bottom: 0.25rem !important; }
+    .footer a { color: #ffffff; text-decoration: underline; }
+    .footer a:hover { color: #adb5bd; }
   </style>
 </head>
 <body>
@@ -46,25 +104,28 @@ body {
   <div id="navbar-placeholder"></div>
 
   <div class="container mt-4 mb-5">
-    <h1 class="mb-3">Arautegia: Informatika Ingenieritza</h1>
-    <p>Hemen Ingenieritza Informatikoko graduko araudia</p>
+    <div class="info-card">
+      <h1 class="info-title">Arautegia: Ingeniaritza Informatikoa</h1>
+      <p class="info-subtext">Hemen aurkituko duzu Ingeniaritza Informatikoko Graduko araudia eta dokumentazio ofiziala.</p>
+    </div>
   </div>
 
-  <div class="pre-footer-info">
-    <div class="araudia-titulo">URL honetan ikus dezakezu Ingenieritza Informatikako Araudia:</div>
-    <a href="https://www.ehu.eus/documents/d/informatika-fakultatea/normativa_iig_eu" target="_blank">
-      Ingenieritza Informatikako Araudia
+  <div class="araudia-box">
+    <div class="araudia-titulo">Ingeniaritza Informatikako Araudia hemen ikus dezakezu:</div>
+
+    <a class="araudia-link" target="_blank" href="https://www.ehu.eus/documents/d/informatika-fakultatea/normativa_iig_eu">
+      ➜ Araudia ikusi (PDF / Web)
     </a>
   </div>
 
- <!-- Footer placeholder -->
+  <!-- Footer placeholder -->
   <div id="footer-placeholder"></div>
   <script src="../components/footer.js"></script>
 
   <!-- Script del navbar -->
   <script src="../components/navbar.js"></script>
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script> 
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
 
 </body>
