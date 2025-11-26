@@ -37,9 +37,9 @@ document.getElementById("navbar-placeholder").innerHTML = `
              data-toggle="dropdown">
             <span class="sr-only">Toggle Dropdown</span>
           </a>
-          <div class="dropdown-menu">
-            <a class="dropdown-item" href="${basePath}windows/memoriak-informatika.html">Ingenieritza Informatikako Memoriak</a>
-            <a class="dropdown-item" href="${basePath}windows/memoriak-ia.html">Adimen Artifizialeko Memoriak</a>
+          <div class="dropdown-menu" aria-labelledby="memoriakDropdown">
+            <a class="dropdown-item" href="${basePath}windows/memoriak_informatika.html">Ingenieritza Informatikako Memoriak</a>
+            <a class="dropdown-item" href="${basePath}windows/memoriak_ia.html">Adimen Artifizialeko Memoriak</a>
           </div>
         </div>
       </li>
