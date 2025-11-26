@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GrAL - Egutegia</title>
+  <title>GrAL Bootstrap - Egutegia</title>
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
   <style>
     body { 
@@ -15,44 +15,47 @@
       margin: 0;
     }
 
-    .container {
-      padding-top: 2rem;
-      padding-bottom: 4rem;
+    .container { 
+      padding-top: 1rem; 
+      padding-bottom: 2rem; 
       text-align: center;
     }
 
-    h1 { margin-bottom: 1.5rem; }
-
-    p { margin-bottom: 1.5rem; }
-
-    .calendar-card {
-      display: inline-block;
-      padding: 2rem;
-      border-radius: 10px;
-      background-color: #f8f9fa;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    .pdf-container {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+      margin-bottom: 2rem;
     }
 
-    .calendar-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    @media (max-width: 767px) {
+      .pdf-container { padding-bottom: 75%; height: 0; }
+      .pdf-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
     }
 
-    .calendar-card a {
+    @media (min-width: 768px) {
+      .pdf-container { height: 80vh; }
+      .pdf-container embed { width: 100%; height: 100%; }
+    }
+
+    .btn-pdf {
       display: inline-block;
       margin-top: 1rem;
-      text-decoration: none;
-      background-color: #007bff;
-      color: white;
-      padding: 0.75rem 1.5rem;
-      border-radius: 5px;
+      padding: 0.5rem 1.2rem;
+      font-size: 1rem;
       font-weight: 500;
+      color: #fff;
+      background-color: #007bff;
+      border: none;
+      border-radius: 5px;
+      text-decoration: none;
       transition: background-color 0.3s ease;
     }
 
-    .calendar-card a:hover {
+    .btn-pdf:hover {
       background-color: #0056b3;
+      text-decoration: none;
+      color: #fff;
     }
 
     /* Footer */
@@ -64,32 +67,35 @@
       margin-top: auto;
     }
 
-    .footer a {
-      color: #ffffff;
-      text-decoration: underline;
-    }
-
-    .footer a:hover {
-      color: #adb5bd;
-    }
+    .footer p { margin-bottom: 0.25rem; }
+    .footer a { color: #ffffff; text-decoration: underline; }
+    .footer a:hover { color: #adb5bd; }
   </style>
 </head>
 <body>
 
-  <!-- Navbar placeholder -->
+  <!-- Navbar dinámico externo -->
   <div id="navbar-placeholder"></div>
   <script src="../components/navbar.js"></script>
 
-  <div class="container">
-    <h1>Egutegia 2025/2026</h1>
-    <p>
-      Jarraian aurki dezakezu IIG zein AA graduetako GrAL-arentzat zehaztu den egutegia. Ikusiko duzun bezala, rol desberdinak agertzen dira eta zuk burutu beharrekoak soilik zure rolari dagozkio.
+  <!-- Contenido principal -->
+  <div class="container mt-4 mb-5">
+    <h1 class="mb-3">Egutegia</h1>
+    <p class="mb-4">
+      Jarraian aurki dezakezu IIG zein AA graduetako GrAL-arentzat zehaztu den egutegia 2025/2026 urteetarako. Ikusiko duzun bezala rol desberdinak agertzen
+      dira baita ere, noski zuk burutu beharrekoak soilik zure rolari dagozkionak dira. Kontuan hartu baita ere deialdi desberdinak daudela!
     </p>
 
-    <div class="calendar-card">
-      <h3>GrAL-aren Egutegia PDF</h3>
-      <a href="/GrAL/media/2025_26_IIG_GrAL_Egutegia_eus_signed.pdf" target="_blank">Ikusi Egutegia</a>
+    <!-- PDF embebido -->
+    <div class="pdf-container">
+      <embed src="/GrAL/media/2025_26_IIG_GrAL_Egutegia_eus_signed.pdf" type="application/pdf">
     </div>
+
+    <!-- Texto centrado + botón -->
+    <p class="lead mb-3">
+      Hobeto ikusi nahiko bazenu, erabil ezazu beheko botoia:
+    </p>
+    <a href="/GrAL/media/2025_26_IIG_GrAL_Egutegia_eus_signed.pdf" target="_blank" class="btn-pdf">GrAL-aren egutegia ikusi</a>
   </div>
 
   <!-- Footer placeholder -->
