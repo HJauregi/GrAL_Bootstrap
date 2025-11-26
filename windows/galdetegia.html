@@ -129,6 +129,12 @@
       font-size: 1rem;
     }
 
+    #galdera1 .pregunta-header {
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+
     .mb-4 {
       padding: 1rem;
       border-bottom: 1px solid rgba(255,255,255,0.2);
@@ -183,14 +189,14 @@
     }
 
     /* Nuevos estilos para el panel de resultados */
-    .resultado-panel {
-      background: linear-gradient(135deg, rgba(13,110,253,0.1) 0%, rgba(13,202,240,0.1) 100%);
-      border-radius: 1rem;
-      padding: 2rem;
-      margin-top: 2rem;
-      border: 2px solid rgba(13,110,253,0.3);
-      box-shadow: 0 8px 32px rgba(0,0,0,0.3);
-    }
+.resultado-panel {
+background: linear-gradient(135deg, rgba(0,0,0,0.85) 0%, rgba(20,20,20,0.85) 100%);
+border-radius: 1rem;
+padding: 2rem;
+margin-top: 2rem;
+border: 2px solid rgba(255,255,255,0.15);
+box-shadow: 0 8px 32px rgba(0,0,0,0.7);
+}
 
     .resultado-stats {
       display: flex;
@@ -200,17 +206,17 @@
       margin-bottom: 2rem;
     }
 
-    .stat-box {
-      background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
-      border-radius: 0.75rem;
-      padding: 1.5rem;
-      text-align: center;
-      flex: 1;
-      min-width: 150px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-      transition: transform 0.3s ease;
-      border: 1px solid rgba(255,193,7,0.2);
-    }
+   .stat-box {
+background: linear-gradient(135deg, #2a2a2a 0%, #3a3a3a 100%);
+border-radius: 0.75rem;
+padding: 1.5rem;
+text-align: center;
+flex: 1;
+min-width: 150px;
+box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+transition: transform 0.3s ease;
+border: 1px solid rgba(255,193,7,0.2);
+}
 
     .stat-box:hover {
       transform: translateY(-5px);
