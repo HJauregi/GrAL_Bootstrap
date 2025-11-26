@@ -184,11 +184,11 @@
 
     /* Nuevos estilos para el panel de resultados */
     .resultado-panel {
-      background: linear-gradient(135deg, rgba(52, 58, 64, 0.95) 0%, rgba(33, 37, 41, 0.95) 100%);
+      background: linear-gradient(135deg, rgba(13,110,253,0.1) 0%, rgba(13,202,240,0.1) 100%);
       border-radius: 1rem;
       padding: 2rem;
       margin-top: 2rem;
-      border: 2px solid rgba(108, 117, 125, 0.5);
+      border: 2px solid rgba(13,110,253,0.3);
       box-shadow: 0 8px 32px rgba(0,0,0,0.3);
     }
 
@@ -201,14 +201,15 @@
     }
 
     .stat-box {
-      background: white;
+      background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
       border-radius: 0.75rem;
       padding: 1.5rem;
       text-align: center;
       flex: 1;
       min-width: 150px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
       transition: transform 0.3s ease;
+      border: 1px solid rgba(255,193,7,0.2);
     }
 
     .stat-box:hover {
@@ -225,7 +226,7 @@
 
     .stat-label {
       font-size: 0.9rem;
-      color: #adb5bd;
+      color: #e0e0e0;
       text-transform: uppercase;
       letter-spacing: 0.5px;
       font-weight: 500;
@@ -268,10 +269,10 @@
 
           <!-- Galdera 1 -->
           <div class="mb-4" id="galdera1">
-            <p>
-              <strong>1. Galdera:</strong> Zein da Gradu Amaierako Lanaren (GrAL) helburu nagusietako bat?
+            <div class="pregunta-header">
+              <p class="pregunta-titulo"><strong>1. Galdera:</strong> Zein da Gradu Amaierako Lanaren (GrAL) helburu nagusietako bat?</p>
               <button type="button" class="btn btn-reset btn-sm" onclick="garbituGaldera(1)">✕ Garbitu</button>
-            </p>
+            </div>
             <div class="form-check">
               <input class="form-check-input" type="radio" name="q1" id="q1a" value="a">
               <label class="form-check-label" for="q1a">Ikasleek taldeka irakasleak proposatutako proiektu bat garatzea.</label>
