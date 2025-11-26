@@ -12,10 +12,8 @@ document.getElementById("navbar-placeholder").innerHTML = `
   <div class="collapse navbar-collapse" id="navbarNav">
     <ul class="navbar-nav ml-auto">
 
-      <!-- Hasiera -->
       <li class="nav-item"><a class="nav-link" href="${basePath}index.html">Hasiera</a></li>
 
-      <!-- Arautegia Dropdown -->
       <li class="nav-item dropdown">
         <div class="btn-group">
           <a class="nav-link" href="${basePath}windows/araudia.html">Arautegia</a>
@@ -23,35 +21,31 @@ document.getElementById("navbar-placeholder").innerHTML = `
              data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <span class="sr-only">Toggle Dropdown</span>
           </a>
-          <div class="dropdown-menu" aria-labelledby="arautegiaDropdown">
+          <div class="dropdown-menu">
             <a class="dropdown-item" href="${basePath}windows/araudia-infor.html">Ingenieritza Informatikoa</a>
             <a class="dropdown-item" href="${basePath}windows/araudia-ia.html">Adimen Artifiziala</a>
           </div>
         </div>
       </li>
 
-      <!-- Egutegia -->
       <li class="nav-item"><a class="nav-link" href="${basePath}windows/egutegia.html">Egutegia</a></li>
 
-      <!-- Memoriak Dropdown -->
       <li class="nav-item dropdown">
         <div class="btn-group">
           <a class="nav-link" href="${basePath}windows/memoriak.html">GrAL Memoriak</a>
           <a class="nav-link dropdown-toggle dropdown-toggle-split" href="#" id="memoriakDropdown"
-             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+             data-toggle="dropdown">
             <span class="sr-only">Toggle Dropdown</span>
           </a>
-          <div class="dropdown-menu" aria-labelledby="memoriakDropdown">
+          <div class="dropdown-menu">
             <a class="dropdown-item" href="${basePath}windows/memoriak-informatika.html">Ingenieritza Informatikako Memoriak</a>
             <a class="dropdown-item" href="${basePath}windows/memoriak-ia.html">Adimen Artifizialeko Memoriak</a>
           </div>
         </div>
       </li>
 
-      <!-- About us -->
       <li class="nav-item"><a class="nav-link" href="${basePath}windows/about-us.html">About us</a></li>
 
-      <!-- Autoebaluazioa -->
       <li class="nav-item"><a class="nav-link" href="${basePath}windows/galdetegia.html">Autoebaluazio galdetegia</a></li>
 
     </ul>
@@ -59,32 +53,20 @@ document.getElementById("navbar-placeholder").innerHTML = `
 </nav>
 
 <style>
-  /* Desktop navbar */
+  /* Desktop */
   @media (min-width: 992px) {
-    .navbar-custom { 
-      transition: all 0.3s ease; 
+    .navbar-custom {
+      transition: all 0.3s ease;
       height: 300px;
     }
-    .navbar-shrink { 
-      height: 50px; 
+    .navbar-shrink {
+      height: 50px;
     }
-    .navbar-brand, .nav-link { 
-      line-height: 2.5;
-      font-size: 1.1rem;
-    }
-    .navbar-shrink .navbar-brand, .navbar-shrink .nav-link { 
-      line-height: 1.5; 
-      font-size: 1rem;
-    }
-    .navbar-brand {
-      font-size: 1.5rem;
-    }
-    .navbar-shrink .navbar-brand {
-      font-size: 1.25rem;
-    }
+    .navbar-brand { font-size: 1.5rem; }
+    .navbar-shrink .navbar-brand { font-size: 1.25rem; }
   }
-  
-  /* Mobile navbar */
+
+  /* Mobile */
   @media (max-width: 991px) {
     .navbar-custom {
       transition: all 0.3s ease;
@@ -93,69 +75,52 @@ document.getElementById("navbar-placeholder").innerHTML = `
     .navbar-shrink {
       padding: 0.5rem 1rem;
     }
-    .navbar-brand {
-      font-size: 1.8rem;
-      transition: font-size 0.3s ease;
-    }
-    .navbar-shrink .navbar-brand {
-      font-size: 1.1rem;
-    }
-    .navbar-toggler {
-      transition: all 0.3s ease;
-      padding: 0.5rem 0.75rem;
-    }
+    .navbar-brand { font-size: 1.8rem; }
+    .navbar-shrink .navbar-brand { font-size: 1.1rem; }
     .navbar-collapse {
       max-height: 80vh;
       overflow-y: auto;
-    }
-    .navbar-brand, .nav-link {
-      line-height: 1.5;
     }
   }
 </style>
 `;
 
-// FUNCION: Ajusta padding del body según altura real de la navbar
+// FUNCIÓN: Ajusta padding del body siempre según ALTURA REAL de la navbar
 function adjustBodyPadding() {
   const navbar = document.getElementById("navbar");
-  if (navbar) document.body.style.paddingTop = navbar.offsetHeight + 10 + "px";
+  if (!navbar) return;
+
+  const navHeight = navbar.getBoundingClientRect().height;
+  document.body.style.paddingTop = navHeight + "px";
 }
 
-// EJECUTAR al cargar, resize, scroll y wheel
-window.addEventListener("load", adjustBodyPadding);
+// Calcular después de cargar todo el contenido
+window.addEventListener("load", () => {
+  setTimeout(adjustBodyPadding, 50);
+});
+
+// Recalcular si cambia el tamaño o se hace scroll (por shrink)
 window.addEventListener("resize", adjustBodyPadding);
 window.addEventListener("scroll", adjustBodyPadding);
-window.addEventListener("wheel", adjustBodyPadding);
-setTimeout(adjustBodyPadding, 100);
 
-// Listener para menú móvil
-document.addEventListener("DOMContentLoaded", function() {
-  const toggler = document.querySelector('.navbar-toggler');
+// Ajustar cuando se abre/cierra el menú móvil
+document.addEventListener("DOMContentLoaded", () => {
+  const toggler = document.querySelector(".navbar-toggler");
   if (toggler) {
-    toggler.addEventListener('click', function() {
-      setTimeout(adjustBodyPadding, 350);
-    });
+    toggler.addEventListener("click", () =>
+      setTimeout(adjustBodyPadding, 300) // Esperar a animación
+    );
   }
 });
 
-// Efecto shrink al hacer scroll
-let ticking = false;
-window.addEventListener("scroll", function () {
-  if (!ticking) {
-    window.requestAnimationFrame(function() {
-      const navbar = document.getElementById("navbar");
-      if (!navbar) {
-        ticking = false;
-        return;
-      }
-      if (window.pageYOffset > 50) {
-        navbar.classList.add("navbar-shrink");
-      } else {
-        navbar.classList.remove("navbar-shrink");
-      }
-      adjustBodyPadding();
-      ticking = false;
-    });
-    ticking = true;
+// Efecto shrink
+window.addEventListener("scroll", () => {
+  const navbar = document.getElementById("navbar");
+  if (!navbar) return;
+
+  if (window.pageYOffset > 50) {
+    navbar.classList.add("navbar-shrink");
+  } else {
+    navbar.classList.remove("navbar-shrink");
   }
 });

@@ -5,12 +5,18 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>GrAL - Hasiera</title>
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
   <style>
-body {
-  padding-top: 300px; /* altura máxima de la navbar */
-  transition: padding-top 0.3s ease;
-}    .container { padding-top: 1rem; padding-bottom: 4rem; }
-   /* Footer */
+    body {
+      padding-top: 0; /* Ahora controlado dinámicamente por navbar.js */
+      transition: padding-top 0.3s ease;
+    }
+
+    .container {
+      padding-top: 1rem;
+      padding-bottom: 4rem;
+    }
+
     .footer {
       background-color: #343a40;
       color: white;
@@ -18,25 +24,9 @@ body {
       padding: 0.75rem 0;
       margin-top: auto;
     }
-
-    .footer p {
-      margin-bottom: 0.25rem;
-    }
-
-    .footer .mb-2 {
-      margin-bottom: 0.25rem !important;
-    }
-
-    .footer a {
-      color: #ffffff;
-      text-decoration: underline;
-    }
-
-    .footer a:hover {
-      color: #adb5bd;
-    }
   </style>
 </head>
+
 <body>
 
   <!-- Navbar dinámico -->
@@ -47,28 +37,27 @@ body {
   <div class="container mt-5">
     <h1 class="text-center mb-4">Hasiera</h1>
     <p class="text-center mb-4">
-     Gradu bat egitearen helburu nagusietako bat esparru akademiko jakin batean ezagutzak sakondu eta trebetasuna eskuratzea da, gero ingurune horretan 
-     lan egin ahal izateko. Horregatik, ikasketak amaitzeko unean, ikasleek egindako ibilbidea erakusteko frogatzat aurkezten da 
-     <strong>Gradu Amaierako Lana (GrAL)</strong>. Lan hau ezinbestekoa da gradu guztietan, baina web honetan eskainiko dugun informazioa 
-     <strong>Ingenieritza Informatiko</strong> eta <strong>Adimen Artifizialeko</strong> graduetan oinarrituta egongo da.
-    </p>
+Gradu bat egitearen helburu nagusietako bat esparru akademiko jakin batean ezagutzak sakondu eta trebetasuna eskuratzea da, 
+gero ingurune horretan lan egin ahal izateko. Horregatik, ikasketak amaitzeko unean, ikasleek egindako ibilbidea erakusteko 
+frogatzat aurkezten da <strong>Gradu Amaierako Lana (GrAL)</strong>. Lan hau ezinbestekoa da gradu guztietan, baina web honetan
+ eskainiko dugun informazioa <strong>Ingenieritza Informatiko</strong> eta <strong>Adimen Artifizialeko</strong> graduetan oinarrituta egongo da. 
+</p>
     <p class="text-center mb-4">
-      GrALa, ikasle eta irakasleen artean adostutako gai baten inguruko ikerketa edo garapen-lana da, eta lan horrek originaltasuna eta disziplina 
-      akademikoa behar ditu. Baina noski, ahalik eta modu zuzen eta ordenatu batean egiteko, aurretik zehaztutako hainbat arau eta eskakizun bete behar 
-      izaten dira, prozesua modu eraginkorrean eta antolatuan gauzatzeko.
-    </p>
+GrALa, ikasle eta irakasleen artean adostutako gai baten inguruko ikerketa edo garapen-lana da, eta lan horrek originaltasuna eta 
+disziplina akademikoa behar ditu. Baina noski, ahalik eta modu zuzen eta ordenatu batean egiteko, aurretik zehaztutako hainbat arau 
+eta eskakizun bete behar izaten dira, prozesua modu eraginkorrean eta antolatuan gauzatzeko.  
+</p>
     <p class="text-center mb-4">
-      Horregatik, webgune honek ikasle zein irakasleei zuzendutako informazioa eta baliabide praktikoak eskaintzen ditu, bakoitzak bere lana segurtasunez 
-      eta konfiantzaz garatu ahal izateko.    
-    </p>
+Horregatik, webgune honek ikasle zein irakasleei zuzendutako informazioa eta baliabide praktikoak eskaintzen ditu, bakoitzak 
+bere lana segurtasunez eta konfiantzaz garatu ahal izateko.    
+</p>
   </div>
 
- <!-- Footer placeholder -->
+  <!-- Footer -->
   <div id="footer-placeholder"></div>
   <script src="components/footer.js"></script>
 
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script> 
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
 
 </body>
