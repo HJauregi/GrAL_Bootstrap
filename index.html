@@ -9,7 +9,8 @@
   <style>
     body {
       transition: padding-top 0.3s ease;
-      background-color: #f8f9fa;
+      background: linear-gradient(135deg, #f7f9fc, #eef1f5);
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     }
     
     .container {
@@ -17,96 +18,184 @@
       padding-bottom: 4rem;
     }
 
-    .section-card {
-      background-color: white;
-      padding: 2rem;
-      border-radius: 10px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      margin-bottom: 2rem;
+    /* Hero Header */
+    .hero-section {
+      background: linear-gradient(135deg, #1a1a1a 0%, #4a4a4a 100%);
+      border-radius: 1.5rem;
+      padding: 3rem 2.5rem;
+      margin-bottom: 2.5rem;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      color: white;
       text-align: center;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
+      overflow: hidden;
     }
 
-    .section-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    .hero-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, 
+        transparent, 
+        rgba(255, 255, 255, 0.3) 50%, 
+        transparent
+      );
     }
 
-    .section-card h1 {
+    .hero-section h1 {
+      font-size: 3rem;
+      font-weight: 800;
       margin-bottom: 1.5rem;
-      color: #343a40;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
     }
 
+    .hero-section h1 i {
+      font-size: 2.8rem;
+    }
+
+    .hero-section p {
+      font-size: 1.2rem;
+      color: rgba(255, 255, 255, 0.9);
+      line-height: 1.8;
+      max-width: 900px;
+      margin: 0 auto 2rem;
+    }
+
+    /* Degree Badge */
+    .degree-badge {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(10px);
+      padding: 1.25rem 2rem;
+      border-radius: 1rem;
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      margin-top: 1rem;
+    }
+
+    .degree-badge span {
+      font-size: 1rem;
+      color: rgba(255, 255, 255, 0.8);
+      margin-right: 0.5rem;
+    }
+
+    .degree-badge strong {
+      color: white;
+      font-weight: 700;
+      font-size: 1.1rem;
+    }
+
+    /* Info Grid */
     .info-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1.5rem;
-      margin-top: 2rem;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      margin-top: 0;
     }
 
-    .info-item {
-      background-color: #f8f9fa;
-      padding: 1.5rem;
-      border-radius: 8px;
-      border-left: 4px solid #007bff;
-      text-align: left;
+    .info-card {
+      background: white;
+      padding: 2rem;
+      border-radius: 1rem;
+      box-shadow: 0 8px 26px rgba(0, 0, 0, 0.1);
+      border: 1px solid rgba(0, 0, 0, 0.06);
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
     }
 
-    .info-item .icon {
+    .info-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 4px;
+      height: 100%;
+      background: linear-gradient(135deg, #1a1a1a 0%, #4a4a4a 100%);
+      transition: width 0.3s ease;
+    }
+
+    .info-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
+    }
+
+    .info-card:hover::before {
+      width: 100%;
+      opacity: 0.05;
+    }
+
+    .info-card .icon-wrapper {
+      width: 70px;
+      height: 70px;
+      background: linear-gradient(135deg, #1a1a1a 0%, #4a4a4a 100%);
+      border-radius: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+      transition: all 0.3s ease;
+    }
+
+    .info-card:hover .icon-wrapper {
+      transform: rotate(5deg) scale(1.1);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    .info-card .icon-wrapper i {
       font-size: 2rem;
-      color: #007bff;
-      margin-bottom: 0.5rem;
+      color: white;
     }
 
-    .info-item h5 {
-      color: #343a40;
-      font-weight: bold;
-      margin-bottom: 0.5rem;
+    .info-card h5 {
+      color: #1a1a1a;
+      font-weight: 700;
+      font-size: 1.4rem;
+      margin-bottom: 1rem;
     }
 
-    .info-item p {
-      color: #495057;
-      font-size: 0.95rem;
+    .info-card p {
+      color: #555;
+      font-size: 1rem;
+      line-height: 1.7;
       margin-bottom: 0;
     }
 
-    .degree-info {
-      background-color: #e9ecef;
-      padding: 1rem;
-      border-radius: 8px;
-      margin-top: 1.5rem;
-      text-align: center;
+    .info-card strong {
+      color: #1a1a1a;
     }
 
-    .degree-info strong {
-      color: #007bff;
-    }
-
-    /* Footer */
-    .footer {
-      background-color: #343a40;
-      color: white;
-      text-align: center;
-      padding: 0.75rem 0;
-      margin-top: auto;
-    }
-
-    .footer p {
-      margin-bottom: 0.25rem;
-    }
-
-    .footer a {
-      color: #ffffff;
-      text-decoration: underline;
-    }
-
-    .footer a:hover {
-      color: #adb5bd;
-    }
-
+    /* Responsive */
     @media (max-width: 768px) {
+      .hero-section {
+        padding: 2rem 1.5rem;
+      }
+
+      .hero-section h1 {
+        font-size: 2rem;
+        flex-direction: column;
+      }
+
+      .hero-section p {
+        font-size: 1rem;
+      }
+
       .info-grid {
         grid-template-columns: 1fr;
+      }
+
+      .degree-badge {
+        padding: 1rem 1.5rem;
+      }
+
+      .degree-badge strong {
+        display: block;
+        margin-top: 0.5rem;
       }
     }
   </style>
@@ -118,40 +207,48 @@
   <script src="components/navbar.js"></script>
 
   <div class="container">
-    <div class="section-card">
-      <h1>Hasiera</h1>
-      <p style="font-size: 1.1rem; color: #495057; margin-bottom: 1rem;">
+    <!-- Hero Section -->
+    <div class="hero-section">
+      <h1>
+        <i class="bi bi-house-heart-fill"></i>
+        Hasiera
+      </h1>
+      <p>
         Ongi etorri Gradu Amaierako Lanaren gida webgunera! Bertan aurkituko duzu jakin beharreko guztia, baina lehenik matiz batzuk finkatuko ditugu:
       </p>
 
-      <div class="degree-info">
-        Graduak: <strong>Ingenieritza Informatikoa</strong> eta <strong>Adimen Artifiziala</strong>
+      <div class="degree-badge">
+        <span>Graduak:</span>
+        <strong>Ingenieritza Informatikoa</strong>
+        <span>eta</span>
+        <strong>Adimen Artifiziala</strong>
+      </div>
+    </div>
+
+    <!-- Info Grid -->
+    <div class="info-grid">
+      <div class="info-card">
+        <div class="icon-wrapper">
+          <i class="bi bi-search"></i>
+        </div>
+        <h5>Zer da GrALa?</h5>
+        <p>Irakasle eta ikaslearen artean adostutako gai baten inguruko ikerketa edo garapen-lana, originaltasuna eta disziplina akademikoa eskatzen dituena.</p>
       </div>
 
-      <div class="info-grid">
-        <div class="info-item">
-          <div class="icon">
-            <i class="bi bi-search"></i>
-          </div>
-          <h5>Zer da GrALa?</h5>
-          <p>Irakasle eta ikaslearen artean adostutako gai baten inguruko ikerketa edo garapen-lana, originaltasuna eta disziplina akademikoa eskatzen dituena.</p>
+      <div class="info-card">
+        <div class="icon-wrapper">
+          <i class="bi bi-list-check"></i>
         </div>
+        <h5>Arauak eta Eskakizunak</h5>
+        <p>Prozesua modu eraginkorrean eta antolatuan gauzatzeko, arau eta eskakizun bete behar izaten dira.</p>
+      </div>
 
-        <div class="info-item">
-          <div class="icon">
-            <i class="bi bi-list-check"></i>
-          </div>
-          <h5>Arauak eta Eskakizunak</h5>
-          <p>Prozesua modu eraginkorrean eta antolatuan gauzatzeko, arau eta eskakizun bete behar izaten dira.</p>
+      <div class="info-card">
+        <div class="icon-wrapper">
+          <i class="bi bi-people-fill"></i>
         </div>
-
-        <div class="info-item">
-          <div class="icon">
-            <i class="bi bi-people-fill"></i>
-          </div>
-          <h5>Nori Zuzendua</h5>
-          <p>Webgune hau <strong>Euskal Herriko Unibertsitateko (UPV/EHU) Ingenieritza Informatiko eta Adimen Artifizialeko ikasle eta irakasleei</strong> zuzenduta dago, informazioa eta baliabide praktikoak eskainiz.</p>
-        </div>
+        <h5>Nori Zuzendua</h5>
+        <p>Webgune hau <strong>Euskal Herriko Unibertsitateko (UPV/EHU) Ingenieritza Informatiko eta Adimen Artifizialeko ikasle eta irakasleei</strong> zuzenduta dago, informazioa eta baliabide praktikoak eskainiz.</p>
       </div>
     </div>
   </div>
