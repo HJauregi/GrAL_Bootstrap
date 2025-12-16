@@ -5,85 +5,230 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>GrAL - Adimen Artifizialeko Memoriak</title>
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
   <style>
     body {
-      padding-top: 300px; /* altura máxima de la navbar */
-      transition: padding-top 0.3s ease;
+      background: linear-gradient(135deg, #f7f9fc, #eef1f5);
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     }
 
     .container {
-      padding-top: 2rem;
-      padding-bottom: 4rem;
-      text-align: center;
+      padding: 2rem 1rem 4rem;
+      max-width: 100%;
+      display: flex;
+      justify-content: center;
     }
 
-    /* Card estilo araudia */
+    .content-panel {
+      background: white;
+      padding: 3rem 2rem;
+      border-radius: 1.5rem;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+      margin-bottom: 2rem;
+      text-align: center;
+      max-width: 1400px;
+      width: 100%;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .content-panel::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 5px;
+      background: linear-gradient(90deg, #007bff, #0056b3, #007bff);
+      background-size: 200% 100%;
+      animation: shimmer 3s infinite;
+    }
+
+    @keyframes shimmer {
+      0% { background-position: 200% 0; }
+      100% { background-position: -200% 0; }
+    }
+
+    .content-panel::after {
+      content: '';
+      position: absolute;
+      bottom: -50px;
+      right: -50px;
+      width: 200px;
+      height: 200px;
+      background: radial-gradient(circle, rgba(0, 123, 255, 0.1) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+
+    .panel-header {
+      text-align: center;
+      margin-bottom: 2.5rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .panel-title {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: #343a40;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+
+    .panel-title i {
+      color: #007bff;
+      margin-right: 0.5rem;
+      animation: pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+
+    .panel-description {
+      font-size: 1.1rem;
+      color: #495057;
+      line-height: 1.8;
+      margin: 0 auto 2rem;
+      max-width: 800px;
+    }
+
+    .divider {
+      height: 3px;
+      background: linear-gradient(90deg, transparent, #007bff, transparent);
+      margin: 2.5rem 0;
+      border-radius: 2px;
+    }
+
     .memory-card {
-      max-width: 500px;
+      max-width: 600px;
       margin: 0 auto;
-      padding: 1rem;
-      border-radius: 8px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      transition: transform 0.3s ease;
-      background-color: #f8f9fa;
+      padding: 2rem;
+      border-radius: 1.5rem;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
+      background: linear-gradient(135deg, #f8f9fc, #ffffff);
+      border: 2px solid #e1e8ed;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .memory-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #007bff, #00d4ff);
     }
 
     .memory-card:hover {
-      transform: translateY(-5px);
+      transform: translateY(-10px);
+      box-shadow: 0 12px 40px rgba(0, 123, 255, 0.2);
+      border-color: #007bff;
     }
 
     .memory-card img {
       width: 100%;
-      height: 300px;
+      height: 350px;
       object-fit: cover;
-      border-radius: 8px;
-      margin-bottom: 1rem;
+      border-radius: 1rem;
+      margin-bottom: 1.5rem;
       transition: transform 0.3s ease;
+      border: 3px solid #e1e8ed;
     }
 
     .memory-card:hover img {
       transform: scale(1.05);
+      border-color: #007bff;
     }
 
     .memory-card h3 {
-      font-size: 1.3rem;
-      font-weight: 600;
+      font-size: 1.5rem;
+      font-weight: 700;
       color: #343a40;
-      margin-bottom: 1rem;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
     }
 
-    .memory-card a.btn {
+    .memory-card h3 i {
+      color: #007bff;
+      font-size: 1.8rem;
+    }
+
+    .memory-card .btn {
       font-size: 1.1rem;
       font-weight: 600;
-      padding: 0.75rem 1.5rem;
-      border-radius: 5px;
-    }
-
-    /* Footer */
-    .footer {
-      background-color: #343a40;
+      padding: 1rem 2.5rem;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+      border: none;
       color: white;
-      text-align: center;
-      padding: 0.75rem 0;
-      margin-top: auto;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
+      position: relative;
+      overflow: hidden;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
     }
 
-    .footer a {
-      color: #ffffff;
-      text-decoration: underline;
+    .memory-card .btn::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.3);
+      transform: translate(-50%, -50%);
+      transition: width 0.6s, height 0.6s;
     }
 
-    .footer a:hover {
-      color: #adb5bd;
+    .memory-card .btn:hover::before {
+      width: 300px;
+      height: 300px;
     }
 
-    /* Responsive */
+    .memory-card .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(0, 123, 255, 0.4);
+      color: white;
+    }
+
+    .memory-card .btn i {
+      font-size: 1.3rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    .memory-card .btn span {
+      position: relative;
+      z-index: 1;
+    }
+
     @media (max-width: 768px) {
+      .panel-title {
+        font-size: 2rem;
+        flex-direction: column;
+      }
+      .content-panel {
+        padding: 2rem 1.5rem;
+      }
       .memory-card img {
         height: 250px;
       }
       .memory-card h3 {
-        font-size: 1.2rem;
+        font-size: 1.3rem;
       }
     }
   </style>
@@ -92,21 +237,38 @@
 
   <!-- Navbar dinámico -->
   <div id="navbar-placeholder"></div>
+  <script src="../components/navbar.js"></script>
 
   <!-- Contenido principal -->
-  <div class="container mt-5">
-    <h1 class="mb-4">Adimen Artifizialeko GrALen Memoriak</h1>
-    <p class="mb-5 lead">
-      Aurreko urteetan defendatutako memoriak ikus ditzakezu hemen, Adimen Artifizialeko graduan.
-    </p>
+  <div class="container">
+    <div class="content-panel">
+      <!-- Header dentro del panel -->
+      <div class="panel-header">
+        <h1 class="panel-title">
+          <i class="bi bi-journal-text"></i>
+          Adimen Artifizialeko GrALen Memoriak
+        </h1>
+        <p class="panel-description">
+          Aurreko urteetan defendatutako memoriak ikus ditzakezu hemen, Adimen Artifizialeko graduan.
+        </p>
+      </div>
 
-    <div class="memory-card text-center">
-      <img src="https://observatorio-ametic.ai/sites/observatorio/files/public/styles/large_800/public/content-images/media/2024/EL%20CONSUMO%20ENERGETICO%20DE%20LA%20IA%20GENERATIVA%20-%20%20OCTUBRE%202024_Page_01_Image_0001.jpg?itok=1ACHeKVX" 
-           alt="Adimen Artifizialeko Memoriak">
-      <h3>GrAL Adimen Artifiziala: Orokorra</h3>
-      <a href="https://addi.ehu.es/handle/10810/73965" target="_blank" class="btn btn-primary">
-        Joan ADDI-ra
-      </a>
+      <!-- Separador visual -->
+      <div class="divider"></div>
+
+      <!-- Memory Card -->
+      <div class="memory-card">
+        <img src="https://observatorio-ametic.ai/sites/observatorio/files/public/styles/large_800/public/content-images/media/2024/EL%20CONSUMO%20ENERGETICO%20DE%20LA%20IA%20GENERATIVA%20-%20%20OCTUBRE%202024_Page_01_Image_0001.jpg?itok=1ACHeKVX" 
+             alt="Adimen Artifizialeko Memoriak">
+        <h3>
+          <i class="bi bi-robot"></i>
+          GrAL Adimen Artifiziala: Orokorra
+        </h3>
+        <a href="https://addi.ehu.es/handle/10810/73965" target="_blank" class="btn">
+          <i class="bi bi-box-arrow-up-right"></i>
+          <span>Joan ADDI-ra</span>
+        </a>
+      </div>
     </div>
   </div>
 
@@ -115,7 +277,6 @@
   <script src="../components/footer.js"></script>
 
   <!-- Scripts -->
-  <script src="../components/navbar.js"></script>
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script> 
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script> 
