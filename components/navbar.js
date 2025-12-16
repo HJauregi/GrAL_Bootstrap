@@ -99,11 +99,12 @@ document.getElementById("navbar-placeholder").innerHTML = `
   .navbar-modern {
     background: linear-gradient(135deg, #1a1a1a 0%, #4a4a4a 100%);
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-    padding: 1rem 0;
+    padding: 1.5rem 0;
+    transition: padding 0.3s ease;
   }
 
   .navbar-shrink {
-    padding: 1rem 0 !important;
+    padding: 0.5rem 0 !important;
   }
 
   /* BRAND */
@@ -112,6 +113,7 @@ document.getElementById("navbar-placeholder").innerHTML = `
     font-weight: 700;
     font-size: 1.5rem;
     gap: 0.75rem;
+    transition: transform 0.3s ease;
   }
 
   .navbar-brand:hover {
@@ -127,11 +129,23 @@ document.getElementById("navbar-placeholder").innerHTML = `
     align-items: center;
     justify-content: center;
     font-size: 1.5rem;
+    transition: all 0.3s ease;
     flex-shrink: 0;
   }
 
   .brand-text {
     white-space: nowrap;
+    transition: font-size 0.3s ease;
+  }
+
+  .navbar-shrink .brand-icon {
+    width: 40px;
+    height: 40px;
+    font-size: 1.2rem;
+  }
+
+  .navbar-shrink .brand-text {
+    font-size: 1.2rem;
   }
 
   /* NAV LINKS */
@@ -251,23 +265,39 @@ document.getElementById("navbar-placeholder").innerHTML = `
 
   /* RESPONSIVE */
   @media (max-width: 991px) {
+    /* En móviles NO aplicamos el efecto shrink */
     .navbar-modern {
-      padding: 1rem 0;
+      padding: 1rem 0 !important;
     }
 
     .navbar-brand {
-      font-size: 1.1rem;
+      font-size: 1.2rem !important;
       max-width: calc(100% - 60px);
     }
 
     .brand-icon {
-      width: 40px;
-      height: 40px;
-      font-size: 1.2rem;
+      width: 45px !important;
+      height: 45px !important;
+      font-size: 1.3rem !important;
     }
 
     .brand-text {
-      font-size: 1rem;
+      font-size: 1.1rem !important;
+    }
+
+    /* Desactivar transiciones de shrink en móvil */
+    .navbar-shrink {
+      padding: 1rem 0 !important;
+    }
+
+    .navbar-shrink .brand-icon {
+      width: 45px !important;
+      height: 45px !important;
+      font-size: 1.3rem !important;
+    }
+
+    .navbar-shrink .brand-text {
+      font-size: 1.1rem !important;
     }
 
     .navbar-toggler {
@@ -295,29 +325,40 @@ document.getElementById("navbar-placeholder").innerHTML = `
 
   @media (max-width: 576px) {
     .navbar-brand {
-      font-size: 0.95rem;
+      font-size: 1rem !important;
     }
 
     .brand-icon {
-      width: 35px;
-      height: 35px;
-      font-size: 1rem;
+      width: 40px !important;
+      height: 40px !important;
+      font-size: 1.2rem !important;
     }
 
     .brand-text {
-      font-size: 0.9rem;
+      font-size: 0.95rem !important;
+    }
+
+    .navbar-shrink .brand-icon {
+      width: 40px !important;
+      height: 40px !important;
+      font-size: 1.2rem !important;
+    }
+
+    .navbar-shrink .brand-text {
+      font-size: 0.95rem !important;
     }
   }
 </style>
 `;
 
-// Efecto shrink al hacer scroll
+// Efecto shrink al hacer scroll (SOLO EN DESKTOP)
 let ticking = false;
 window.addEventListener("scroll", function () {
   if (!ticking) {
     window.requestAnimationFrame(function() {
       const navbar = document.getElementById("navbar");
-      if (navbar) {
+      // Solo aplicar shrink en desktop (pantallas mayores a 991px)
+      if (navbar && window.innerWidth > 991) {
         if (window.pageYOffset > 50) {
           navbar.classList.add("navbar-shrink");
           document.body.style.paddingTop = "80px";
