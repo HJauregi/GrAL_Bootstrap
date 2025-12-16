@@ -1,634 +1,370 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="eu">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GrAL Bootstrap - Autoebaluazio galdetegia</title>
-  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-  <style>
-    .navbar-shrink {
-      padding-top: 0.25rem !important;
-      padding-bottom: 0.25rem !important;
-      transition: padding 0.3s;
-    }
+  <title>GrAL – Autoebaluazio galdetegia</title>
 
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
     body {
-      display: flex;
-      flex-direction: column;
+      background: #f4f6f9;
       min-height: 100vh;
-      padding-top: 0;
-      margin: 0;
-      transition: padding-top 0.3s ease;
     }
 
     .container {
-      padding-top: 1rem;
-      padding-bottom: 2rem;
       max-width: 1100px;
-      margin: 0 auto;
     }
 
-    .footer {
-      background-color: #343a40;
-      color: white;
-      text-align: center;
-      padding: 0.75rem 0;
-      margin-top: auto;
-    }
-
-    .footer p {
-      margin-bottom: 0.25rem;
-    }
-
-    .footer .mb-2 {
-      margin-bottom: 0.25rem !important;
-    }
-
-    .footer a {
-      color: #ffffff;
-      text-decoration: underline;
-    }
-
-    .footer a:hover {
-      color: #adb5bd;
-    }
-
-    .card {
-      border-radius: 1rem;
-      background: rgba(255, 255, 255, 0.15);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.3);
-      box-shadow: 0 8px 32px rgba(0,0,0,0.1);
-      overflow: hidden;
-      transition: all 0.3s ease;
-    }
-
-    .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 12px 48px rgba(0,0,0,0.15);
+    .card.bg-dark {
+      background: linear-gradient(180deg, #111 0%, #1c1c1c 100%);
+      border-radius: 1.25rem;
+      border: 1px solid rgba(13,110,253,0.25);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.35);
     }
 
     .card-header {
-      background: rgba(0,0,0,0.25);
+      background: rgba(13,110,253,0.08);
+      border-bottom: 1px solid rgba(13,110,253,0.25);
       color: #fff;
-      font-weight: 600;
-      font-size: 1.1rem;
-      border-bottom: 1px solid rgba(255,255,255,0.3);
-    }
-
-    .card-body {
-      background: rgba(255, 255, 255, 0.9);
-      color: #212529;
-      padding: 2rem;
-    }
-
-    .btn-reset {
-      font-size: 0.75rem;
-      padding: 0.15rem 0.5rem;
-      margin-left: 0.5rem;
-      background-color: rgba(220, 53, 69, 0.85);
-      border-color: rgba(220, 53, 69, 0.85);
-      color: white;
-      transition: all 0.3s ease;
-    }
-
-    .btn-reset:hover {
-      background-color: rgba(220, 53, 69, 1);
-      border-color: rgba(220, 53, 69, 1);
-      transform: scale(1.05);
-    }
-
-    .form-check {
-      margin-bottom: 0.75rem;
-    }
-
-    .form-check-input:checked + .form-check-label {
-      font-weight: 600;
-      color: #0d6efd;
-    }
-
-    .btn-primary {
-      background-color: rgba(13,110,253,0.85);
-      border-color: rgba(13,110,253,0.85);
-      transition: all 0.3s ease;
-    }
-
-    .btn-primary:hover {
-      background-color: rgba(13,110,253,1);
-      border-color: rgba(13,110,253,1);
-      transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
     }
 
     #contador {
-      font-size: 1.25rem;
-      color: #ffc107;
+      color: #0d6efd;
+      font-weight: bold;
     }
 
-    #emaitza .alert {
-      font-weight: 600;
-      font-size: 1rem;
+    .card-body {
+      color: #e0e0e0;
+      padding: 2rem;
     }
-
-    #galdera1 .pregunta-header {
-display: flex;
-justify-content: space-between;
-align-items: center;
-}
 
     .mb-4 {
-      padding: 1rem;
-      border-bottom: 1px solid rgba(255,255,255,0.2);
-      border-radius: 0.5rem;
-      background-color: rgba(255,255,255,0.05);
-      transition: background 0.3s ease, transform 0.3s ease;
+      background: rgba(0,0,0,0.55);
+      border-radius: 0.75rem;
+      padding: 1.25rem;
+      border-left: 4px solid rgba(13,110,253,0.6);
     }
 
-    .mb-4:hover {
-      background-color: rgba(255,255,255,0.1);
-      transform: translateY(-2px);
+    .pregunta-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .form-check:hover {
+      background: rgba(255,255,255,0.05);
+      border-radius: 0.4rem;
+    }
+
+    .form-check-input:checked + .form-check-label {
+      color: #0d6efd;
+      font-weight: 600;
+    }
+
+    .btn-reset {
+      background: transparent;
+      border: 1px solid rgba(220,53,69,0.6);
+      color: #dc3545;
+      font-size: 0.7rem;
+      padding: 0.15rem 0.5rem;
     }
 
     .respuesta-correcta {
-      background-color: rgba(40, 167, 69, 0.2);
+      background-color: rgba(40,167,69,0.2);
       border-left: 4px solid #28a745;
-      padding: 0.5rem;
-      margin: 0.5rem 0;
-      border-radius: 0.25rem;
     }
 
     .respuesta-incorrecta {
-      background-color: rgba(220, 53, 69, 0.2);
+      background-color: rgba(220,53,69,0.2);
       border-left: 4px solid #dc3545;
-      padding: 0.5rem;
-      margin: 0.5rem 0;
-      border-radius: 0.25rem;
     }
 
-    .respuesta-correcta .form-check-label {
-      color: #28a745 !important;
-      font-weight: 700 !important;
-    }
-
-    .respuesta-incorrecta .form-check-label {
-      color: #dc3545 !important;
-      font-weight: 700 !important;
-    }
-
-    .icono-correcto::after {
-      content: " ✓";
-      color: #28a745;
-      font-weight: bold;
-      font-size: 1.2rem;
-    }
-
-    .icono-incorrecto::after {
-      content: " ✗";
-      color: #dc3545;
-      font-weight: bold;
-      font-size: 1.2rem;
-    }
-
-    /* Nuevos estilos para el panel de resultados */
-.resultado-panel {
-background: linear-gradient(135deg, rgba(0,0,0,0.85) 0%, rgba(20,20,20,0.85) 100%);
-border-radius: 1rem;
-padding: 2rem;
-margin-top: 2rem;
-border: 2px solid rgba(255,255,255,0.15);
-box-shadow: 0 8px 32px rgba(0,0,0,0.7);
-}
-
-    .resultado-stats {
-      display: flex;
-      justify-content: space-around;
-      flex-wrap: wrap;
-      gap: 1.5rem;
-      margin-bottom: 2rem;
-    }
-
-   .stat-box {
-background: linear-gradient(135deg, #2a2a2a 0%, #3a3a3a 100%);
-border-radius: 0.75rem;
-padding: 1.5rem;
-text-align: center;
-flex: 1;
-min-width: 150px;
-box-shadow: 0 4px 12px rgba(0,0,0,0.5);
-transition: transform 0.3s ease;
-border: 1px solid rgba(255,193,7,0.2);
-}
-
-    .stat-box:hover {
-      transform: translateY(-5px);
+    .resultado-panel {
+      background: rgba(0,0,0,0.85);
+      border-radius: 1rem;
+      padding: 2rem;
+      margin-top: 2rem;
+      text-align: center;
     }
 
     .stat-number {
       font-size: 2.5rem;
-      font-weight: 700;
-      display: block;
-      margin-bottom: 0.5rem;
-      color: #ffc107;
-    }
-
-    .stat-label {
-      font-size: 0.9rem;
-      color: #e0e0e0;
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      font-weight: 500;
-    }
-
-    .stat-box.correctas .stat-number {
-      color: #ffc107;
-    }
-
-    .stat-box.respondidas .stat-number {
-      color: #ffc107;
-    }
-
-    .stat-box.nota .stat-number {
-      color: #ffc107;
-    }
-
-    /* Footer placeholder */
-    .footer-placeholder {
-      margin-top: auto;
+      font-weight: bold;
+      color: #0d6efd;
     }
   </style>
 </head>
+
 <body>
-  
-  <!-- Navbar placeholder -->
-  <div id="navbar-placeholder"></div>
-  
-  <div class="container mt-4 mb-5">
-    <h1 class="mb-3">Autoebaluazio galdetegia</h1>
-    
-    <div class="card bg-dark text-white mb-4">
-      <div class="card-header">
-        <strong>Galderak erantzun dituzun kopurua: <span id="contador">0</span>/10</strong>
-      </div>
-      <div class="card-body">
-        <p>Galdetegi honek 10 galdera ditu. Galdera bakoitzak hiru erantzun aukera ditu, baina bakarra da zuzena. Aukeratu zure erantzuna eta bidali galdetegia amaitutakoan.</p>
-        
-        <form id="galdetegiaForm">
+<div class="container mt-5 mb-5">
+  <h1 class="mb-4">Autoebaluazio galdetegia</h1>
 
-          <!-- Galdera 1 -->
-          <div class="mb-4" id="galdera1">
-            <div class="pregunta-header">
-              <p><strong>1. Galdera:</strong> Zein da Gradu Amaierako Lanaren (GrAL) helburu nagusietako bat?
-                <button type="button" class="btn btn-reset btn-sm" onclick="garbituGaldera(1)">✕ Garbitu</button>
-              </p>
-            </div>
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="q1" id="q1a" value="a">
-              <label class="form-check-label" for="q1a">Ikasleek taldeka irakasleak proposatutako proiektu bat garatzea.</label>
-            </div>
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="q1" id="q1b" value="b">
-              <label class="form-check-label" for="q1b">Ikasleak jasotako ezagutza, gaitasun eta trebetasunak aplikatzea.</label>
-            </div>
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="q1" id="q1c" value="c">
-              <label class="form-check-label" for="q1c">Ikasleek graduko ikasgai guztien inguruko laburpen bat egitea.</label>
-            </div>
-          </div>
-
-          <!-- Galdera 2 -->
-          <div class="mb-4" id="galdera2">
-            <p>
-              <strong>2. Galdera:</strong> Zenbat denbora du ikasleak bere Gradu Amaierako Lana (GrAL) defendatzeko?
-              <button type="button" class="btn btn-reset btn-sm" onclick="garbituGaldera(2)">✕ Garbitu</button>
-            </p>
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="q2" id="q2a" value="a">
-              <label class="form-check-label" for="q2a">10 minutu</label>
-            </div>
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="q2" id="q2b" value="b">
-              <label class="form-check-label" for="q2b">30 minutu</label>
-            </div>
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="q2" id="q2c" value="c">
-              <label class="form-check-label" for="q2c">Ez dago denbora mugarik.</label>
-            </div>
-          </div>
-
-          <!-- Galdera 3 -->
-          <div class="mb-4" id="galdera3">
-            <p>
-              <strong>3. Galdera:</strong> Zer kalifikazio eskala erabiltzen da Gradu Amaierako Lana (GrAL) ebaluatzeko?
-              <button type="button" class="btn btn-reset btn-sm" onclick="garbituGaldera(3)">✕ Garbitu</button>
-            </p>
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="q3" id="q3a" value="a">
-              <label class="form-check-label" for="q3a">Leku bakoitzean eskala desberdin bat erabiltzen da, bertako irakasleek erabakitzen dutena.</label>
-            </div>
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="q3" id="q3b" value="b">
-              <label class="form-check-label" for="q3b">0tik 10era bitarteko eskala, hamartar batekin eta kalifikazio kualitatiboarekin.</label>
-            </div>
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="q3" id="q3c" value="c">
-              <label class="form-check-label" for="q3c">Gainditua edo Ez Gainditua.</label>
-            </div>
-          </div>
-
-          <!-- Galdera 4 -->
-          <div class="mb-4" id="galdera4">
-            <p>
-              <strong>4. Galdera:</strong> Nork zuzendu dezake Gradu Amaierako Lana (GrAL)?
-              <button type="button" class="btn btn-reset btn-sm" onclick="garbituGaldera(4)">✕ Garbitu</button>
-            </p>
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="q4" id="q4a" value="a">
-              <label class="form-check-label" for="q4a">Unibertsitateko dekanoak.</label>
-            </div>
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="q4" id="q4b" value="b">
-              <label class="form-check-label" for="q4b">Fakultateko irakasle batek, edo kasu batzuetan, kanpoko erakunde bateko tutore batek.</label>
-            </div>
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="q4" id="q4c" value="c">
-              <label class="form-check-label" for="q4c">Unibertsitateko edozein langilek.</label>
-            </div>
-          </div>
-
-          <!-- Galdera 5 -->
-          <div class="mb-4" id="galdera5">
-            <p>
-              <strong>5. Galdera:</strong> Noiz defendatu eta ebaluatu daiteke Gradu Amaierako Lana (GrAL)?
-              <button type="button" class="btn btn-reset btn-sm" onclick="garbituGaldera(5)">✕ Garbitu</button>
-            </p>
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="q5" id="q5a" value="a">
-              <label class="form-check-label" for="q5a">Ikasleak ikasketako nahitaezko kreditu guztiak lortu dituenean, Gradu Amaierako Lana izan ezik.</label>
-            </div>
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="q5" id="q5b" value="b">
-              <label class="form-check-label" for="q5b">Edozein momentutan defendatu eta ebaluatu daiteke.</label>
-            </div>
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="q5" id="q5c" value="c">
-              <label class="form-check-label" for="q5c">Ikasleak unibertsitateko dekanoaren baimena jasotzen duenean.</label>
-            </div>
-          </div>
-
-          <!-- Galdera 6 -->
-          <div class="mb-4" id="galdera6">
-            <p>
-              <strong>6. Galdera:</strong> Nola egin behar da Gradu Amaierako Lanaren (GrAL) defentsa?
-              <button type="button" class="btn btn-reset btn-sm" onclick="garbituGaldera(6)">✕ Garbitu</button>
-            </p>
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="q6" id="q6a" value="a">
-              <label class="form-check-label" for="q6a">Galdetegi baten bidez.</label>
-            </div>
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="q6" id="q6b" value="b">
-              <label class="form-check-label" for="q6b">Idatziz entregatuz, ahoz aurkeztu behar izan gabe.</label>
-            </div>
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="q6" id="q6c" value="c">
-              <label class="form-check-label" for="q6c">Aurrez aurre eta jendaurrean, epaimahai baten aurrean.</label>
-            </div>
-          </div>
-
-          <!-- Galdera 7 -->
-          <div class="mb-4" id="galdera7">
-            <p>
-              <strong>7. Galdera:</strong> Non ikus ditzakezu aurreko urteetan defendatutako Gradu Amaierako Lanak (GrAL)?
-              <button type="button" class="btn btn-reset btn-sm" onclick="garbituGaldera(7)">✕ Garbitu</button>
-            </p>
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="q7" id="q7a" value="a">
-              <label class="form-check-label" for="q7a">GAUR</label>
-            </div>
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="q7" id="q7b" value="b">
-              <label class="form-check-label" for="q7b">ADDI</label>
-            </div>
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="q7" id="q7c" value="c">
-              <label class="form-check-label" for="q7c">eGela</label>
-            </div>
-          </div>
-
-          <!-- Galdera 8 -->
-          <div class="mb-4" id="galdera8">
-            <p>
-              <strong>8. Galdera:</strong> Zeri buruz egin dezakezu Gradu Amaierako Lana (GrAL)?
-              <button type="button" class="btn btn-reset btn-sm" onclick="garbituGaldera(8)">✕ Garbitu</button>
-            </p>
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="q8" id="q8a" value="a">
-              <label class="form-check-label" for="q8a">Edozein gradut edo espezialitateko gai bati buruz, ez du axola.</label>
-            </div>
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="q8" id="q8b" value="b">
-              <label class="form-check-label" for="q8b">Ikasitako gradu/espezialitateari buruz, betiere irakasle baten zuzendaritzapean.</label>
-            </div>
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="q8" id="q8c" value="c">
-              <label class="form-check-label" for="q8c">Ikasitako gradu/espezialitatearekin lotutako edozein gairi buruz.</label>
-            </div>
-          </div>
-
-          <!-- Galdera 9 -->
-          <div class="mb-4" id="galdera9">
-            <p>
-              <strong>9. Galdera:</strong> Non ematen da izena Gradu Amaierako Lan (GrAL) egiteko?
-              <button type="button" class="btn btn-reset btn-sm" onclick="garbituGaldera(9)">✕ Garbitu</button>
-            </p>
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="q9" id="q9a" value="a">
-              <label class="form-check-label" for="q9a">GAUR</label>
-            </div>
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="q9" id="q9b" value="b">
-              <label class="form-check-label" for="q9b">Posta elektroniko bat bidaliz</label>
-            </div>
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="q9" id="q9c" value="c">
-              <label class="form-check-label" for="q9c">ADDI</label>
-            </div>
-          </div>
-
-          <!-- Galdera 10 -->
-          <div class="mb-4" id="galdera10">
-            <p>
-              <strong>10. Galdera:</strong> Posible da Gradu Amaierako Lana (GrAL) EHUtik kanpo egitea?
-              <button type="button" class="btn btn-reset btn-sm" onclick="garbituGaldera(10)">✕ Garbitu</button>
-            </p>
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="q10" id="q10a" value="a">
-              <label class="form-check-label" for="q10a">Ez, ez da onartzen.</label>
-            </div>
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="q10" id="q10b" value="b">
-              <label class="form-check-label" for="q10b">Bai, eta nahikoa da justifikazio paper bat erakustearekin defentsa egiteko.</label>
-            </div>
-            <div class="form-check">
-              <input class="form-check-input" type="radio" name="q10" id="q10c" value="c">
-              <label class="form-check-label" for="q10c">Bai, baina zuzendarikide baten gainbegirapenean eta jarraipen sakon bat jarraituz.</label>
-            </div>
-          </div>
-
-          <!-- Botoiak -->
-          <div class="text-center mt-4">
-            <button type="submit" class="btn btn-primary mx-2">Bidali</button>
-            <button type="button" class="btn btn-danger mx-2" onclick="resetGaldetegia()">Garbitu dena</button>
-          </div>
-        </form>
-
-        <!-- Panel de resultados mejorado -->
-        <div id="emaitza"></div>
-      </div>
+  <div class="card bg-dark text-white">
+    <div class="card-header">
+      Galderak erantzunda: <span id="contador">0</span>/10
     </div>
-  </div>
 
-  <!-- Scripts -->
-  <script src="../components/navbar.js"></script>
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script> 
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script> 
+    <div class="card-body">
+      <form id="galdetegiaForm">
 
-  <script>
-    const form = document.getElementById("galdetegiaForm");
-    const contador = document.getElementById("contador");
-
-    const respuestasCorrectas = {
-      q1: 'b',
-      q2: 'b',
-      q3: 'c',
-      q4: 'b',
-      q5: 'a',
-      q6: 'c',
-      q7: 'b',
-      q8: 'b',
-      q9: 'a',
-      q10: 'c'
-    };
-
-    function garbituGaldera(zenbakia) {
-      const radios = form[`q${zenbakia}`];
-      if (radios) {
-        radios.forEach(radio => {
-          radio.checked = false;
-          const parent = radio.closest('.form-check');
-          parent.classList.remove('respuesta-correcta', 'respuesta-incorrecta');
-          parent.querySelector('.form-check-label').classList.remove('icono-correcto', 'icono-incorrecto');
-        });
-        actualizarContador();
-      }
-    }
-
-    function actualizarContador() {
-      let erantzunak = 0;
-      for(let i=1; i<=10; i++){
-        if(form[`q${i}`].value){
-          erantzunak++;
-        }
-      }
-      contador.textContent = erantzunak;
-    }
-
-    form.addEventListener("change", function(e){
-      let name = e.target.name;
-      if(name.startsWith("q")) actualizarContador();
-    });
-
-    form.addEventListener("submit", function(e){
-      e.preventDefault();
-      
-      let zuzenak = 0;
-      let erantzunak = 0;
-
-      for(let i=1; i<=10; i++){
-        const pregunta = `q${i}`;
-        const respuestaUsuario = form[pregunta].value;
-        const respuestaCorrecta = respuestasCorrectas[pregunta];
-        
-        const radios = document.querySelectorAll(`input[name="${pregunta}"]`);
-        
-        radios.forEach(radio => {
-          const parent = radio.closest('.form-check');
-          const label = parent.querySelector('.form-check-label');
-          
-          parent.classList.remove('respuesta-correcta', 'respuesta-incorrecta');
-          label.classList.remove('icono-correcto', 'icono-incorrecto');
-          
-          if(radio.value === respuestaCorrecta){
-            parent.classList.add('respuesta-correcta');
-            label.classList.add('icono-correcto');
-          }
-          
-          if(radio.checked && radio.value !== respuestaCorrecta){
-            parent.classList.add('respuesta-incorrecta');
-            label.classList.add('icono-incorrecto');
-          }
-        });
-        
-        if(respuestaUsuario){
-          erantzunak++;
-          if(respuestaUsuario === respuestaCorrecta){
-            zuzenak++;
-          }
-        }
-      }
-
-      const nota = (zuzenak / 10 * 10).toFixed(1);
-
-      const emaitzaDiv = document.getElementById("emaitza");
-      emaitzaDiv.innerHTML = `
-        <div class="resultado-panel">
-          <h3 class="text-center mb-4" style="color: #ffc107; font-weight: 700;">Zure emaitzak</h3>
-          
-          <div class="resultado-stats">
-            <div class="stat-box respondidas">
-              <span class="stat-number">${erantzunak}</span>
-              <span class="stat-label">Erantzundako galderak</span>
-            </div>
-            
-            <div class="stat-box correctas">
-              <span class="stat-number">${zuzenak}</span>
-              <span class="stat-label">Ondo erantzundakoak</span>
-            </div>
-            
-            <div class="stat-box nota">
-              <span class="stat-number">${nota}</span>
-              <span class="stat-label">Nota finala</span>
-            </div>
+        <!-- Galdera 1 -->
+        <div class="mb-4" id="galdera1">
+          <div class="pregunta-header">
+            <p><strong>1. Galdera:</strong> Zein da Gradu Amaierako Lanaren (GrAL) helburu nagusietako bat?</p>
+            <button type="button" class="btn btn-reset" onclick="garbituGaldera(1)">✕ Garbitu</button>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="q1" value="a">
+            <label class="form-check-label">Ikasleek taldeka irakasleek proposatutako proiektu bat garatzea.</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="q1" value="b">
+            <label class="form-check-label">Ikasleak jasotako ezagutza, gaitasun eta trebetasunak aplikatzea.</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="q1" value="c">
+            <label class="form-check-label">Graduko ikasgai guztien laburpen bat egitea.</label>
           </div>
         </div>
-      `;
 
-      emaitzaDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-    });
+        <!-- Galdera 2 -->
+        <div class="mb-4" id="galdera2">
+          <div class="pregunta-header">
+            <p><strong>2. Galdera:</strong> Zenbat denbora du ikasleak GrALa defendatzeko?</p>
+            <button type="button" class="btn btn-reset" onclick="garbituGaldera(2)">✕ Garbitu</button>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="q2" value="a">
+            <label class="form-check-label">10 minutu.</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="q2" value="b">
+            <label class="form-check-label">30 minutu.</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="q2" value="c">
+            <label class="form-check-label">Ez dago denbora mugarik.</label>
+          </div>
+        </div>
 
-    function resetGaldetegia() {
-      form.reset();
+        <!-- Galdera 3 -->
+        <div class="mb-4" id="galdera3">
+          <div class="pregunta-header">
+            <p><strong>3. Galdera:</strong> Zein kalifikazio eskala erabiltzen da GrALa ebaluatzeko?</p>
+            <button type="button" class="btn btn-reset" onclick="garbituGaldera(3)">✕ Garbitu</button>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="q3" value="a">
+            <label class="form-check-label">Irakasle bakoitzak erabakitzen duena.</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="q3" value="b">
+            <label class="form-check-label">0tik 10era, hamartar batekin eta kalifikazio kualitatiboarekin.</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="q3" value="c">
+            <label class="form-check-label">Gainditua / Ez gainditua.</label>
+          </div>
+        </div>
 
-      for (let i = 1; i <= 10; i++) {
-        const aukerak = document.querySelectorAll(`input[name="q${i}"]`);
-        aukerak.forEach(radio => {
-          const parent = radio.closest(".form-check");
-          const label = parent.querySelector(".form-check-label");
+        <!-- Galdera 4 -->
+        <div class="mb-4" id="galdera4">
+          <div class="pregunta-header">
+            <p><strong>4. Galdera:</strong> Nork zuzendu dezake GrALa?</p>
+            <button type="button" class="btn btn-reset" onclick="garbituGaldera(4)">✕ Garbitu</button>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="q4" value="a">
+            <label class="form-check-label">Unibertsitateko dekanoak.</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="q4" value="b">
+            <label class="form-check-label">Fakultateko irakasle batek edo, kasu batzuetan, kanpoko tutore batek.</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="q4" value="c">
+            <label class="form-check-label">Unibertsitateko edozein langilek.</label>
+          </div>
+        </div>
 
-          parent.classList.remove("respuesta-correcta", "respuesta-incorrecta");
-          label.classList.remove("icono-correcto", "icono-incorrecto");
-        });
-      }
+        <!-- Galdera 5 -->
+        <div class="mb-4" id="galdera5">
+          <div class="pregunta-header">
+            <p><strong>5. Galdera:</strong> Noiz defendatu eta ebaluatu daiteke GrALa?</p>
+            <button type="button" class="btn btn-reset" onclick="garbituGaldera(5)">✕ Garbitu</button>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="q5" value="a">
+            <label class="form-check-label">Nahitaezko kreditu guztiak gaindituta, GrALa izan ezik.</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="q5" value="b">
+            <label class="form-check-label">Edozein unetan.</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="q5" value="c">
+            <label class="form-check-label">Dekanoaren baimenarekin soilik.</label>
+          </div>
+        </div>
 
-      contador.textContent = "0";
-      document.getElementById("emaitza").innerHTML = "";
-    }
-  </script>
+        <!-- Galdera 6 -->
+        <div class="mb-4" id="galdera6">
+          <div class="pregunta-header">
+            <p><strong>6. Galdera:</strong> Nola egin behar da GrALaren defentsa?</p>
+            <button type="button" class="btn btn-reset" onclick="garbituGaldera(6)">✕ Garbitu</button>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="q6" value="a">
+            <label class="form-check-label">Galdetegi baten bidez.</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="q6" value="b">
+            <label class="form-check-label">Idatziz bakarrik.</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="q6" value="c">
+            <label class="form-check-label">Aurrez aurre eta jendaurrean, epaimahai baten aurrean.</label>
+          </div>
+        </div>
 
-  <!-- Footer placeholder -->
-  <div id="footer-placeholder"></div>
-  <script src="../components/footer.js"></script>
+        <!-- Galdera 7 -->
+        <div class="mb-4" id="galdera7">
+          <div class="pregunta-header">
+            <p><strong>7. Galdera:</strong> Non ikus daitezke aurreko urteetako GrALak?</p>
+            <button type="button" class="btn btn-reset" onclick="garbituGaldera(7)">✕ Garbitu</button>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="q7" value="a">
+            <label class="form-check-label">GAUR.</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="q7" value="b">
+            <label class="form-check-label">ADDI.</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="q7" value="c">
+            <label class="form-check-label">eGela.</label>
+          </div>
+        </div>
+
+        <!-- Galdera 8 -->
+        <div class="mb-4" id="galdera8">
+          <div class="pregunta-header">
+            <p><strong>8. Galdera:</strong> Zeri buruz egin daiteke GrALa?</p>
+            <button type="button" class="btn btn-reset" onclick="garbituGaldera(8)">✕ Garbitu</button>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="q8" value="a">
+            <label class="form-check-label">Edozein gairi buruz.</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="q8" value="b">
+            <label class="form-check-label">Ikasitako graduari buruz, irakasle baten zuzendaritzapean.</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="q8" value="c">
+            <label class="form-check-label">Graduarekin lotutako edozein gairi buruz.</label>
+          </div>
+        </div>
+
+        <!-- Galdera 9 -->
+        <div class="mb-4" id="galdera9">
+          <div class="pregunta-header">
+            <p><strong>9. Galdera:</strong> Non ematen da izena GrALa egiteko?</p>
+            <button type="button" class="btn btn-reset" onclick="garbituGaldera(9)">✕ Garbitu</button>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="q9" value="a">
+            <label class="form-check-label">GAUR-en.</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="q9" value="b">
+            <label class="form-check-label">Posta elektronikoz.</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="q9" value="c">
+            <label class="form-check-label">ADDI-n.</label>
+          </div>
+        </div>
+
+        <!-- Galdera 10 -->
+        <div class="mb-4" id="galdera10">
+          <div class="pregunta-header">
+            <p><strong>10. Galdera:</strong> Posible da GrALa EHUtik kanpo egitea?</p>
+            <button type="button" class="btn btn-reset" onclick="garbituGaldera(10)">✕ Garbitu</button>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="q10" value="a">
+            <label class="form-check-label">Ez.</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="q10" value="b">
+            <label class="form-check-label">Bai, justifikazioarekin.</label>
+          </div>
+          <div class="form-check">
+            <input class="form-check-input" type="radio" name="q10" value="c">
+            <label class="form-check-label">Bai, zuzendarikide baten gainbegiradapean.</label>
+          </div>
+        </div>
+
+        <div class="text-center mt-4">
+          <button type="submit" class="btn btn-primary">Bidali</button>
+          <button type="button" class="btn btn-danger" onclick="resetGaldetegia()">Garbitu dena</button>
+        </div>
+      </form>
+
+      <div id="emaitza"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+const erantzunZuzenak = {
+  q1: "b", q2: "b", q3: "b", q4: "b", q5: "a",
+  q6: "c", q7: "b", q8: "c", q9: "a", q10: "c"
+};
+
+document.querySelectorAll("input[type=radio]").forEach(r =>
+  r.addEventListener("change", eguneratuKontadorea)
+);
+
+function eguneratuKontadorea() {
+  const erantzunak = new Set();
+  document.querySelectorAll("input[type=radio]:checked")
+    .forEach(r => erantzunak.add(r.name));
+  document.getElementById("contador").textContent = erantzunak.size;
+}
+
+function garbituGaldera(n) {
+  document.querySelectorAll(`#galdera${n} input`).forEach(i => i.checked = false);
+  eguneratuKontadorea();
+}
+
+function resetGaldetegia() {
+  document.getElementById("galdetegiaForm").reset();
+  document.getElementById("contador").textContent = "0";
+  document.getElementById("emaitza").innerHTML = "";
+}
+
+document.getElementById("galdetegiaForm").addEventListener("submit", function(e) {
+  e.preventDefault();
+  let zuzenak = 0;
+
+  for (let q in erantzunZuzenak) {
+    const aukeratua = document.querySelector(`input[name=${q}]:checked`);
+    if (aukeratua && aukeratua.value === erantzunZuzenak[q]) zuzenak++;
+  }
+
+  document.getElementById("emaitza").innerHTML = `
+    <div class="resultado-panel">
+      <p class="stat-number">${zuzenak}/10</p>
+      <p>Erantzun zuzenak</p>
+    </div>`;
+});
+</script>
+
 </body>
 </html>
