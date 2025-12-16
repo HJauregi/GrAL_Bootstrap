@@ -8,30 +8,21 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
   <style>
     body {
-      padding-top: 80px;
-      background: #f5f7fa;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-      margin: 0;
-      color: #2c3e50;
+      background: linear-gradient(135deg, #f7f9fc, #eef1f5);
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     }
 
     .container {
-      padding-top: 2rem;
-      padding-bottom: 3rem;
-      flex: 1;
-      max-width: 1200px;
+      padding: 2rem 1rem 4rem;
     }
 
     .content-panel {
       background: white;
-      border-radius: 20px;
-      padding: 3rem;
-      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
-      border: 1px solid #e1e8ed;
+      padding: 3rem 2rem;
+      border-radius: 1.5rem;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.08);
       margin-bottom: 2rem;
+      text-align: center;
     }
 
     .panel-header {
@@ -41,36 +32,37 @@
 
     .panel-title {
       font-size: 2.5rem;
-      font-weight: 700;
-      color: #2c3e50;
+      font-weight: 800;
+      color: #343a40;
       margin-bottom: 1.5rem;
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 1rem;
+      gap: 0.5rem;
     }
 
     .panel-title i {
-      font-size: 2.5rem;
-      color: #3498db;
+      color: #007bff;
+      margin-right: 0.5rem;
     }
 
     .panel-description {
       font-size: 1.1rem;
-      color: #5a6c7d;
+      color: #495057;
       line-height: 1.8;
-      margin: 0 auto 1.5rem;
-      max-width: 900px;
+      margin: 0 auto 2rem;
+      max-width: 800px;
     }
 
     .info-badge {
       display: inline-block;
-      background: #e8f4fd;
-      border: 2px solid #3498db;
-      color: #2980b9;
+      background: linear-gradient(135deg, #f8f9fc, #e3f2fd);
+      border: 2px solid #007bff;
+      border-left: 4px solid #007bff;
+      color: #007bff;
       padding: 0.75rem 1.5rem;
       border-radius: 12px;
-      font-weight: 600;
+      font-weight: 700;
       font-size: 1rem;
       margin-top: 1rem;
     }
@@ -81,7 +73,7 @@
 
     .divider {
       height: 2px;
-      background: #e8f4fd;
+      background: linear-gradient(135deg, #f8f9fc, #e3f2fd);
       margin: 2.5rem 0;
     }
 
@@ -112,7 +104,7 @@
         flex-direction: column;
       }
       .content-panel {
-        padding: 1.5rem;
+        padding: 2rem 1.5rem;
       }
     }
 
@@ -132,7 +124,7 @@
 
     .pdf-info p {
       font-size: 1.05rem;
-      color: #5a6c7d;
+      color: #495057;
       margin-bottom: 1.5rem;
       line-height: 1.6;
     }
@@ -145,20 +137,20 @@
       font-size: 1.1rem;
       font-weight: 600;
       color: #fff;
-      background: #3498db;
+      background: #007bff;
       border: none;
       border-radius: 12px;
       text-decoration: none;
       transition: all 0.3s ease;
-      box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
+      box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
     }
 
     .btn-pdf:hover {
       transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(52, 152, 219, 0.4);
+      box-shadow: 0 6px 20px rgba(0, 123, 255, 0.4);
       text-decoration: none;
       color: #fff;
-      background: #2980b9;
+      background: #0056b3;
     }
 
     .btn-pdf i {
