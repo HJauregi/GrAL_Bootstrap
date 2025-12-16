@@ -15,70 +15,140 @@
     .container {
       padding-top: 2rem; 
       padding-bottom: 4rem;
+      max-width: 900px;
     }
 
-    .section-card {
+    .header-card {
       background-color: white;
-      padding: 2rem;
+      padding: 2.5rem 2rem;
       border-radius: 10px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
       margin-bottom: 2rem;
       text-align: center;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border-top: 4px solid #007bff;
     }
 
-    .section-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-    }
-
-    .section-card h1 {
-      margin-bottom: 1.5rem;
-      color: #343a40;
-    }
-
-    .info-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 1.5rem;
-      margin-top: 2rem;
-    }
-
-    .info-item {
-      background-color: #f8f9fa;
-      padding: 1.5rem;
-      border-radius: 8px;
-      border-left: 4px solid #007bff;
-      text-align: left;
-    }
-
-    .info-item .icon {
-      font-size: 2rem;
-      color: #007bff;
-      margin-bottom: 0.5rem;
-    }
-
-    .info-item h5 {
+    .header-card h1 {
       color: #343a40;
       font-weight: bold;
       margin-bottom: 0.5rem;
     }
 
-    .info-item p {
-      color: #495057;
-      font-size: 0.95rem;
-      margin-bottom: 0;
+    .header-card .subtitle {
+      color: #6c757d;
+      font-size: 1.1rem;
     }
 
-    .team-info {
-      background-color: #e9ecef;
-      padding: 1rem;
-      border-radius: 8px;
-      margin-top: 1rem;
+    .team-section {
+      background-color: white;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      margin-bottom: 2rem;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
-    .team-info strong {
+    .team-section:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+    }
+
+    .team-section h3 {
       color: #007bff;
+      font-weight: bold;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+
+    .team-section .intro-text {
+      color: #495057;
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+
+    .members-container {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .member-badge {
+      background-color: #f8f9fa;
+      border: 2px solid #007bff;
+      padding: 0.7rem 1.2rem;
+      border-radius: 25px;
+      color: #343a40;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .member-badge i {
+      color: #007bff;
+    }
+
+    .context-info {
+      background-color: #e9ecef;
+      padding: 0.8rem;
+      border-radius: 8px;
+      text-align: center;
+      margin-top: 1.5rem;
+      color: #495057;
+    }
+
+    .objectives-container {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .objective-box {
+      background-color: white;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
+    }
+
+    .objective-box:hover {
+      transform: scale(1.02);
+      box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+    }
+
+    .objective-box .icon-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .objective-box .icon-circle {
+      width: 50px;
+      height: 50px;
+      background-color: #007bff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 1.5rem;
+      flex-shrink: 0;
+    }
+
+    .objective-box h4 {
+      color: #343a40;
+      font-weight: bold;
+      margin: 0;
+    }
+
+    .objective-box p {
+      color: #495057;
+      margin: 0;
+      line-height: 1.6;
+      padding-left: 4rem;
     }
 
     /* Footer */
@@ -104,8 +174,14 @@
     }
 
     @media (max-width: 768px) {
-      .info-grid {
-        grid-template-columns: 1fr;
+      .objective-box p {
+        padding-left: 0;
+        margin-top: 1rem;
+      }
+      
+      .objective-box .icon-header {
+        flex-direction: column;
+        align-items: flex-start;
       }
     }
   </style>
@@ -117,40 +193,62 @@
   <script src="../components/navbar.js"></script>
 
   <div class="container">
-    <div class="section-card">
-      <h1>About Us</h1>
+    <div class="header-card">
+      <h1><i class="bi bi-people-fill"></i> Nor gara?</h1>
+      <p class="subtitle">Proiektu honen atzean dauden ikasleak</p>
+    </div>
+
+    <div class="team-section">
+      <h3><i class="bi bi-mortarboard-fill"></i> Taldea</h3>
+      <p class="intro-text">
+        Web orri honen sortzaileak <strong>UPV/EHUko Informatika Fakultateko</strong> ikasleak dira:
+      </p>
       
-      <div class="team-info">
-        <strong>UPV/EHUko Informatika Fakultateko</strong> ikasleak: 
-        <strong>Hodei Jauregi</strong>, <strong>Maialen Velazquez</strong> eta <strong>Maitane Rodriguez</strong>
-        <br>
-        <em>Pertsona eta Konputagailuen arteko Elkarrekintza</em> irakasgaia
+      <div class="members-container">
+        <div class="member-badge">
+          <i class="bi bi-person-fill"></i>
+          <span>Hodei Jauregi</span>
+        </div>
+        <div class="member-badge">
+          <i class="bi bi-person-fill"></i>
+          <span>Maialen Velazquez</span>
+        </div>
+        <div class="member-badge">
+          <i class="bi bi-person-fill"></i>
+          <span>Maitane Rodriguez</span>
+        </div>
       </div>
 
-      <div class="info-grid">
-        <div class="info-item">
-          <div class="icon">
-            <i class="bi bi-question-circle-fill"></i>
-          </div>
-          <h5>Zergatik sortu da web orri hau?</h5>
-          <p>Bertan aurkitzen den guztia eskolan eskatutako lan bat burutzeko eginik dago, besterik ez.</p>
-        </div>
+      <div class="context-info">
+        <i class="bi bi-book"></i> <em>Pertsona eta Konputagailuen arteko Elkarrekintza</em> irakasgaia
+      </div>
+    </div>
 
-        <div class="info-item">
-          <div class="icon">
+    <div class="objectives-container">
+      <div class="objective-box">
+        <div class="icon-header">
+          <div class="icon-circle">
+            <i class="bi bi-question-circle"></i>
+          </div>
+          <h4>Zergatik sortu da web orri hau?</h4>
+        </div>
+        <p>
+          Bertan aurkitzen den guztia eskolan eskatutako lan bat burutzeko eginik dago, besterik ez.
+        </p>
+      </div>
+
+      <div class="objective-box">
+        <div class="icon-header">
+          <div class="icon-circle">
             <i class="bi bi-bullseye"></i>
           </div>
-          <h5>Zer lortu nahi dugu?</h5>
-          <p>Helburu nagusia <strong>Gradu Amaierako Lanei buruzko informazioa ematea</strong> da, kontuan izanda hauek burutzeko hainbat arau eta epe bete behar direla.</p>
+          <h4>Zer lortu nahi dugu web orri honekin?</h4>
         </div>
-
-        <div class="info-item">
-          <div class="icon">
-            <i class="bi bi-lightbulb-fill"></i>
-          </div>
-          <h5>Gure nahia</h5>
-          <p>Informazio asko dagoenez interneten, ahalik eta gehien laburtzea eta modu ulerterraz batean biltzea da gure nahia.</p>
-        </div>
+        <p>
+          Helburu nagusia, eskolako lana egiteaz aparte, <strong>Gradu Amaierako Lanei buruzko informazioa ematea</strong> da, 
+          kontuan izanda hauek burutzeko hainbat arau eta epe bete behar direla. Informazio asko dagoenez interneten, 
+          ahalik eta gehien laburtzea eta modu ulerterraz batean biltzea da gure nahia.
+        </p>
       </div>
     </div>
   </div>
@@ -161,7 +259,7 @@
 
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script> 
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
 </body>
 </html>
