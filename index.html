@@ -18,36 +18,43 @@
       padding-bottom: 4rem;
     }
 
-    /* Hero Header */
-    .hero-section {
-      background: linear-gradient(135deg, #1a1a1a 0%, #4a4a4a 100%);
+    /* Main Card Container */
+    .main-card {
+      background: white;
       border-radius: 1.5rem;
-      padding: 3rem 2.5rem;
-      margin-bottom: 2.5rem;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-      color: white;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.12);
+      overflow: hidden;
+      border: 1px solid rgba(0, 0, 0, 0.08);
+    }
+
+    /* Header Panel */
+    .header-panel {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      padding: 3rem 2rem;
       text-align: center;
       position: relative;
-      overflow: hidden;
     }
 
-    .hero-section::before {
+    .header-panel::after {
       content: '';
       position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 1px;
-      background: linear-gradient(90deg, 
-        transparent, 
-        rgba(255, 255, 255, 0.3) 50%, 
-        transparent
-      );
+      bottom: -20px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 60px;
+      height: 60px;
+      background: white;
+      border-radius: 50%;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
-    .hero-section h1 {
-      font-size: 3rem;
+    .header-panel h1 {
+      font-size: 2.8rem;
       font-weight: 800;
+      color: white;
       margin-bottom: 1.5rem;
       display: flex;
       align-items: center;
@@ -55,39 +62,43 @@
       gap: 1rem;
     }
 
-    .hero-section h1 i {
-      font-size: 2.8rem;
+    .header-panel h1 i {
+      font-size: 2.5rem;
     }
 
-    .hero-section p {
-      font-size: 1.2rem;
-      color: rgba(255, 255, 255, 0.9);
+    .header-panel p {
+      font-size: 1.15rem;
+      color: rgba(255, 255, 255, 0.95);
       line-height: 1.8;
-      max-width: 900px;
-      margin: 0 auto 2rem;
+      max-width: 850px;
+      margin: 0 auto;
     }
 
-    /* Degree Badge */
-    .degree-badge {
-      display: inline-block;
-      background: rgba(255, 255, 255, 0.15);
-      backdrop-filter: blur(10px);
-      padding: 1.25rem 2rem;
+    /* Content Section */
+    .content-section {
+      padding: 4rem 2.5rem 3rem;
+    }
+
+    /* Degree Info Panel */
+    .degree-panel {
+      background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+      border: 2px solid rgba(102, 126, 234, 0.3);
       border-radius: 1rem;
-      border: 2px solid rgba(255, 255, 255, 0.3);
-      margin-top: 1rem;
+      padding: 1.5rem 2rem;
+      text-align: center;
+      margin-bottom: 3rem;
     }
 
-    .degree-badge span {
+    .degree-panel span {
       font-size: 1rem;
-      color: rgba(255, 255, 255, 0.8);
+      color: #495057;
       margin-right: 0.5rem;
     }
 
-    .degree-badge strong {
-      color: white;
+    .degree-panel strong {
+      color: #667eea;
       font-weight: 700;
-      font-size: 1.1rem;
+      font-size: 1.15rem;
     }
 
     /* Info Grid */
@@ -95,105 +106,84 @@
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
       gap: 2rem;
-      margin-top: 0;
     }
 
-    .info-card {
-      background: white;
+    .info-item {
+      background: linear-gradient(135deg, #f8f9fa, #ffffff);
       padding: 2rem;
       border-radius: 1rem;
-      box-shadow: 0 8px 26px rgba(0, 0, 0, 0.1);
-      border: 1px solid rgba(0, 0, 0, 0.06);
+      border: 2px solid transparent;
+      border-left: 4px solid #667eea;
       transition: all 0.3s ease;
-      position: relative;
-      overflow: hidden;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
     }
 
-    .info-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 4px;
-      height: 100%;
-      background: linear-gradient(135deg, #1a1a1a 0%, #4a4a4a 100%);
-      transition: width 0.3s ease;
+    .info-item:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(102, 126, 234, 0.2);
+      border-color: rgba(102, 126, 234, 0.3);
+      background: white;
     }
 
-    .info-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
+    .info-item .icon {
+      font-size: 2.5rem;
+      color: #667eea;
+      margin-bottom: 1rem;
+      display: block;
+      transition: transform 0.3s ease;
     }
 
-    .info-card:hover::before {
-      width: 100%;
-      opacity: 0.05;
+    .info-item:hover .icon {
+      transform: scale(1.15);
     }
 
-    .info-card .icon-wrapper {
-      width: 70px;
-      height: 70px;
-      background: linear-gradient(135deg, #1a1a1a 0%, #4a4a4a 100%);
-      border-radius: 1rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 1.5rem;
-      transition: all 0.3s ease;
-    }
-
-    .info-card:hover .icon-wrapper {
-      transform: rotate(5deg) scale(1.1);
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-    }
-
-    .info-card .icon-wrapper i {
-      font-size: 2rem;
-      color: white;
-    }
-
-    .info-card h5 {
-      color: #1a1a1a;
+    .info-item h5 {
+      color: #343a40;
       font-weight: 700;
-      font-size: 1.4rem;
+      font-size: 1.3rem;
       margin-bottom: 1rem;
     }
 
-    .info-card p {
-      color: #555;
+    .info-item p {
+      color: #495057;
       font-size: 1rem;
       line-height: 1.7;
       margin-bottom: 0;
     }
 
-    .info-card strong {
-      color: #1a1a1a;
+    .info-item strong {
+      color: #667eea;
     }
 
     /* Responsive */
     @media (max-width: 768px) {
-      .hero-section {
+      .header-panel {
         padding: 2rem 1.5rem;
       }
 
-      .hero-section h1 {
+      .header-panel h1 {
         font-size: 2rem;
         flex-direction: column;
       }
 
-      .hero-section p {
+      .header-panel p {
         font-size: 1rem;
+      }
+
+      .content-section {
+        padding: 3rem 1.5rem 2rem;
       }
 
       .info-grid {
         grid-template-columns: 1fr;
+        gap: 1.5rem;
       }
 
-      .degree-badge {
-        padding: 1rem 1.5rem;
+      .degree-panel {
+        padding: 1.25rem 1.5rem;
       }
 
-      .degree-badge strong {
+      .degree-panel strong {
         display: block;
         margin-top: 0.5rem;
       }
@@ -207,48 +197,48 @@
   <script src="components/navbar.js"></script>
 
   <div class="container">
-    <!-- Hero Section -->
-    <div class="hero-section">
-      <h1>
-        <i class="bi bi-house-heart-fill"></i>
-        Hasiera
-      </h1>
-      <p>
-        Ongi etorri Gradu Amaierako Lanaren gida webgunera! Bertan aurkituko duzu jakin beharreko guztia, baina lehenik matiz batzuk finkatuko ditugu:
-      </p>
-
-      <div class="degree-badge">
-        <span>Graduak:</span>
-        <strong>Ingenieritza Informatikoa</strong>
-        <span>eta</span>
-        <strong>Adimen Artifiziala</strong>
-      </div>
-    </div>
-
-    <!-- Info Grid -->
-    <div class="info-grid">
-      <div class="info-card">
-        <div class="icon-wrapper">
-          <i class="bi bi-search"></i>
-        </div>
-        <h5>Zer da GrALa?</h5>
-        <p>Irakasle eta ikaslearen artean adostutako gai baten inguruko ikerketa edo garapen-lana, originaltasuna eta disziplina akademikoa eskatzen dituena.</p>
+    <div class="main-card">
+      <!-- Header Panel -->
+      <div class="header-panel">
+        <h1>
+          <i class="bi bi-house-heart-fill"></i>
+          Hasiera
+        </h1>
+        <p>
+          Ongi etorri Gradu Amaierako Lanaren gida webgunera! Bertan aurkituko duzu jakin beharreko guztia, baina lehenik matiz batzuk finkatuko ditugu:
+        </p>
       </div>
 
-      <div class="info-card">
-        <div class="icon-wrapper">
-          <i class="bi bi-list-check"></i>
+      <!-- Content Section -->
+      <div class="content-section">
+        <!-- Degree Panel -->
+        <div class="degree-panel">
+          <span>Graduak:</span>
+          <strong>Ingenieritza Informatikoa</strong>
+          <span>eta</span>
+          <strong>Adimen Artifiziala</strong>
         </div>
-        <h5>Arauak eta Eskakizunak</h5>
-        <p>Prozesua modu eraginkorrean eta antolatuan gauzatzeko, arau eta eskakizun bete behar izaten dira.</p>
-      </div>
 
-      <div class="info-card">
-        <div class="icon-wrapper">
-          <i class="bi bi-people-fill"></i>
+        <!-- Info Grid -->
+        <div class="info-grid">
+          <div class="info-item">
+            <i class="bi bi-search icon"></i>
+            <h5>Zer da GrALa?</h5>
+            <p>Irakasle eta ikaslearen artean adostutako gai baten inguruko ikerketa edo garapen-lana, originaltasuna eta disziplina akademikoa eskatzen dituena.</p>
+          </div>
+
+          <div class="info-item">
+            <i class="bi bi-list-check icon"></i>
+            <h5>Arauak eta Eskakizunak</h5>
+            <p>Prozesua modu eraginkorrean eta antolatuan gauzatzeko, arau eta eskakizun bete behar izaten dira.</p>
+          </div>
+
+          <div class="info-item">
+            <i class="bi bi-people-fill icon"></i>
+            <h5>Nori Zuzendua</h5>
+            <p>Webgune hau <strong>Euskal Herriko Unibertsitateko (UPV/EHU) Ingenieritza Informatiko eta Adimen Artifizialeko ikasle eta irakasleei</strong> zuzenduta dago, informazioa eta baliabide praktikoak eskainiz.</p>
+          </div>
         </div>
-        <h5>Nori Zuzendua</h5>
-        <p>Webgune hau <strong>Euskal Herriko Unibertsitateko (UPV/EHU) Ingenieritza Informatiko eta Adimen Artifizialeko ikasle eta irakasleei</strong> zuzenduta dago, informazioa eta baliabide praktikoak eskainiz.</p>
       </div>
     </div>
   </div>
