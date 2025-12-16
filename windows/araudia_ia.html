@@ -152,18 +152,6 @@
       min-width: 30px;
     }
 
-    /* Ikono bereziak sekzio bakoitzerako */
-    #item1 .accordion-icon::before { content: "📋"; }
-    #item2 .accordion-icon::before { content: "🎯"; }
-    #item3 .accordion-icon::before { content: "📅"; }
-    #item4 .accordion-icon::before { content: "👨‍🏫"; }
-    #item5 .accordion-icon::before { content: "🔬"; }
-    #item6 .accordion-icon::before { content: "✏️"; }
-    #item7 .accordion-icon::before { content: "👥"; }
-    #item8 .accordion-icon::before { content: "🎤"; }
-    #item9 .accordion-icon::before { content: "⭐"; }
-    #item10 .accordion-icon::before { content: "🏛️"; }
-
     .accordion-body {
       padding: 1.5rem;
       background: #f8f9fa;
@@ -260,14 +248,14 @@
         <div class="accordion" id="araudiaAccordion">
           
           <!-- 1. Alderdi Orokorrak -->
-          <div class="accordion-item">
+          <div class="accordion-item" id="item1">
             <h2 class="accordion-header">
-              <button class="accordion-button collapsed" type="button" data-toggle="collapse" data-target="#item1">
-                <i class="accordion-icon"></i>
+              <button class="accordion-button collapsed" type="button" data-toggle="collapse" data-target="#collapse1">
+                <i class="bi bi-file-text accordion-icon"></i>
                 Alderdi Orokorrak eta Izaera
               </button>
             </h2>
-            <div id="item1" class="collapse" data-parent="#araudiaAccordion">
+            <div id="collapse1" class="collapse" data-parent="#araudiaAccordion">
               <div class="accordion-body">
                 <ul>
                   <li><strong>Zer da GrAL-a?</strong> Ikasle bakoitzak banaka egin behar duen lana, zuzendari baten gainbegirapenean, graduan jasotako gaitasunak integratzeko.</li>
@@ -283,14 +271,14 @@
           </div>
 
           <!-- 2. Helburuak -->
-          <div class="accordion-item">
+          <div class="accordion-item" id="item2">
             <h2 class="accordion-header">
-              <button class="accordion-button collapsed" type="button" data-toggle="collapse" data-target="#item2">
-                <i class="accordion-icon"></i>
+              <button class="accordion-button collapsed" type="button" data-toggle="collapse" data-target="#collapse2">
+                <i class="bi bi-bullseye accordion-icon"></i>
                 Helburuak
               </button>
             </h2>
-            <div id="item2" class="collapse" data-parent="#araudiaAccordion">
+            <div id="collapse2" class="collapse" data-parent="#araudiaAccordion">
               <div class="accordion-body">
                 <p><strong>Helburu nagusia:</strong> Graduan lortutako gaitasunak sendotzea eta praktikan aplikatzea.</p>
                 <p><strong>Garatu beharreko trebetasunak:</strong></p>
@@ -305,14 +293,14 @@
           </div>
 
           <!-- 3. Izen-ematea eta Deialdiak -->
-          <div class="accordion-item">
+          <div class="accordion-item" id="item3">
             <h2 class="accordion-header">
-              <button class="accordion-button collapsed" type="button" data-toggle="collapse" data-target="#item3">
-                <i class="accordion-icon"></i>
+              <button class="accordion-button collapsed" type="button" data-toggle="collapse" data-target="#collapse3">
+                <i class="bi bi-calendar-check accordion-icon"></i>
                 Izen-ematea eta Deialdiak
               </button>
             </h2>
-            <div id="item3" class="collapse" data-parent="#araudiaAccordion">
+            <div id="collapse3" class="collapse" data-parent="#araudiaAccordion">
               <div class="accordion-body">
                 <ul>
                   <li><strong>Matrikula:</strong> EHUren matrikula-epe orokorrean, prezio publikoak ordainduz.</li>
@@ -327,14 +315,14 @@
           </div>
 
           <!-- 4. Zuzendaritza -->
-          <div class="accordion-item">
+          <div class="accordion-item" id="item4">
             <h2 class="accordion-header">
-              <button class="accordion-button collapsed" type="button" data-toggle="collapse" data-target="#item4">
-                <i class="accordion-icon"></i>
+              <button class="accordion-button collapsed" type="button" data-toggle="collapse" data-target="#collapse4">
+                <i class="bi bi-person-badge accordion-icon"></i>
                 Lanen Zuzendaritza
               </button>
             </h2>
-            <div id="item4" class="collapse" data-parent="#araudiaAccordion">
+            <div id="collapse4" class="collapse" data-parent="#araudiaAccordion">
               <div class="accordion-body">
                 <ul>
                   <li><strong>Nork zuzendu dezake?</strong> Graduan eskolak ematen dituen saileko irakasle bat edo ikastegiari atxikitako bat.</li>
@@ -347,14 +335,14 @@
           </div>
 
           <!-- 5. Gaiak eta Arloak -->
-          <div class="accordion-item">
+          <div class="accordion-item" id="item5">
             <h2 class="accordion-header">
-              <button class="accordion-button collapsed" type="button" data-toggle="collapse" data-target="#item5">
-                <i class="accordion-icon"></i>
+              <button class="accordion-button collapsed" type="button" data-toggle="collapse" data-target="#collapse5">
+                <i class="bi bi-diagram-3 accordion-icon"></i>
                 Gaiak eta Arloak
               </button>
             </h2>
-            <div id="item5" class="collapse" data-parent="#araudiaAccordion">
+            <div id="collapse5" class="collapse" data-parent="#araudiaAccordion">
               <div class="accordion-body">
                 <p><strong>Lana Adimen Artifizialeko edozein arlotara bideratuta egon daiteke:</strong></p>
                 <ul>
@@ -373,14 +361,14 @@
           </div>
 
           <!-- 6. Lana Esleitzea -->
-          <div class="accordion-item">
+          <div class="accordion-item" id="item6">
             <h2 class="accordion-header">
-              <button class="accordion-button collapsed" type="button" data-toggle="collapse" data-target="#item6">
-                <i class="accordion-icon"></i>
+              <button class="accordion-button collapsed" type="button" data-toggle="collapse" data-target="#collapse6">
+                <i class="bi bi-pencil-square accordion-icon"></i>
                 Lana Esleitzea eta Gaia Aukeratzea
               </button>
             </h2>
-            <div id="item6" class="collapse" data-parent="#araudiaAccordion">
+            <div id="collapse6" class="collapse" data-parent="#araudiaAccordion">
               <div class="accordion-body">
                 <p><strong>Hiru lan-mota:</strong></p>
                 <ul>
@@ -401,14 +389,14 @@
           </div>
 
           <!-- 7. Ebaluazio-epaimahaia -->
-          <div class="accordion-item">
+          <div class="accordion-item" id="item7">
             <h2 class="accordion-header">
-              <button class="accordion-button collapsed" type="button" data-toggle="collapse" data-target="#item7">
-                <i class="accordion-icon"></i>
+              <button class="accordion-button collapsed" type="button" data-toggle="collapse" data-target="#collapse7">
+                <i class="bi bi-people accordion-icon"></i>
                 Ebaluazio-epaimahaia
               </button>
             </h2>
-            <div id="item7" class="collapse" data-parent="#araudiaAccordion">
+            <div id="collapse7" class="collapse" data-parent="#araudiaAccordion">
               <div class="accordion-body">
                 <p><strong>Epaimahaiaren konposizioa (3 kide):</strong></p>
                 <ul>
@@ -424,14 +412,14 @@
           </div>
 
           <!-- 8. Aurkezpena eta Defentsa -->
-          <div class="accordion-item">
+          <div class="accordion-item" id="item8">
             <h2 class="accordion-header">
-              <button class="accordion-button collapsed" type="button" data-toggle="collapse" data-target="#item8">
-                <i class="accordion-icon"></i>
+              <button class="accordion-button collapsed" type="button" data-toggle="collapse" data-target="#collapse8">
+                <i class="bi bi-easel accordion-icon"></i>
                 Lanaren Aurkezpena eta Defentsa
               </button>
             </h2>
-            <div id="item8" class="collapse" data-parent="#araudiaAccordion">
+            <div id="collapse8" class="collapse" data-parent="#araudiaAccordion">
               <div class="accordion-body">
                 <p><strong>Memoria entregatzea:</strong></p>
                 <ul>
@@ -456,14 +444,14 @@
           </div>
 
           <!-- 9. Ebaluazioa eta Kalifikazioa -->
-          <div class="accordion-item">
+          <div class="accordion-item" id="item9">
             <h2 class="accordion-header">
-              <button class="accordion-button collapsed" type="button" data-toggle="collapse" data-target="#item9">
-                <i class="accordion-icon"></i>
+              <button class="accordion-button collapsed" type="button" data-toggle="collapse" data-target="#collapse9">
+                <i class="bi bi-award accordion-icon"></i>
                 Ebaluazioa eta Kalifikazioa
               </button>
             </h2>
-            <div id="item9" class="collapse" data-parent="#araudiaAccordion">
+            <div id="collapse9" class="collapse" data-parent="#araudiaAccordion">
               <div class="accordion-body">
                 <p><strong>Kalifikazio eskala (0-10):</strong></p>
                 <ul>
@@ -481,14 +469,14 @@
           </div>
 
           <!-- 10. GrAL Batzordea -->
-          <div class="accordion-item">
+          <div class="accordion-item" id="item10">
             <h2 class="accordion-header">
-              <button class="accordion-button collapsed" type="button" data-toggle="collapse" data-target="#item10">
-                <i class="accordion-icon"></i>
+              <button class="accordion-button collapsed" type="button" data-toggle="collapse" data-target="#collapse10">
+                <i class="bi bi-bank accordion-icon"></i>
                 Gradu Amaierako Lan Batzordea
               </button>
             </h2>
-            <div id="item10" class="collapse" data-parent="#araudiaAccordion">
+            <div id="collapse10" class="collapse" data-parent="#araudiaAccordion">
               <div class="accordion-body">
                 <p><strong>Batzordeak garatu eta koordinatuko du:</strong></p>
                 <ul>
