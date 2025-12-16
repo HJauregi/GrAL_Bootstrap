@@ -26,7 +26,7 @@
       box-shadow: 0 8px 30px rgba(0,0,0,0.08);
       margin-bottom: 2rem;
       text-align: center;
-      max-width: 1400px;
+      max-width: 900px;
       width: 100%;
       position: relative;
       overflow: hidden;
@@ -47,17 +47,6 @@
     @keyframes shimmer {
       0% { background-position: 200% 0; }
       100% { background-position: -200% 0; }
-    }
-
-    .content-panel::after {
-      content: '';
-      position: absolute;
-      bottom: -50px;
-      right: -50px;
-      width: 200px;
-      height: 200px;
-      background: radial-gradient(circle, rgba(0, 123, 255, 0.1) 0%, transparent 70%);
-      border-radius: 50%;
     }
 
     .panel-header {
@@ -81,12 +70,6 @@
     .panel-title i {
       color: #007bff;
       margin-right: 0.5rem;
-      animation: pulse 2s ease-in-out infinite;
-    }
-
-    @keyframes pulse {
-      0%, 100% { transform: scale(1); }
-      50% { transform: scale(1.05); }
     }
 
     .panel-description {
@@ -94,58 +77,39 @@
       color: #495057;
       line-height: 1.8;
       margin: 0 auto 2rem;
-      max-width: 800px;
-    }
-
-    .divider {
-      height: 3px;
-      background: linear-gradient(90deg, transparent, #007bff, transparent);
-      margin: 2.5rem 0;
-      border-radius: 2px;
+      max-width: 700px;
     }
 
     .memory-card {
-      max-width: 600px;
+      max-width: 550px;
       margin: 0 auto;
       padding: 2rem;
       border-radius: 1.5rem;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
       transition: all 0.3s ease;
-      background: linear-gradient(135deg, #f8f9fc, #ffffff);
-      border: 2px solid #e1e8ed;
+      background: #ffffff;
+      border: 1px solid #e9ecef;
       position: relative;
       overflow: hidden;
     }
 
-    .memory-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 4px;
-      background: linear-gradient(90deg, #007bff, #00d4ff);
-    }
-
     .memory-card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 12px 40px rgba(0, 123, 255, 0.2);
-      border-color: #007bff;
+      transform: translateY(-8px);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.12);
     }
 
     .memory-card img {
       width: 100%;
-      height: 350px;
+      height: 320px;
       object-fit: cover;
       border-radius: 1rem;
       margin-bottom: 1.5rem;
       transition: transform 0.3s ease;
-      border: 3px solid #e1e8ed;
+      border: 2px solid #e9ecef;
     }
 
     .memory-card:hover img {
-      transform: scale(1.05);
-      border-color: #007bff;
+      transform: scale(1.03);
     }
 
     .memory-card h3 {
@@ -160,8 +124,8 @@
     }
 
     .memory-card h3 i {
-      color: #007bff;
-      font-size: 1.8rem;
+      color: #6c757d;
+      font-size: 1.6rem;
     }
 
     .memory-card .btn {
@@ -223,6 +187,10 @@
       }
       .content-panel {
         padding: 2rem 1.5rem;
+        max-width: 95%;
+      }
+      .memory-card {
+        max-width: 100%;
       }
       .memory-card img {
         height: 250px;
@@ -252,9 +220,6 @@
           Aurreko urteetan defendatutako memoriak ikus ditzakezu hemen, Adimen Artifizialeko graduan.
         </p>
       </div>
-
-      <!-- Separador visual -->
-      <div class="divider"></div>
 
       <!-- Memory Card -->
       <div class="memory-card">
