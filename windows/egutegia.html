@@ -3,73 +3,155 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GrAL Bootstrap - Egutegia</title>
+  <title>GrAL - Egutegia</title>
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
   <style>
-    body { 
-      padding-top: 300px; /* altura máxima de la navbar */
-      transition: padding-top 0.3s ease;
+    body {
+      padding-top: 80px;
+      background: linear-gradient(135deg, #f7f9fc, #eef1f5);
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
       display: flex;
       flex-direction: column;
       min-height: 100vh;
       margin: 0;
     }
 
-    .container { 
-      padding-top: 1rem; 
-      padding-bottom: 2rem; 
+    .container {
+      padding-top: 2rem;
+      padding-bottom: 3rem;
+      flex: 1;
+    }
+
+    .page-header {
+      background: linear-gradient(135deg, #1a1a1a 0%, #4a4a4a 100%);
+      border-radius: 1rem;
+      padding: 2.5rem 2rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 8px 26px rgba(0, 0, 0, 0.15);
+      color: white;
       text-align: center;
+    }
+
+    .page-header h1 {
+      font-size: 2.5rem;
+      font-weight: 800;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+    }
+
+    .page-header h1 i {
+      font-size: 2.2rem;
+    }
+
+    .page-header p {
+      font-size: 1.1rem;
+      color: rgba(255, 255, 255, 0.9);
+      line-height: 1.7;
+      margin-bottom: 0;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .info-badge {
+      display: inline-block;
+      background: rgba(255, 193, 7, 0.2);
+      border: 2px solid #ffc107;
+      color: #ffc107;
+      padding: 0.5rem 1rem;
+      border-radius: 0.5rem;
+      font-weight: 600;
+      margin-top: 1rem;
+      font-size: 0.95rem;
+    }
+
+    .pdf-card {
+      background: #ffffff;
+      border-radius: 1rem;
+      padding: 2rem;
+      box-shadow: 0 8px 26px rgba(0, 0, 0, 0.10);
+      border: 1px solid rgba(0,0,0,0.06);
+      margin-bottom: 2rem;
     }
 
     .pdf-container {
       position: relative;
       width: 100%;
       overflow: hidden;
-      margin-bottom: 2rem;
+      border-radius: 0.75rem;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      margin-bottom: 1.5rem;
     }
 
     @media (max-width: 767px) {
-      .pdf-container { padding-bottom: 75%; height: 0; }
-      .pdf-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
+      .pdf-container { 
+        padding-bottom: 75%; 
+        height: 0; 
+      }
+      .pdf-container embed { 
+        position: absolute; 
+        top: 0; 
+        left: 0; 
+        width: 100%; 
+        height: 100%; 
+      }
+      .page-header h1 {
+        font-size: 1.8rem;
+        flex-direction: column;
+      }
     }
 
     @media (min-width: 768px) {
-      .pdf-container { height: 80vh; }
-      .pdf-container embed { width: 100%; height: 100%; }
+      .pdf-container { 
+        height: 70vh; 
+      }
+      .pdf-container embed { 
+        width: 100%; 
+        height: 100%; 
+      }
+    }
+
+    .pdf-info {
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .pdf-info p {
+      font-size: 1.1rem;
+      color: #555;
+      margin-bottom: 1rem;
     }
 
     .btn-pdf {
-      display: inline-block;
-      margin-top: 1rem;
-      padding: 0.5rem 1.2rem;
-      font-size: 1rem;
-      font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.85rem 2rem;
+      font-size: 1.1rem;
+      font-weight: 600;
       color: #fff;
-      background-color: #007bff;
+      background: linear-gradient(135deg, #1a1a1a 0%, #4a4a4a 100%);
       border: none;
-      border-radius: 5px;
+      border-radius: 0.75rem;
       text-decoration: none;
-      transition: background-color 0.3s ease;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     }
 
     .btn-pdf:hover {
-      background-color: #0056b3;
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
       text-decoration: none;
       color: #fff;
     }
 
-    /* Footer */
-    .footer {
-      background-color: #343a40;
-      color: white;
-      text-align: center;
-      padding: 0.75rem 0;
-      margin-top: auto;
+    .btn-pdf i {
+      font-size: 1.3rem;
     }
-
-    .footer p { margin-bottom: 0.25rem; }
-    .footer a { color: #ffffff; text-decoration: underline; }
-    .footer a:hover { color: #adb5bd; }
   </style>
 </head>
 <body>
@@ -79,23 +161,37 @@
   <script src="../components/navbar.js"></script>
 
   <!-- Contenido principal -->
-  <div class="container mt-4 mb-5">
-    <h1 class="mb-3">Egutegia</h1>
-    <p class="mb-4">
-      Jarraian aurki dezakezu Ingenieritza Informatiko zein Adimen Artifizial graduetako GrAL-arentzat zehaztu den egutegia 2025/2026 ikasturterako. Ikusiko duzun bezala rol desberdinak agertzen
-      dira, noski zuk burutu beharrekoak soilik zure rolari dagozkionak dira. Kontuan hartu baita ere deialdi desberdinak daudela!
-    </p>
-
-    <!-- PDF embebido -->
-    <div class="pdf-container">
-      <embed src="/GrAL/media/2025_26_IIG_GrAL_Egutegia_eus_signed.pdf" type="application/pdf">
+  <div class="container">
+    <!-- Header -->
+    <div class="page-header">
+      <h1>
+        <i class="bi bi-calendar-check-fill"></i>
+        Egutegia
+      </h1>
+      <p>
+        Jarraian aurki dezakezu Ingenieritza Informatiko zein Adimen Artifizial graduetako GrAL-arentzat zehaztu den egutegia 2025/2026 ikasturterako. Ikusiko duzun bezala rol desberdinak agertzen dira, noski zuk burutu beharrekoak soilik zure rolari dagozkionak dira.
+      </p>
+      <div class="info-badge">
+        <i class="bi bi-info-circle-fill"></i> Kontuan hartu deialdi desberdinak daudela!
+      </div>
     </div>
 
-    <!-- Texto centrado + botón -->
-    <p class="lead mb-3">
-      Hobeto ikusi nahiko bazenu, erabil ezazu beheko botoia:
-    </p>
-    <a href="/GrAL/media/2025_26_IIG_GrAL_Egutegia_eus_signed.pdf" target="_blank" class="btn-pdf">GrAL-aren egutegia ikusi</a>
+    <!-- PDF Card -->
+    <div class="pdf-card">
+      <!-- PDF embebido -->
+      <div class="pdf-container">
+        <embed src="/GrAL/media/2025_26_IIG_GrAL_Egutegia_eus_signed.pdf" type="application/pdf">
+      </div>
+
+      <!-- Información y botón -->
+      <div class="pdf-info">
+        <p>Hobeto ikusi nahiko bazenu, ireki ezazu PDF osoa beste leiho batean:</p>
+        <a href="/GrAL/media/2025_26_IIG_GrAL_Egutegia_eus_signed.pdf" target="_blank" class="btn-pdf">
+          <i class="bi bi-file-earmark-pdf-fill"></i>
+          GrAL-aren egutegia ikusi
+        </a>
+      </div>
+    </div>
   </div>
 
   <!-- Footer placeholder -->

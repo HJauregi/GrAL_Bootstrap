@@ -99,12 +99,11 @@ document.getElementById("navbar-placeholder").innerHTML = `
   .navbar-modern {
     background: linear-gradient(135deg, #1a1a1a 0%, #4a4a4a 100%);
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-    padding: 1.5rem 0;
-    transition: padding 0.3s ease;
+    padding: 1rem 0;
   }
 
   .navbar-shrink {
-    padding: 0.5rem 0 !important;
+    padding: 1rem 0 !important;
   }
 
   /* BRAND */
@@ -113,7 +112,6 @@ document.getElementById("navbar-placeholder").innerHTML = `
     font-weight: 700;
     font-size: 1.5rem;
     gap: 0.75rem;
-    transition: transform 0.3s ease;
   }
 
   .navbar-brand:hover {
@@ -129,24 +127,11 @@ document.getElementById("navbar-placeholder").innerHTML = `
     align-items: center;
     justify-content: center;
     font-size: 1.5rem;
-    transition: all 0.3s ease;
     flex-shrink: 0;
   }
 
   .brand-text {
     white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-
-  .navbar-shrink .brand-icon {
-    width: 40px;
-    height: 40px;
-    font-size: 1.2rem;
-  }
-
-  .navbar-shrink .brand-text {
-    font-size: 1.2rem;
   }
 
   /* NAV LINKS */
@@ -157,12 +142,13 @@ document.getElementById("navbar-placeholder").innerHTML = `
   .nav-link {
     color: rgba(255, 255, 255, 0.85) !important;
     font-weight: 500;
-    padding: 0.75rem 1.25rem !important;
+    padding: 0.75rem 1rem !important;
     border-radius: 8px;
     transition: all 0.3s ease;
     display: flex;
     align-items: center;
     gap: 0.5rem;
+    white-space: nowrap;
   }
 
   .nav-link:hover {
@@ -265,10 +251,6 @@ document.getElementById("navbar-placeholder").innerHTML = `
 
   /* RESPONSIVE */
   @media (max-width: 991px) {
-    body {
-      padding-top: 80px;
-    }
-
     .navbar-modern {
       padding: 1rem 0;
     }
