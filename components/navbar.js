@@ -31,12 +31,14 @@ document.getElementById("navbar-placeholder").innerHTML = `
         </li>
 
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="${basePath}windows/araudia.html" id="arautegiaDropdown"
-             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <a class="nav-link dropdown-toggle-split" href="${basePath}windows/araudia.html">
             <i class="bi bi-file-text-fill"></i>
             <span>Arautegia</span>
           </a>
-          <div class="dropdown-menu dropdown-menu-modern" aria-labelledby="arautegiaDropdown">
+          <button class="dropdown-toggle-btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="bi bi-chevron-down"></i>
+          </button>
+          <div class="dropdown-menu dropdown-menu-modern">
             <a class="dropdown-item" href="${basePath}windows/araudia_infor.html">
               <i class="bi bi-cpu"></i> Ingenieritza Informatikoa
             </a>
@@ -54,12 +56,14 @@ document.getElementById("navbar-placeholder").innerHTML = `
         </li>
 
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="${basePath}windows/memoriak.html" id="memoriakDropdown"
-             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <a class="nav-link dropdown-toggle-split" href="${basePath}windows/memoriak.html">
             <i class="bi bi-journal-text"></i>
             <span>GrAL Memoriak</span>
           </a>
-          <div class="dropdown-menu dropdown-menu-modern" aria-labelledby="memoriakDropdown">
+          <button class="dropdown-toggle-btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="bi bi-chevron-down"></i>
+          </button>
+          <div class="dropdown-menu dropdown-menu-modern">
             <a class="dropdown-item" href="${basePath}windows/memoriak-informatika.html">
               <i class="bi bi-cpu"></i> Ingenieritza Informatikako Memoriak
             </a>
@@ -173,6 +177,61 @@ document.getElementById("navbar-placeholder").innerHTML = `
 
   .nav-link i {
     font-size: 1.1rem;
+  }
+
+  /* DROPDOWN CON SPLIT (enlace + botón) */
+  .nav-item.dropdown {
+    display: flex;
+    align-items: center;
+    position: relative;
+  }
+
+  .dropdown-toggle-split {
+    color: rgba(255, 255, 255, 0.85) !important;
+    font-weight: 500;
+    padding: 0.75rem 0.75rem 0.75rem 1rem !important;
+    border-radius: 8px 0 0 8px;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    white-space: nowrap;
+    text-decoration: none;
+  }
+
+  .dropdown-toggle-btn {
+    background: transparent;
+    border: none;
+    color: rgba(255, 255, 255, 0.85);
+    padding: 0.75rem 0.75rem;
+    border-radius: 0 8px 8px 0;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    border-left: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .dropdown-toggle-btn:hover,
+  .dropdown-toggle-btn:focus {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    outline: none;
+  }
+
+  .nav-item.dropdown:hover .dropdown-toggle-split,
+  .nav-item.dropdown:hover .dropdown-toggle-btn {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+  }
+
+  .dropdown-toggle-btn i {
+    font-size: 0.9rem;
+    transition: transform 0.3s ease;
+  }
+
+  .dropdown-toggle-btn[aria-expanded="true"] i {
+    transform: rotate(180deg);
   }
 
   /* CTA BUTTON */
@@ -313,13 +372,31 @@ document.getElementById("navbar-placeholder").innerHTML = `
       overflow-y: auto;
     }
 
-    .nav-link {
+    .nav-item.dropdown {
+      flex-direction: column;
+      align-items: stretch;
+      width: 100%;
+    }
+
+    .dropdown-toggle-split {
       padding: 1rem !important;
+      border-radius: 8px 8px 0 0;
+      width: 100%;
+    }
+
+    .dropdown-toggle-btn {
+      width: 100%;
+      padding: 0.75rem 1rem;
+      border-radius: 0 0 8px 8px;
+      border-left: none;
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
+      justify-content: center;
     }
 
     .dropdown-menu-modern {
       background: rgba(42, 42, 42, 0.95);
       margin-left: 1rem;
+      width: calc(100% - 1rem);
     }
   }
 
