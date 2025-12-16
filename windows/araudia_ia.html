@@ -3,12 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>GrAL - Arautegia Informatika</title>
+  <title>GrAL - Arautegia Adimen Artifiziala</title>
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
   <style>
     body {
-      background: #f8f9fa;
+      padding-top: 300px;
+      transition: padding-top 0.3s ease;
+      background: #e8f4f8;
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
     }
 
@@ -19,26 +21,25 @@
     }
 
     .main-card {
-      background: linear-gradient(135deg, #2a2a2a 0%, #3d3d3d 50%, #4a4a4a 100%);
+      background: white;
       border-radius: 20px;
       padding: 2.5rem;
-      box-shadow: 0 10px 40px rgba(0,0,0,0.3);
-      border: 1px solid rgba(255,255,255,0.1);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      border: 1px solid rgba(0,0,0,0.05);
     }
 
     .header-section {
       text-align: center;
       margin-bottom: 2rem;
       padding-bottom: 2rem;
-      border-bottom: 2px solid rgba(255,255,255,0.1);
+      border-bottom: 2px solid #e8f4f8;
     }
 
     .header-title {
       font-size: 2.2rem;
       font-weight: 700;
-      color: #ffffff;
+      color: #1a1a1a;
       margin-bottom: 1rem;
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
     }
 
     .header-title i {
@@ -47,13 +48,11 @@
     }
 
     .header-description {
-      background: rgba(255, 255, 255, 0.05);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      color: rgba(255, 255, 255, 0.9);
+      background: #f8fbfd;
+      color: #495057;
       padding: 1.25rem 1.5rem;
       border-radius: 12px;
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      border: 1px solid #e3f2fd;
       font-size: 0.95rem;
       line-height: 1.6;
       margin-bottom: 1.5rem;
@@ -153,6 +152,18 @@
       min-width: 30px;
     }
 
+    /* Ikono bereziak sekzio bakoitzerako */
+    #item1 .accordion-icon::before { content: "📋"; }
+    #item2 .accordion-icon::before { content: "🎯"; }
+    #item3 .accordion-icon::before { content: "📅"; }
+    #item4 .accordion-icon::before { content: "👨‍🏫"; }
+    #item5 .accordion-icon::before { content: "🔬"; }
+    #item6 .accordion-icon::before { content: "✏️"; }
+    #item7 .accordion-icon::before { content: "👥"; }
+    #item8 .accordion-icon::before { content: "🎤"; }
+    #item9 .accordion-icon::before { content: "⭐"; }
+    #item10 .accordion-icon::before { content: "🏛️"; }
+
     .accordion-body {
       padding: 1.5rem;
       background: #f8f9fa;
@@ -190,6 +201,19 @@
       border-radius: 6px;
     }
 
+    .footer {
+      background-color: #343a40;
+      color: white;
+      text-align: center;
+      padding: 0.75rem 0;
+      margin-top: auto;
+    }
+
+    .footer p { margin-bottom: 0.25rem; }
+    .footer .mb-2 { margin-bottom: 0.25rem !important; }
+    .footer a { color: #ffffff; text-decoration: underline; }
+    .footer a:hover { color: #adb5bd; }
+
     @media (max-width: 768px) {
       .header-title {
         font-size: 1.8rem;
@@ -217,11 +241,11 @@
       <!-- Header -->
       <div class="header-section">
         <h1 class="header-title">
-          <i class="bi bi-book-fill"></i>
-          Arautegia: Informatika Ingeniaritza
+          <i class="bi bi-cpu-fill"></i>
+          Arautegia: Adimen Artifiziala
         </h1>
         <div class="header-description">
-          <p>Hemen aurkituko duzu Informatika Ingeniaritzako Graduko GrAL-aren araudiaren laburpen bat, informazio garrantzitsuena bildurik. Araudia osoa irakurri nahi baduzu, sakatu beheko botoian.</p>
+          <p>Hemen aurkituko duzu Adimen Artifizialeko Graduko GrAL-aren araudiaren laburpen bat, informazio garrantzitsuena bildurik. Araudia osoa irakurri nahi baduzu, sakatu beheko botoian.</p>
         </div>
         <div class="pdf-link-box">
           <a class="btn-pdf-full" target="_blank" href="https://www.ehu.eus/documents/d/informatika-fakultatea/normativa_iig_eu">
@@ -239,7 +263,7 @@
           <div class="accordion-item">
             <h2 class="accordion-header">
               <button class="accordion-button collapsed" type="button" data-toggle="collapse" data-target="#item1">
-                <i class="bi bi-info-circle-fill accordion-icon"></i>
+                <i class="accordion-icon"></i>
                 Alderdi Orokorrak eta Izaera
               </button>
             </h2>
@@ -262,7 +286,7 @@
           <div class="accordion-item">
             <h2 class="accordion-header">
               <button class="accordion-button collapsed" type="button" data-toggle="collapse" data-target="#item2">
-                <i class="bi bi-bullseye accordion-icon"></i>
+                <i class="accordion-icon"></i>
                 Helburuak
               </button>
             </h2>
@@ -284,7 +308,7 @@
           <div class="accordion-item">
             <h2 class="accordion-header">
               <button class="accordion-button collapsed" type="button" data-toggle="collapse" data-target="#item3">
-                <i class="bi bi-calendar-check accordion-icon"></i>
+                <i class="accordion-icon"></i>
                 Izen-ematea eta Deialdiak
               </button>
             </h2>
@@ -306,7 +330,7 @@
           <div class="accordion-item">
             <h2 class="accordion-header">
               <button class="accordion-button collapsed" type="button" data-toggle="collapse" data-target="#item4">
-                <i class="bi bi-person-badge accordion-icon"></i>
+                <i class="accordion-icon"></i>
                 Lanen Zuzendaritza
               </button>
             </h2>
@@ -326,20 +350,23 @@
           <div class="accordion-item">
             <h2 class="accordion-header">
               <button class="accordion-button collapsed" type="button" data-toggle="collapse" data-target="#item5">
-                <i class="bi bi-diagram-3 accordion-icon"></i>
-                Gaiak eta Espezialitatea
+                <i class="accordion-icon"></i>
+                Gaiak eta Arloak
               </button>
             </h2>
             <div id="item5" class="collapse" data-parent="#araudiaAccordion">
               <div class="accordion-body">
-                <p><strong>Lana zure espezialitatean egin behar duzu:</strong></p>
+                <p><strong>Lana Adimen Artifizialeko edozein arlotara bideratuta egon daiteke:</strong></p>
                 <ul>
-                  <li>Konputagailuen ingeniaritza</li>
-                  <li>Konputazioa</li>
-                  <li>Softwarearen ingeniaritza</li>
+                  <li>Machine Learning eta Deep Learning</li>
+                  <li>Ikuspegi artifizialaren prozesatzea</li>
+                  <li>Hizkuntza naturalaren prozesatzea (NLP)</li>
+                  <li>Robotika eta sistema autonomoak</li>
+                  <li>Datu-zientzia eta Big Data</li>
+                  <li>AA-ren etika eta erantzukizuna</li>
                 </ul>
                 <div class="highlight-box">
-                  Espezialitatea lana inskribatzean esleituko da eta Gradu Amaierako Lanen Batzordeak onartu beharko du.
+                  Lanaren gaia inskribatzean esleituko da eta Gradu Amaierako Lanen Batzordeak onartu beharko du.
                 </div>
               </div>
             </div>
@@ -349,7 +376,7 @@
           <div class="accordion-item">
             <h2 class="accordion-header">
               <button class="accordion-button collapsed" type="button" data-toggle="collapse" data-target="#item6">
-                <i class="bi bi-clipboard-check accordion-icon"></i>
+                <i class="accordion-icon"></i>
                 Lana Esleitzea eta Gaia Aukeratzea
               </button>
             </h2>
@@ -363,11 +390,11 @@
                 </ul>
                 <p><strong>Lan bakoitzeko beharrezko datuak:</strong></p>
                 <ul>
-                  <li>Espezialitatea eta mota</li>
+                  <li>Arloa eta mota</li>
                   <li>Zuzendaritza</li>
                   <li>Izenburua eta deskribapena</li>
                   <li>Hizkuntza (memoria eta defentsa berean)</li>
-                  <li>Beharrezko baliabideak</li>
+                  <li>Beharrezko baliabideak (hardware, software, datasets...)</li>
                 </ul>
               </div>
             </div>
@@ -377,7 +404,7 @@
           <div class="accordion-item">
             <h2 class="accordion-header">
               <button class="accordion-button collapsed" type="button" data-toggle="collapse" data-target="#item7">
-                <i class="bi bi-people-fill accordion-icon"></i>
+                <i class="accordion-icon"></i>
                 Ebaluazio-epaimahaia
               </button>
             </h2>
@@ -400,7 +427,7 @@
           <div class="accordion-item">
             <h2 class="accordion-header">
               <button class="accordion-button collapsed" type="button" data-toggle="collapse" data-target="#item8">
-                <i class="bi bi-file-earmark-text accordion-icon"></i>
+                <i class="accordion-icon"></i>
                 Lanaren Aurkezpena eta Defentsa
               </button>
             </h2>
@@ -411,11 +438,13 @@
                   <li>Formatu digitalean ADDI bidez (gomendatua)</li>
                   <li>60 orrialde inguru (eranskinak kanpo)</li>
                   <li>Fakultatearen azal estandarra erabiliz</li>
+                  <li>Kodea eta ereduak eranskinetan edo biltegi publikoetan (GitHub, Hugging Face...)</li>
                 </ul>
                 <p><strong>Defentsa publikoa:</strong></p>
                 <ul>
                   <li>20 minutuko denbora gomendatua (gehienez 30 minutu)</li>
                   <li>Helburuak, metodologia, edukia eta ondorioak azaldu</li>
+                  <li>Emaitzak eta demostrazioa erakutsi (ahal bada)</li>
                   <li>Epaimahaiko galderak erantzun</li>
                   <li>Memoria idatzi den hizkuntza berean defendatu</li>
                 </ul>
@@ -430,7 +459,7 @@
           <div class="accordion-item">
             <h2 class="accordion-header">
               <button class="accordion-button collapsed" type="button" data-toggle="collapse" data-target="#item9">
-                <i class="bi bi-award accordion-icon"></i>
+                <i class="accordion-icon"></i>
                 Ebaluazioa eta Kalifikazioa
               </button>
             </h2>
@@ -455,13 +484,13 @@
           <div class="accordion-item">
             <h2 class="accordion-header">
               <button class="accordion-button collapsed" type="button" data-toggle="collapse" data-target="#item10">
-                <i class="bi bi-building accordion-icon"></i>
+                <i class="accordion-icon"></i>
                 Gradu Amaierako Lan Batzordea
               </button>
             </h2>
             <div id="item10" class="collapse" data-parent="#araudiaAccordion">
               <div class="accordion-body">
-                <p><strong>Batzordeak zerbait garatu eta koordinatuko du:</strong></p>
+                <p><strong>Batzordeak garatu eta koordinatuko du:</strong></p>
                 <ul>
                   <li>Memorien formatuak eta luzera</li>
                   <li>Epaimahai ebaluatzailearen formatua</li>
@@ -471,7 +500,7 @@
                 <p><strong>Batzordea osatzen dute:</strong></p>
                 <ul>
                   <li>Zentroko GrAL-en arduradun dekanordea</li>
-                  <li>Sail bakoitzeko irakasle ordezkariak (IIG eta AAG)</li>
+                  <li>Sail bakoitzeko irakasle ordezkariak</li>
                   <li>Ikasle ordezkariak</li>
                   <li>Kudeaketaren arduraduna</li>
                 </ul>
