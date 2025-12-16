@@ -25,30 +25,42 @@
       max-width: 1200px;
     }
 
-    .page-header {
+    .content-panel {
+      background: white;
+      border-radius: 20px;
+      padding: 3rem;
+      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+      border: 1px solid #e1e8ed;
+      margin-bottom: 2rem;
+    }
+
+    .panel-header {
       text-align: center;
-      margin-bottom: 3rem;
+      margin-bottom: 2.5rem;
     }
 
-    .page-header .icon {
-      font-size: 4rem;
-      color: #3498db;
-      margin-bottom: 1.5rem;
-    }
-
-    .page-header h1 {
+    .panel-title {
       font-size: 2.5rem;
       font-weight: 700;
-      margin-bottom: 1.5rem;
       color: #2c3e50;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
     }
 
-    .page-header .description {
+    .panel-title i {
+      font-size: 2.5rem;
+      color: #3498db;
+    }
+
+    .panel-description {
       font-size: 1.1rem;
       color: #5a6c7d;
       line-height: 1.8;
       margin: 0 auto 1.5rem;
-      max-width: 800px;
+      max-width: 900px;
     }
 
     .info-badge {
@@ -67,40 +79,10 @@
       margin-right: 0.5rem;
     }
 
-    .content-section {
-      background: white;
-      border-radius: 16px;
-      padding: 0;
-      box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
-      border: 1px solid #e1e8ed;
-      margin-bottom: 2rem;
-      overflow: hidden;
-    }
-
-    .section-header {
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-      padding: 2rem;
-      text-align: center;
-      border-radius: 16px 16px 0 0;
-    }
-
-    .section-title {
-      font-size: 1.8rem;
-      font-weight: 700;
-      color: white;
-      margin: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.75rem;
-    }
-
-    .section-title i {
-      font-size: 2rem;
-    }
-
-    .section-body {
-      padding: 2.5rem;
+    .divider {
+      height: 2px;
+      background: #e8f4fd;
+      margin: 2.5rem 0;
     }
 
     .pdf-container {
@@ -125,10 +107,11 @@
         width: 100%; 
         height: 100%; 
       }
-      .page-header h1 {
+      .panel-title {
         font-size: 2rem;
+        flex-direction: column;
       }
-      .section-body {
+      .content-panel {
         padding: 1.5rem;
       }
     }
@@ -162,38 +145,24 @@
       font-size: 1.1rem;
       font-weight: 600;
       color: #fff;
-      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      background: #3498db;
       border: none;
       border-radius: 12px;
       text-decoration: none;
       transition: all 0.3s ease;
-      box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+      box-shadow: 0 4px 15px rgba(52, 152, 219, 0.3);
     }
 
     .btn-pdf:hover {
       transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(102, 126, 234, 0.5);
+      box-shadow: 0 6px 20px rgba(52, 152, 219, 0.4);
       text-decoration: none;
       color: #fff;
+      background: #2980b9;
     }
 
     .btn-pdf i {
       font-size: 1.4rem;
-    }
-
-    .highlight-box {
-      background: #f8f9fa;
-      border-left: 4px solid #3498db;
-      padding: 1.5rem;
-      border-radius: 8px;
-      margin-bottom: 2rem;
-    }
-
-    .highlight-box p {
-      margin: 0;
-      color: #5a6c7d;
-      font-size: 1rem;
-      line-height: 1.6;
     }
   </style>
 </head>
@@ -205,43 +174,37 @@
 
   <!-- Contenido principal -->
   <div class="container">
-    <!-- Header -->
-    <div class="page-header">
-      <div class="icon">
-        <i class="bi bi-calendar-check-fill"></i>
+    <!-- Panel principal blanco -->
+    <div class="content-panel">
+      <!-- Header dentro del panel -->
+      <div class="panel-header">
+        <h1 class="panel-title">
+          <i class="bi bi-calendar-check-fill"></i>
+          Egutegia
+        </h1>
+        <p class="panel-description">
+          Jarraian aurki dezakezu Ingenieritza Informatiko zein Adimen Artifizial graduetako GrAL-arentzat zehaztu den egutegia 2025/2026 ikasturterako. Ikusiko duzun bezala rol desberdinak agertzen dira, noski zuk burutu beharrekoak soilik zure rolari dagozkionak dira.
+        </p>
+        <div class="info-badge">
+          <i class="bi bi-info-circle-fill"></i> Kontuan hartu deialdi desberdinak daudela!
+        </div>
       </div>
-      <h1>Egutegia</h1>
-      <p class="description">
-        Jarraian aurki dezakezu Ingenieritza Informatiko zein Adimen Artifizial graduetako GrAL-arentzat zehaztu den egutegia 2025/2026 ikasturterako. Ikusiko duzun bezala rol desberdinak agertzen dira, noski zuk burutu beharrekoak soilik zure rolari dagozkionak dira.
-      </p>
-      <div class="info-badge">
-        <i class="bi bi-info-circle-fill"></i> Kontuan hartu deialdi desberdinak daudela!
-      </div>
-    </div>
 
-    <!-- Sección del PDF -->
-    <div class="content-section">
-      <div class="section-header">
-        <h2 class="section-title">
-          <i class="bi bi-file-earmark-pdf-fill"></i>
-          GrAL Egutegia 2025/2026
-        </h2>
-      </div>
+      <!-- Separador visual -->
+      <div class="divider"></div>
       
-      <div class="section-body">
-        <!-- PDF embebido -->
-        <div class="pdf-container">
-          <embed src="/GrAL/media/2025_26_IIG_GrAL_Egutegia_eus_signed.pdf" type="application/pdf">
-        </div>
+      <!-- PDF embebido -->
+      <div class="pdf-container">
+        <embed src="/GrAL/media/2025_26_IIG_GrAL_Egutegia_eus_signed.pdf" type="application/pdf">
+      </div>
 
-        <!-- Información y botón -->
-        <div class="pdf-info">
-          <p>Hobeto ikusi nahiko bazenu, ireki ezazu PDF osoa beste leiho batean:</p>
-          <a href="/GrAL/media/2025_26_IIG_GrAL_Egutegia_eus_signed.pdf" target="_blank" class="btn-pdf">
-            <i class="bi bi-file-earmark-pdf-fill"></i>
-            GrAL-aren egutegia ikusi
-          </a>
-        </div>
+      <!-- Información y botón -->
+      <div class="pdf-info">
+        <p>Hobeto ikusi nahiko bazenu, ireki ezazu PDF osoa beste leiho batean:</p>
+        <a href="/GrAL/media/2025_26_IIG_GrAL_Egutegia_eus_signed.pdf" target="_blank" class="btn-pdf">
+          <i class="bi bi-file-earmark-pdf-fill"></i>
+          GrAL-aren egutegia ikusi
+        </a>
       </div>
     </div>
   </div>
