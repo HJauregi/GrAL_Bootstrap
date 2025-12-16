@@ -8,6 +8,8 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
   <style>
     body {
+      padding-top: 300px;
+      transition: padding-top 0.3s ease;
       background: #e8f4f8;
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
     }
@@ -43,11 +45,6 @@
     .header-title i {
       color: #007bff;
       margin-right: 0.5rem;
-      font-style: normal;
-    }
-    
-    .header-title i::before {
-      content: "💻";
     }
 
     .header-description {
@@ -155,18 +152,6 @@
       min-width: 30px;
     }
 
-    /* Ikono bereziak sekzio bakoitzerako */
-    #item1 .accordion-icon::before { content: "📋"; }
-    #item2 .accordion-icon::before { content: "🎯"; }
-    #item3 .accordion-icon::before { content: "📅"; }
-    #item4 .accordion-icon::before { content: "👨‍🏫"; }
-    #item5 .accordion-icon::before { content: "🔬"; }
-    #item6 .accordion-icon::before { content: "✏️"; }
-    #item7 .accordion-icon::before { content: "👥"; }
-    #item8 .accordion-icon::before { content: "🎤"; }
-    #item9 .accordion-icon::before { content: "⭐"; }
-    #item10 .accordion-icon::before { content: "🏛️"; }
-
     .accordion-body {
       padding: 1.5rem;
       background: #f8f9fa;
@@ -203,6 +188,19 @@
       margin: 1rem 0;
       border-radius: 6px;
     }
+
+    .footer {
+      background-color: #343a40;
+      color: white;
+      text-align: center;
+      padding: 0.75rem 0;
+      margin-top: auto;
+    }
+
+    .footer p { margin-bottom: 0.25rem; }
+    .footer .mb-2 { margin-bottom: 0.25rem !important; }
+    .footer a { color: #ffffff; text-decoration: underline; }
+    .footer a:hover { color: #adb5bd; }
 
     @media (max-width: 768px) {
       .header-title {
@@ -253,7 +251,7 @@
           <div class="accordion-item">
             <h2 class="accordion-header">
               <button class="accordion-button collapsed" type="button" data-toggle="collapse" data-target="#item1">
-                <i class="accordion-icon"></i>
+                <i class="accordion-icon bi bi-file-text"></i>
                 Alderdi Orokorrak eta Izaera
               </button>
             </h2>
@@ -276,7 +274,7 @@
           <div class="accordion-item">
             <h2 class="accordion-header">
               <button class="accordion-button collapsed" type="button" data-toggle="collapse" data-target="#item2">
-                <i class="accordion-icon"></i>
+                <i class="accordion-icon bi bi-bullseye"></i>
                 Helburuak
               </button>
             </h2>
@@ -298,7 +296,7 @@
           <div class="accordion-item">
             <h2 class="accordion-header">
               <button class="accordion-button collapsed" type="button" data-toggle="collapse" data-target="#item3">
-                <i class="accordion-icon"></i>
+                <i class="accordion-icon bi bi-calendar-check"></i>
                 Izen-ematea eta Deialdiak
               </button>
             </h2>
@@ -320,7 +318,7 @@
           <div class="accordion-item">
             <h2 class="accordion-header">
               <button class="accordion-button collapsed" type="button" data-toggle="collapse" data-target="#item4">
-                <i class="accordion-icon"></i>
+                <i class="accordion-icon bi bi-person-badge"></i>
                 Lanen Zuzendaritza
               </button>
             </h2>
@@ -340,7 +338,7 @@
           <div class="accordion-item">
             <h2 class="accordion-header">
               <button class="accordion-button collapsed" type="button" data-toggle="collapse" data-target="#item5">
-                <i class="bi bi-diagram-3 accordion-icon"></i>
+                <i class="accordion-icon bi bi-diagram-3"></i>
                 Gaiak eta Espezialitatea
               </button>
             </h2>
@@ -363,7 +361,7 @@
           <div class="accordion-item">
             <h2 class="accordion-header">
               <button class="accordion-button collapsed" type="button" data-toggle="collapse" data-target="#item6">
-                <i class="bi bi-clipboard-check accordion-icon"></i>
+                <i class="accordion-icon bi bi-pencil-square"></i>
                 Lana Esleitzea eta Gaia Aukeratzea
               </button>
             </h2>
@@ -391,7 +389,7 @@
           <div class="accordion-item">
             <h2 class="accordion-header">
               <button class="accordion-button collapsed" type="button" data-toggle="collapse" data-target="#item7">
-                <i class="bi bi-people-fill accordion-icon"></i>
+                <i class="accordion-icon bi bi-people"></i>
                 Ebaluazio-epaimahaia
               </button>
             </h2>
@@ -414,7 +412,7 @@
           <div class="accordion-item">
             <h2 class="accordion-header">
               <button class="accordion-button collapsed" type="button" data-toggle="collapse" data-target="#item8">
-                <i class="bi bi-file-earmark-text accordion-icon"></i>
+                <i class="accordion-icon bi bi-easel"></i>
                 Lanaren Aurkezpena eta Defentsa
               </button>
             </h2>
@@ -444,7 +442,7 @@
           <div class="accordion-item">
             <h2 class="accordion-header">
               <button class="accordion-button collapsed" type="button" data-toggle="collapse" data-target="#item9">
-                <i class="bi bi-award accordion-icon"></i>
+                <i class="accordion-icon bi bi-award"></i>
                 Ebaluazioa eta Kalifikazioa
               </button>
             </h2>
@@ -469,13 +467,13 @@
           <div class="accordion-item">
             <h2 class="accordion-header">
               <button class="accordion-button collapsed" type="button" data-toggle="collapse" data-target="#item10">
-                <i class="bi bi-building accordion-icon"></i>
+                <i class="accordion-icon bi bi-building"></i>
                 Gradu Amaierako Lan Batzordea
               </button>
             </h2>
             <div id="item10" class="collapse" data-parent="#araudiaAccordion">
               <div class="accordion-body">
-                <p><strong>Batzordeak zerbait garatu eta koordinatuko du:</strong></p>
+                <p><strong>Batzordeak garatu eta koordinatuko du:</strong></p>
                 <ul>
                   <li>Memorien formatuak eta luzera</li>
                   <li>Epaimahai ebaluatzailearen formatua</li>
