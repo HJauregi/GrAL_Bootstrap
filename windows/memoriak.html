@@ -5,7 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Memoriak - GrAL</title>
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-<style>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
+  <style>
     /* Navbar shrink */
     .navbar-shrink {
       padding-top: 0.25rem !important;
@@ -16,7 +17,7 @@
     body {
       padding-top: 300px;
       transition: padding-top 0.3s ease;
-      background: linear-gradient(135deg, #f5f7fa 0%, #e8ecf1 100%);
+      background: #e8eef3;
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     }
 
@@ -31,33 +32,43 @@
     /* Header Section */
     .page-header {
       background: white;
-      border-radius: 20px;
+      border-radius: 12px;
       padding: 3rem 2rem;
       margin-bottom: 3rem;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-      border: 1px solid rgba(0,0,0,0.05);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
     }
 
     .page-header h1 {
-      color: #1a73e8;
+      color: #2c3e50;
       font-size: 2.5rem;
       font-weight: 700;
       margin-bottom: 1.5rem;
+      text-align: center;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.7rem;
+    }
+
+    .page-header h1 i {
+      font-size: 2.5rem;
+      color: #1a73e8;
     }
 
     .page-header p {
-      color: #5f6368;
+      color: #6c757d;
       font-size: 1.1rem;
       line-height: 1.6;
+      text-align: center;
     }
 
     /* Cards Section */
     .cards-section {
       background: white;
-      border-radius: 20px;
-      padding: 3rem 2rem;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-      border: 1px solid rgba(0,0,0,0.05);
+      border-radius: 16px;
+      padding: 3rem 2.5rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      border-top: 4px solid #1a73e8;
     }
 
     /* Memoria cards */
@@ -68,20 +79,21 @@
 
     .memoria-card a {
       display: block;
-      background: white;
-      border-radius: 16px;
-      padding: 1.5rem;
+      background: #fafbfc;
+      border-radius: 14px;
+      padding: 2rem;
       text-decoration: none;
       color: inherit;
-      border: 2px solid #e8ecf1;
+      border: 2px solid #e1e8ed;
       transition: all 0.3s ease;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+      box-shadow: 0 2px 6px rgba(0,0,0,0.05);
     }
 
     .memoria-card a:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 12px 24px rgba(26, 115, 232, 0.15);
+      transform: translateY(-8px);
+      box-shadow: 0 8px 20px rgba(26, 115, 232, 0.2);
       border-color: #1a73e8;
+      background: white;
     }
 
     .image-wrapper {
@@ -90,8 +102,8 @@
       height: 250px;
       overflow: hidden;
       margin: 0 auto 1.5rem;
-      border-radius: 12px;
-      border: 3px solid #f1f3f4;
+      border-radius: 8px;
+      border: 2px solid #e9ecef;
     }
 
     .image-wrapper img {
@@ -102,7 +114,7 @@
     }
 
     .memoria-card a:hover .image-wrapper img {
-      transform: scale(1.08);
+      transform: scale(1.05);
     }
 
     .memoria-card h3 {
@@ -110,50 +122,21 @@
       margin: 0 auto;
       text-align: center;
       font-size: 1.3rem;
-      color: #202124;
+      color: #2c3e50;
       font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+    }
+
+    .memoria-card h3 i {
+      font-size: 1.5rem;
+      color: #1a73e8;
     }
 
     .memoria-card a:hover h3 {
       color: #1a73e8;
-    }
-
-    /* Info Section */
-    .info-section {
-      background: #f8f9fa;
-      border-radius: 16px;
-      padding: 2rem;
-      margin-top: 3rem;
-      border-left: 5px solid #1a73e8;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-    }
-
-    .info-section h2 {
-      color: #202124;
-      font-size: 1.5rem;
-      font-weight: 600;
-      margin-bottom: 1rem;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    .info-section h2::before {
-      content: "❓";
-      background: #1a73e8;
-      border-radius: 50%;
-      width: 40px;
-      height: 40px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.2rem;
-    }
-
-    .info-section p {
-      color: #5f6368;
-      line-height: 1.6;
-      margin-bottom: 0;
     }
 
     /* Footer */
@@ -210,33 +193,39 @@
 
   <!-- Contenido principal -->
   <div class="container mt-4 mb-5">
-    <h1 class="mb-3 text-center">Aurreko GrALen memoriak</h1>
-    <p class="text-center mb-5 lead">
-      Jarraian, Ingenieritza Informatikoko graduan aurreko urteetan defendatutako memoriak aurkituko dituzu hizkuntza eta espazialitate ezberdinetan.
-    </p>
+    <!-- Header Section -->
+    <div class="page-header">
+      <h1><i class="bi bi-book"></i> Aurreko GrALen memoriak</h1>
+      <p>
+        Jarraian, Ingenieritza Informatikoko graduan aurreko urteetan defendatutako memoriak aurkituko dituzu hizkuntza eta espazialitate ezberdinetan.
+      </p>
+    </div>
 
-    <div class="row justify-content-center">
-      <!-- Memoria Informatika -->
-      <div class="col-md-6 col-lg-5">
-        <div class="memoria-card text-center">
-          <a href="memoriak-informatika.html">
-            <div class="image-wrapper">
-              <img src="https://www.eseit.edu.co/wp-content/uploads/banner-ing-informatica-1.png" alt="Ingenieritza Informatika">
-            </div>
-            <h3>Ingenieritza Informatikako Memoriak</h3>
-          </a>
+    <!-- Cards Section -->
+    <div class="cards-section">
+      <div class="row justify-content-center">
+        <!-- Memoria Informatika -->
+        <div class="col-md-6 col-lg-5">
+          <div class="memoria-card text-center">
+            <a href="memoriak-informatika.html">
+              <div class="image-wrapper">
+                <img src="https://www.eseit.edu.co/wp-content/uploads/banner-ing-informatica-1.png" alt="Ingenieritza Informatika">
+              </div>
+              <h3><i class="bi bi-cpu"></i> Ingenieritza Informatikako Memoriak</h3>
+            </a>
+          </div>
         </div>
-      </div>
 
-      <!-- Memoria IA -->
-      <div class="col-md-6 col-lg-5">
-        <div class="memoria-card text-center">
-          <a href="memoriak-ia.html">
-            <div class="image-wrapper">
-              <img src="https://observatorio-ametic.ai/sites/observatorio/files/public/styles/large_800/public/content-images/media/2024/EL%20CONSUMO%20ENERGETICO%20DE%20LA%20IA%20GENERATIVA%20-%20%20OCTUBRE%202024_Page_01_Image_0001.jpg?itok=1ACHeKVX" alt="Adimen Artifiziala">
-            </div>
-            <h3>Adimen Artifizialeko Memoriak</h3>
-          </a>
+        <!-- Memoria IA -->
+        <div class="col-md-6 col-lg-5">
+          <div class="memoria-card text-center">
+            <a href="memoriak-ia.html">
+              <div class="image-wrapper">
+                <img src="https://observatorio-ametic.ai/sites/observatorio/files/public/styles/large_800/public/content-images/media/2024/EL%20CONSUMO%20ENERGETICO%20DE%20LA%20IA%20GENERATIVA%20-%20%20OCTUBRE%202024_Page_01_Image_0001.jpg?itok=1ACHeKVX" alt="Adimen Artifiziala">
+              </div>
+              <h3><i class="bi bi-robot"></i> Adimen Artifizialeko Memoriak</h3>
+            </a>
+          </div>
         </div>
       </div>
     </div>
