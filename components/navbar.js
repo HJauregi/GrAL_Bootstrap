@@ -33,7 +33,7 @@ document.getElementById("navbar-placeholder").innerHTML = `
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle-split" href="${basePath}windows/araudia.html">
             <i class="bi bi-file-text-fill"></i>
-            <span>Arautegia</span>
+            <span>Araudia</span>
           </a>
           <button class="dropdown-toggle-btn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <i class="bi bi-chevron-down"></i>
