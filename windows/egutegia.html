@@ -8,97 +8,83 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
   <style>
     body {
+      padding-top: 80px;
       background: linear-gradient(135deg, #f7f9fc, #eef1f5);
       font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      margin: 0;
     }
-    
+
     .container {
-      padding: 2rem 1rem 4rem;
-      max-width: 1100px;
-      margin: 0 auto;
+      padding-top: 2rem;
+      padding-bottom: 3rem;
+      flex: 1;
     }
 
-    .section-card {
-      background: white;
-      padding: 3rem 2rem;
-      border-radius: 1.5rem;
-      box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+    .page-header {
+      background: linear-gradient(135deg, #1a1a1a 0%, #4a4a4a 100%);
+      border-radius: 1rem;
+      padding: 2.5rem 2rem;
       margin-bottom: 2rem;
+      box-shadow: 0 8px 26px rgba(0, 0, 0, 0.15);
+      color: white;
       text-align: center;
-      position: relative;
-      overflow: hidden;
     }
 
-    .section-card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 5px;
-      background: linear-gradient(90deg, #007bff, #0056b3, #007bff);
-      background-size: 200% 100%;
-      animation: shimmer 3s infinite;
-    }
-
-    @keyframes shimmer {
-      0% { background-position: 200% 0; }
-      100% { background-position: -200% 0; }
-    }
-
-    .section-card h1 {
+    .page-header h1 {
       font-size: 2.5rem;
       font-weight: 800;
-      color: #343a40;
-      margin-bottom: 1.5rem;
-      position: relative;
-      z-index: 1;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
     }
 
-    .section-card h1 i {
-      color: #007bff;
-      margin-right: 0.5rem;
+    .page-header h1 i {
+      font-size: 2.2rem;
     }
 
-    .section-card > p {
+    .page-header p {
       font-size: 1.1rem;
-      color: #495057;
-      line-height: 1.8;
-      max-width: 800px;
-      margin: 0 auto 2rem;
+      color: rgba(255, 255, 255, 0.9);
+      line-height: 1.7;
+      margin-bottom: 0;
+      max-width: 900px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     .info-badge {
       display: inline-block;
-      background: linear-gradient(135deg, #f8f9fc, #e3f2fd);
-      border: 2px solid #007bff;
-      border-left: 4px solid #007bff;
-      color: #007bff;
-      padding: 0.75rem 1.5rem;
-      border-radius: 12px;
-      font-weight: 700;
-      font-size: 1rem;
-      margin: 1rem 0 2rem;
+      background: rgba(255, 193, 7, 0.2);
+      border: 2px solid #ffc107;
+      color: #ffc107;
+      padding: 0.5rem 1rem;
+      border-radius: 0.5rem;
+      font-weight: 600;
+      margin-top: 1rem;
+      font-size: 0.95rem;
     }
 
-    .info-badge i {
-      margin-right: 0.5rem;
+    .pdf-card {
+      background: #ffffff;
+      border-radius: 1rem;
+      padding: 2rem;
+      box-shadow: 0 8px 26px rgba(0, 0, 0, 0.10);
+      border: 1px solid rgba(0,0,0,0.06);
+      margin-bottom: 2rem;
     }
 
     .pdf-container {
       position: relative;
       width: 100%;
       overflow: hidden;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-      margin-bottom: 2rem;
-      border: 2px solid #e1e8ed;
-      transition: all 0.3s ease;
-    }
-
-    .pdf-container:hover {
-      border-color: #007bff;
-      box-shadow: 0 6px 20px rgba(0, 123, 255, 0.2);
+      border-radius: 0.75rem;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      margin-bottom: 1.5rem;
     }
 
     @media (max-width: 767px) {
@@ -113,11 +99,9 @@
         width: 100%; 
         height: 100%; 
       }
-      .section-card h1 {
-        font-size: 2rem;
-      }
-      .section-card {
-        padding: 2rem 1.5rem;
+      .page-header h1 {
+        font-size: 1.8rem;
+        flex-direction: column;
       }
     }
 
@@ -133,50 +117,53 @@
 
     .pdf-info {
       text-align: center;
+      margin-bottom: 1.5rem;
     }
 
     .pdf-info p {
-      font-size: 1.05rem;
-      color: #495057;
-      margin-bottom: 1.5rem;
-      line-height: 1.6;
+      font-size: 1.1rem;
+      color: #555;
+      margin-bottom: 1rem;
     }
 
     .btn-pdf {
       display: inline-flex;
       align-items: center;
-      gap: 0.75rem;
-      padding: 1rem 2.5rem;
+      gap: 0.5rem;
+      padding: 0.85rem 2rem;
       font-size: 1.1rem;
       font-weight: 600;
       color: #fff;
-      background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+      background: linear-gradient(135deg, #1a1a1a 0%, #4a4a4a 100%);
       border: none;
-      border-radius: 12px;
+      border-radius: 0.75rem;
       text-decoration: none;
       transition: all 0.3s ease;
-      box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     }
 
     .btn-pdf:hover {
       transform: translateY(-3px);
-      box-shadow: 0 8px 25px rgba(0, 123, 255, 0.4);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
       text-decoration: none;
       color: #fff;
     }
 
     .btn-pdf i {
-      font-size: 1.4rem;
+      font-size: 1.3rem;
     }
   </style>
 </head>
 <body>
 
+  <!-- Navbar dinámico externo -->
   <div id="navbar-placeholder"></div>
   <script src="../components/navbar.js"></script>
 
+  <!-- Contenido principal -->
   <div class="container">
-    <div class="section-card">
+    <!-- Header -->
+    <div class="page-header">
       <h1>
         <i class="bi bi-calendar-check-fill"></i>
         Egutegia
@@ -187,7 +174,10 @@
       <div class="info-badge">
         <i class="bi bi-info-circle-fill"></i> Kontuan hartu deialdi desberdinak daudela!
       </div>
-      
+    </div>
+
+    <!-- PDF Card -->
+    <div class="pdf-card">
       <!-- PDF embebido -->
       <div class="pdf-container">
         <embed src="/GrAL/media/2025_26_IIG_GrAL_Egutegia_eus_signed.pdf" type="application/pdf">
@@ -198,15 +188,17 @@
         <p>Hobeto ikusi nahiko bazenu, ireki ezazu PDF osoa beste leiho batean:</p>
         <a href="/GrAL/media/2025_26_IIG_GrAL_Egutegia_eus_signed.pdf" target="_blank" class="btn-pdf">
           <i class="bi bi-file-earmark-pdf-fill"></i>
-          <span>GrAL-aren egutegia ikusi</span>
+          GrAL-aren egutegia ikusi
         </a>
       </div>
     </div>
   </div>
 
+  <!-- Footer placeholder -->
   <div id="footer-placeholder"></div>
   <script src="../components/footer.js"></script>
 
+  <!-- Scripts de Bootstrap -->
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script> 
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script> 
