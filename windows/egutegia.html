@@ -11,26 +11,25 @@
       background: linear-gradient(135deg, #f7f9fc, #eef1f5);
       font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
     }
-
+    
     .container {
       padding: 2rem 1rem 4rem;
       max-width: 1100px;
       margin: 0 auto;
     }
 
-    .content-panel {
+    .section-card {
       background: white;
       padding: 3rem 2rem;
       border-radius: 1.5rem;
       box-shadow: 0 8px 30px rgba(0,0,0,0.08);
       margin-bottom: 2rem;
       text-align: center;
-      width: 100%;
       position: relative;
       overflow: hidden;
     }
 
-    .content-panel::before {
+    .section-card::before {
       content: '';
       position: absolute;
       top: 0;
@@ -47,35 +46,26 @@
       100% { background-position: -200% 0; }
     }
 
-    .panel-header {
-      text-align: center;
-      margin-bottom: 2.5rem;
-      position: relative;
-      z-index: 1;
-    }
-
-    .panel-title {
+    .section-card h1 {
       font-size: 2.5rem;
       font-weight: 800;
       color: #343a40;
       margin-bottom: 1.5rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.5rem;
+      position: relative;
+      z-index: 1;
     }
 
-    .panel-title i {
+    .section-card h1 i {
       color: #007bff;
       margin-right: 0.5rem;
     }
 
-    .panel-description {
+    .section-card > p {
       font-size: 1.1rem;
       color: #495057;
       line-height: 1.8;
+      max-width: 800px;
       margin: 0 auto 2rem;
-      max-width: 700px;
     }
 
     .info-badge {
@@ -88,25 +78,7 @@
       border-radius: 12px;
       font-weight: 700;
       font-size: 1rem;
-      margin-top: 1rem;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .info-badge::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
-      animation: slide 3s infinite;
-    }
-
-    @keyframes slide {
-      0% { left: -100%; }
-      100% { left: 100%; }
+      margin: 1rem 0 2rem;
     }
 
     .info-badge i {
@@ -141,11 +113,10 @@
         width: 100%; 
         height: 100%; 
       }
-      .panel-title {
+      .section-card h1 {
         font-size: 2rem;
-        flex-direction: column;
       }
-      .content-panel {
+      .section-card {
         padding: 2rem 1.5rem;
       }
     }
@@ -201,26 +172,20 @@
 </head>
 <body>
 
-  <!-- Navbar dinámico externo -->
   <div id="navbar-placeholder"></div>
   <script src="../components/navbar.js"></script>
 
-  <!-- Contenido principal -->
   <div class="container">
-    <!-- Panel principal blanco -->
-    <div class="content-panel">
-      <!-- Header dentro del panel -->
-      <div class="panel-header">
-        <h1 class="panel-title">
-          <i class="bi bi-calendar-check-fill"></i>
-          Egutegia
-        </h1>
-        <p class="panel-description">
-          Jarraian aurki dezakezu Ingenieritza Informatiko zein Adimen Artifizial graduetako GrAL-arentzat zehaztu den egutegia 2025/2026 ikasturterako. Ikusiko duzun bezala rol desberdinak agertzen dira, noski zuk burutu beharrekoak soilik zure rolari dagozkionak dira.
-        </p>
-        <div class="info-badge">
-          <i class="bi bi-info-circle-fill"></i> Kontuan hartu deialdi desberdinak daudela!
-        </div>
+    <div class="section-card">
+      <h1>
+        <i class="bi bi-calendar-check-fill"></i>
+        Egutegia
+      </h1>
+      <p>
+        Jarraian aurki dezakezu Ingenieritza Informatiko zein Adimen Artifizial graduetako GrAL-arentzat zehaztu den egutegia 2025/2026 ikasturterako. Ikusiko duzun bezala rol desberdinak agertzen dira, noski zuk burutu beharrekoak soilik zure rolari dagozkionak dira.
+      </p>
+      <div class="info-badge">
+        <i class="bi bi-info-circle-fill"></i> Kontuan hartu deialdi desberdinak daudela!
       </div>
       
       <!-- PDF embebido -->
@@ -239,11 +204,9 @@
     </div>
   </div>
 
-  <!-- Footer placeholder -->
   <div id="footer-placeholder"></div>
   <script src="../components/footer.js"></script>
 
-  <!-- Scripts de Bootstrap -->
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script> 
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script> 
