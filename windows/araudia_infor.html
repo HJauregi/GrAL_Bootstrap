@@ -1,94 +1,484 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="eu">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>GrAL - Arautegia Informatika</title>
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
   <style>
     body {
-      padding-top: 300px;
-      transition: padding-top 0.3s ease;
-      background: linear-gradient(135deg, #f7f9fc, #eef1f5);
-      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background: #e8f4f8;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
     }
 
     .container {
-      padding-top: 1rem;
-      padding-bottom: 6rem;
+      padding: 2rem 1rem 4rem;
       max-width: 1100px;
       margin: 0 auto;
     }
 
-    .info-card {
-      background: #ffffff;
-      border-radius: 1rem;
-      padding: 2rem;
-      box-shadow: 0 8px 26px rgba(0, 0, 0, 0.10);
-      border: 1px solid rgba(0,0,0,0.06);
+    .main-card {
+      background: white;
+      border-radius: 20px;
+      padding: 2.5rem;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      border: 1px solid rgba(0,0,0,0.05);
+    }
+
+    .header-section {
       text-align: center;
-      transition: all .25s ease;
+      margin-bottom: 2rem;
+      padding-bottom: 2rem;
+      border-bottom: 2px solid #e8f4f8;
     }
 
-    .info-title {
-      font-size: 2rem;
-      font-weight: 800;
-      color: #222;
+    .header-title {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: #1a1a1a;
+      margin-bottom: 1rem;
     }
 
-    .info-subtext {
-      font-size: 1.1rem;
-      color: #333;
-      margin-top: 0.75rem;
+    .header-title i {
+      color: #007bff;
+      margin-right: 0.5rem;
+    }
+
+    .header-description {
+      background: #f8fbfd;
+      color: #495057;
+      padding: 1.25rem 1.5rem;
+      border-radius: 12px;
+      border: 1px solid #e3f2fd;
+      font-size: 0.95rem;
+      line-height: 1.6;
       margin-bottom: 1.5rem;
     }
 
-    .araudia-link {
-      font-size: 1.25rem;
-      font-weight: 700;
-      background: #0069d9;
-      color: #fff !important;
-      padding: 0.75rem 1.4rem;
-      border-radius: 0.75rem;
-      display: inline-block;
-      text-decoration: none;
-      transition: all .25s ease;
-    }
-
-    .araudia-link:hover {
-      background: #0053b0;
-      transform: translateY(-3px);
-      color: #fff;
-      text-decoration: none;
-    }
-
-    .footer {
-      background-color: #343a40;
-      color: white;
+    .pdf-link-box {
       text-align: center;
-      padding: 0.75rem 0;
-      margin-top: auto;
+      margin-top: 1.5rem;
     }
 
-    .footer p { margin-bottom: 0.25rem; }
-    .footer .mb-2 { margin-bottom: 0.25rem !important; }
-    .footer a { color: #ffffff; text-decoration: underline; }
-    .footer a:hover { color: #adb5bd; }
+    .btn-pdf-full {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 1rem 2.5rem;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: #fff;
+      background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+      border: none;
+      border-radius: 30px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 20px rgba(0, 123, 255, 0.4);
+    }
+
+    .btn-pdf-full:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 30px rgba(0, 123, 255, 0.6);
+      text-decoration: none;
+      color: #fff;
+    }
+
+    .accordion-section {
+      margin-top: 2rem;
+    }
+
+    .accordion-item {
+      background: white;
+      border-radius: 12px;
+      margin-bottom: 1rem;
+      overflow: hidden;
+      border: none;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+
+    .accordion-header {
+      background: white;
+      border: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .accordion-button {
+      background: white;
+      color: #2a2a2a;
+      font-weight: 600;
+      font-size: 1.1rem;
+      padding: 1.25rem 1.5rem;
+      border: none;
+      width: 100%;
+      text-align: left;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      position: relative;
+    }
+
+    .accordion-button:hover {
+      background: #f8f9fa;
+    }
+
+    .accordion-button:not(.collapsed) {
+      background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+      color: white;
+      box-shadow: 0 2px 8px rgba(0,123,255,0.3);
+    }
+
+    .accordion-button::after {
+      content: '+';
+      position: absolute;
+      right: 1.5rem;
+      font-size: 1.5rem;
+      font-weight: 700;
+      transition: transform 0.3s ease;
+    }
+
+    .accordion-button:not(.collapsed)::after {
+      content: '−';
+      transform: rotate(180deg);
+    }
+
+    .accordion-icon {
+      font-size: 1.3rem;
+      min-width: 30px;
+    }
+
+    .accordion-body {
+      padding: 1.5rem;
+      background: #f8f9fa;
+      color: #495057;
+      font-size: 0.95rem;
+      line-height: 1.8;
+    }
+
+    .accordion-body ul {
+      margin: 0.75rem 0;
+      padding-left: 1.5rem;
+    }
+
+    .accordion-body li {
+      margin-bottom: 0.5rem;
+    }
+
+    .accordion-body strong {
+      color: #2a2a2a;
+    }
+
+    .highlight-box {
+      background: #e3f2fd;
+      border-left: 4px solid #007bff;
+      padding: 1rem;
+      margin: 1rem 0;
+      border-radius: 6px;
+    }
+
+    .warning-box {
+      background: #fff3cd;
+      border-left: 4px solid #ffc107;
+      padding: 1rem;
+      margin: 1rem 0;
+      border-radius: 6px;
+    }
+
+    @media (max-width: 768px) {
+      .header-title {
+        font-size: 1.8rem;
+      }
+      
+      .main-card {
+        padding: 1.5rem;
+      }
+
+      .accordion-button {
+        font-size: 1rem;
+        padding: 1rem;
+      }
+    }
   </style>
 </head>
 <body>
 
-  <!-- Navbar dinámico -->
+  <!-- Navbar placeholder -->
   <div id="navbar-placeholder"></div>
+  <script src="../components/navbar.js"></script>
 
   <div class="container mt-4 mb-5">
-    <div class="info-card">
-      <h1 class="info-title">Arautegia: Ingeniaritza Informatikoa</h1>
-      <p class="info-subtext">Hemen aurkituko duzu Ingeniaritza Informatikoko Graduko araudia eta dokumentazio ofiziala.</p>
+    <div class="main-card">
+      <!-- Header -->
+      <div class="header-section">
+        <h1 class="header-title">
+          <i class="bi bi-book-fill"></i>
+          Arautegia: Informatika Ingeniaritza
+        </h1>
+        <div class="header-description">
+          <p>Hemen aurkituko duzu Informatika Ingeniaritzako Graduko GrAL-aren araudiaren laburpen bat, informazio garrantzitsuena bildurik. Araudia osoa irakurri nahi baduzu, sakatu beheko botoian.</p>
+        </div>
+        <div class="pdf-link-box">
+          <a class="btn-pdf-full" target="_blank" href="https://www.ehu.eus/documents/d/informatika-fakultatea/normativa_iig_eu">
+            <i class="bi bi-file-earmark-pdf-fill"></i>
+            Araudia osoa ikusi (PDF)
+          </a>
+        </div>
+      </div>
 
-      <a class="araudia-link" target="_blank" href="https://www.ehu.eus/documents/d/informatika-fakultatea/normativa_iig_eu">
-        ➜ Araudia ikusi (PDF)
-      </a>
+      <!-- Acordeones -->
+      <div class="accordion-section">
+        <div class="accordion" id="araudiaAccordion">
+          
+          <!-- 1. Alderdi Orokorrak -->
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-toggle="collapse" data-target="#item1">
+                <i class="bi bi-info-circle-fill accordion-icon"></i>
+                Alderdi Orokorrak eta Izaera
+              </button>
+            </h2>
+            <div id="item1" class="collapse" data-parent="#araudiaAccordion">
+              <div class="accordion-body">
+                <ul>
+                  <li><strong>Zer da GrAL-a?</strong> Ikasle bakoitzak banaka egin behar duen lana, zuzendari baten gainbegirapenean, graduan jasotako gaitasunak integratzeko.</li>
+                  <li><strong>Kredituak:</strong> 12 kredituko lan-karga du.</li>
+                  <li><strong>Noiz defendatu?</strong> Gehienez 18 kreditu hautatzekorik falta zaizkionean (3-4 maila).</li>
+                  <li><strong>Jabetza intelektuala:</strong> Lana egileari dagokio. EHUk ADDI bidez argitaratu dezake digitalki.</li>
+                </ul>
+                <div class="highlight-box">
+                  <strong><i class="bi bi-lightbulb-fill"></i> Gogoeta beharrezkoa:</strong> Lanean 200 hitz gutxienez jarri behar dira balio demokratikoak, genero berdintasuna, jasangarritasuna eta GJHak gogoeta eginez.
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 2. Helburuak -->
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-toggle="collapse" data-target="#item2">
+                <i class="bi bi-bullseye accordion-icon"></i>
+                Helburuak
+              </button>
+            </h2>
+            <div id="item2" class="collapse" data-parent="#araudiaAccordion">
+              <div class="accordion-body">
+                <p><strong>Helburu nagusia:</strong> Graduan lortutako gaitasunak sendotzea eta praktikan aplikatzea.</p>
+                <p><strong>Garatu beharreko trebetasunak:</strong></p>
+                <ul>
+                  <li>Helburuak modu autonomoan lortzea</li>
+                  <li>Lana planifikatu eta kudeatzea</li>
+                  <li>Memoria bat idaztea estilo formal eta zehatzean</li>
+                  <li>Lana jendaurrean azaldu eta defendatzea</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- 3. Izen-ematea eta Deialdiak -->
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-toggle="collapse" data-target="#item3">
+                <i class="bi bi-calendar-check accordion-icon"></i>
+                Izen-ematea eta Deialdiak
+              </button>
+            </h2>
+            <div id="item3" class="collapse" data-parent="#araudiaAccordion">
+              <div class="accordion-body">
+                <ul>
+                  <li><strong>Matrikula:</strong> EHUren matrikula-epe orokorrean, prezio publikoak ordainduz.</li>
+                  <li><strong>Deialdiak:</strong> Ikasturte bakoitzean 2 deialdi ofizial.</li>
+                  <li><strong>Hizkuntza:</strong> Matrikulan zehaztuko da (euskara, gaztelania edo ingelesa).</li>
+                </ul>
+                <div class="warning-box">
+                  <strong><i class="bi bi-exclamation-triangle-fill"></i> Kontuz!</strong> Ez baduzu defendatzen edo gaindituten, berriro matrikulatu beharko duzu hurrengo ikasturtean.
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 4. Zuzendaritza -->
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-toggle="collapse" data-target="#item4">
+                <i class="bi bi-person-badge accordion-icon"></i>
+                Lanen Zuzendaritza
+              </button>
+            </h2>
+            <div id="item4" class="collapse" data-parent="#araudiaAccordion">
+              <div class="accordion-body">
+                <ul>
+                  <li><strong>Nork zuzendu dezake?</strong> Graduan eskolak ematen dituen saileko irakasle bat edo ikastegiari atxikitako bat.</li>
+                  <li><strong>Zuzendarikideak:</strong> Bat baino gehiago izan daitezke. Doktoreak edo doktorego aurreko kontratudunak.</li>
+                  <li><strong>Kanpoko erakundeak:</strong> Lana kanpoan eginez gero, kanpoko zuzendaria + unibertsitateko zuzendarikidea behar da.</li>
+                  <li><strong>Zuzendariaren lana:</strong> Orientazioa eman, helburuak zaindu eta jarraipen egokia egitea.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- 5. Gaiak eta Espezialitatea -->
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-toggle="collapse" data-target="#item5">
+                <i class="bi bi-diagram-3 accordion-icon"></i>
+                Gaiak eta Espezialitatea
+              </button>
+            </h2>
+            <div id="item5" class="collapse" data-parent="#araudiaAccordion">
+              <div class="accordion-body">
+                <p><strong>Lana zure espezialitatean egin behar duzu:</strong></p>
+                <ul>
+                  <li>Konputagailuen ingeniaritza</li>
+                  <li>Konputazioa</li>
+                  <li>Softwarearen ingeniaritza</li>
+                </ul>
+                <div class="highlight-box">
+                  Espezialitatea lana inskribatzean esleituko da eta Gradu Amaierako Lanen Batzordeak onartu beharko du.
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 6. Lana Esleitzea -->
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-toggle="collapse" data-target="#item6">
+                <i class="bi bi-clipboard-check accordion-icon"></i>
+                Lana Esleitzea eta Gaia Aukeratzea
+              </button>
+            </h2>
+            <div id="item6" class="collapse" data-parent="#araudiaAccordion">
+              <div class="accordion-body">
+                <p><strong>Hiru lan-mota:</strong></p>
+                <ul>
+                  <li><strong>Adostutakoak:</strong> Ikasle eta irakasleak zuzenean adosten dute gaia.</li>
+                  <li><strong>Eskainitakoak:</strong> Sailek proposatzen dituzten lanak.</li>
+                  <li><strong>Kanpoko erakundeetan:</strong> Enpresetan edo Erasmus/Seneca programetan.</li>
+                </ul>
+                <p><strong>Lan bakoitzeko beharrezko datuak:</strong></p>
+                <ul>
+                  <li>Espezialitatea eta mota</li>
+                  <li>Zuzendaritza</li>
+                  <li>Izenburua eta deskribapena</li>
+                  <li>Hizkuntza (memoria eta defentsa berean)</li>
+                  <li>Beharrezko baliabideak</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- 7. Ebaluazio-epaimahaia -->
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-toggle="collapse" data-target="#item7">
+                <i class="bi bi-people-fill accordion-icon"></i>
+                Ebaluazio-epaimahaia
+              </button>
+            </h2>
+            <div id="item7" class="collapse" data-parent="#araudiaAccordion">
+              <div class="accordion-body">
+                <p><strong>Epaimahaiaren konposizioa (3 kide):</strong></p>
+                <ul>
+                  <li><strong>Lehendakaria:</strong> Fakultate Batzarrak izendatua</li>
+                  <li><strong>Idazkaria:</strong> Lanaren zuzendaria (ebaluazioan parte hartzen du)</li>
+                  <li><strong>Kidea:</strong> Gaian ezagutzak dituen irakaslea</li>
+                </ul>
+                <div class="highlight-box">
+                  Epaimahaiak defentsak dagokien hizkuntzan egitea bermatuko du (euskara, gaztelania edo ingelesa).
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 8. Aurkezpena eta Defentsa -->
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-toggle="collapse" data-target="#item8">
+                <i class="bi bi-file-earmark-text accordion-icon"></i>
+                Lanaren Aurkezpena eta Defentsa
+              </button>
+            </h2>
+            <div id="item8" class="collapse" data-parent="#araudiaAccordion">
+              <div class="accordion-body">
+                <p><strong>Memoria entregatzea:</strong></p>
+                <ul>
+                  <li>Formatu digitalean ADDI bidez (gomendatua)</li>
+                  <li>60 orrialde inguru (eranskinak kanpo)</li>
+                  <li>Fakultatearen azal estandarra erabiliz</li>
+                </ul>
+                <p><strong>Defentsa publikoa:</strong></p>
+                <ul>
+                  <li>20 minutuko denbora gomendatua (gehienez 30 minutu)</li>
+                  <li>Helburuak, metodologia, edukia eta ondorioak azaldu</li>
+                  <li>Epaimahaiko galderak erantzun</li>
+                  <li>Memoria idatzi den hizkuntza berean defendatu</li>
+                </ul>
+                <div class="warning-box">
+                  <strong><i class="bi bi-info-circle-fill"></i> Posterra gomendatua:</strong> Fakultateko hallean jarri posterr bat proiektuaren laburpenarekin.
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 9. Ebaluazioa eta Kalifikazioa -->
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-toggle="collapse" data-target="#item9">
+                <i class="bi bi-award accordion-icon"></i>
+                Ebaluazioa eta Kalifikazioa
+              </button>
+            </h2>
+            <div id="item9" class="collapse" data-parent="#araudiaAccordion">
+              <div class="accordion-body">
+                <p><strong>Kalifikazio eskala (0-10):</strong></p>
+                <ul>
+                  <li><strong>0 - 4,9:</strong> Ez gainditua (EG)</li>
+                  <li><strong>5,0 - 6,9:</strong> Gainditua (G)</li>
+                  <li><strong>7,0 - 8,9:</strong> Oso ongi (OO)</li>
+                  <li><strong>9,0 - 10:</strong> Bikaina (BI)</li>
+                </ul>
+                <div class="highlight-box">
+                  <strong><i class="bi bi-star-fill"></i> Ohorezko Matrikula:</strong> 9,0 edo gehiago duten lanei eman dakieke. Ikasleen %5etik gorako kopuruak ezin du lortu.
+                </div>
+                <p><strong>Ez gaindituz gero:</strong> Epaimahaiak txosten bat emango du lana hobetzeko gomendioekin.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- 10. GrAL Batzordea -->
+          <div class="accordion-item">
+            <h2 class="accordion-header">
+              <button class="accordion-button collapsed" type="button" data-toggle="collapse" data-target="#item10">
+                <i class="bi bi-building accordion-icon"></i>
+                Gradu Amaierako Lan Batzordea
+              </button>
+            </h2>
+            <div id="item10" class="collapse" data-parent="#araudiaAccordion">
+              <div class="accordion-body">
+                <p><strong>Batzordeak zerbait garatu eta koordinatuko du:</strong></p>
+                <ul>
+                  <li>Memorien formatuak eta luzera</li>
+                  <li>Epaimahai ebaluatzailearen formatua</li>
+                  <li>Ebaluatzeko jarraibide orokorrak</li>
+                  <li>Urteko kudeaketa-prozesuak eta egutegia</li>
+                </ul>
+                <p><strong>Batzordea osatzen dute:</strong></p>
+                <ul>
+                  <li>Zentroko GrAL-en arduradun dekanordea</li>
+                  <li>Sail bakoitzeko irakasle ordezkariak (IIG eta AAG)</li>
+                  <li>Ikasle ordezkariak</li>
+                  <li>Kudeaketaren arduraduna</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
     </div>
   </div>
 
@@ -96,8 +486,7 @@
   <div id="footer-placeholder"></div>
   <script src="../components/footer.js"></script>
 
-  <!-- Script del navbar -->
-  <script src="../components/navbar.js"></script>
+  <!-- Scripts -->
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
