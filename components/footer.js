@@ -40,7 +40,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
         <!-- Copyright -->
         <div class="footer-bottom">
-          <p class="mb-0">&copy; 2025 PKE2.02. Eskubide guztiak erreserbatuak.</p>
+          <p class="mb-0">&copy; 2025-Gradu Amaierako Lanaren gida.</p>
         </div>
       </div>
     </footer>

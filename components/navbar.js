@@ -130,6 +130,13 @@ document.getElementById("navbar-placeholder").innerHTML = `
     justify-content: center;
     font-size: 1.5rem;
     transition: all 0.3s ease;
+    flex-shrink: 0;
+  }
+
+  .brand-text {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   .navbar-shrink .brand-icon {
@@ -266,6 +273,25 @@ document.getElementById("navbar-placeholder").innerHTML = `
       padding: 1rem 0;
     }
 
+    .navbar-brand {
+      font-size: 1.1rem;
+      max-width: calc(100% - 60px);
+    }
+
+    .brand-icon {
+      width: 40px;
+      height: 40px;
+      font-size: 1.2rem;
+    }
+
+    .brand-text {
+      font-size: 1rem;
+    }
+
+    .navbar-toggler {
+      flex-shrink: 0;
+    }
+
     .navbar-collapse {
       background: rgba(26, 26, 26, 0.98);
       margin-top: 1rem;
@@ -282,6 +308,22 @@ document.getElementById("navbar-placeholder").innerHTML = `
     .dropdown-menu-modern {
       background: rgba(42, 42, 42, 0.95);
       margin-left: 1rem;
+    }
+  }
+
+  @media (max-width: 576px) {
+    .navbar-brand {
+      font-size: 0.95rem;
+    }
+
+    .brand-icon {
+      width: 35px;
+      height: 35px;
+      font-size: 1rem;
+    }
+
+    .brand-text {
+      font-size: 0.9rem;
     }
   }
 </style>
