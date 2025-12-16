@@ -24,64 +24,8 @@
     .container {
       max-width: 900px;
       margin: 0 auto;
-      padding: 2rem 1rem;
+      padding: 2rem 1rem 4rem 1rem;
       flex: 1;
-    }
-
-    /* Header section */
-    .quiz-header {
-      background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #3a3a3a 100%);
-      border-radius: 20px;
-      padding: 2.5rem;
-      margin-bottom: 2rem;
-      box-shadow: 0 10px 40px rgba(0,0,0,0.3);
-      text-align: center;
-      border: 1px solid rgba(255,255,255,0.1);
-    }
-
-    .quiz-header h1 {
-      font-size: 2.2rem;
-      font-weight: 700;
-      color: #ffffff;
-      margin-bottom: 1rem;
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-    }
-
-    .quiz-info {
-      background: rgba(255, 255, 255, 0.1);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      color: white;
-      padding: 1.5rem;
-      border-radius: 15px;
-      margin-top: 1.5rem;
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    }
-
-    .quiz-info p {
-      margin: 0;
-      font-size: 1rem;
-      line-height: 1.6;
-      color: rgba(255, 255, 255, 0.95);
-    }
-
-    .counter-badge {
-      display: inline-block;
-      background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
-      padding: 0.75rem 2rem;
-      border-radius: 30px;
-      font-size: 1.1rem;
-      font-weight: 600;
-      margin-top: 1rem;
-      box-shadow: 0 4px 15px rgba(0, 123, 255, 0.3);
-      border: 2px solid rgba(255, 255, 255, 0.2);
-    }
-
-    .counter-number {
-      color: #ffffff;
-      font-size: 1.3rem;
-      font-weight: 700;
     }
 
     /* Main quiz container with dark background */
@@ -91,7 +35,41 @@
       padding: 2.5rem;
       box-shadow: 0 10px 40px rgba(0,0,0,0.3);
       border: 1px solid rgba(255,255,255,0.1);
+    }
+
+    /* Header section */
+    .quiz-header {
+      text-align: center;
       margin-bottom: 2rem;
+      padding-bottom: 2rem;
+      border-bottom: 2px solid rgba(255,255,255,0.1);
+    }
+
+    .quiz-header h1 {
+      font-size: 2.2rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 1.5rem;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    }
+
+    .quiz-info {
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      color: rgba(255, 255, 255, 0.9);
+      padding: 1.25rem 1.5rem;
+      border-radius: 12px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    .quiz-info p {
+      margin: 0;
+      font-size: 1rem;
+      line-height: 1.6;
+      color: rgba(255, 255, 255, 0.9);
     }
 
     /* Question cards */
@@ -324,6 +302,7 @@
       margin-top: 2rem;
       box-shadow: 0 10px 40px rgba(0,0,0,0.15);
       animation: slideIn 0.5s ease;
+      border: 3px solid #007bff;
     }
 
     @keyframes slideIn {
@@ -341,8 +320,10 @@
       text-align: center;
       font-size: 1.8rem;
       font-weight: 700;
-      color: #2d3748;
+      color: #1a1a1a;
       margin-bottom: 2rem;
+      padding-bottom: 1rem;
+      border-bottom: 3px solid #007bff;
     }
 
     .results-grid {
@@ -371,6 +352,7 @@
       color: white;
       display: block;
       margin-bottom: 0.5rem;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
     }
 
     .result-label {
@@ -426,19 +408,15 @@
   <div id="navbar-placeholder"></div>
   
   <div class="container">
-    <!-- Header -->
-    <div class="quiz-header">
-      <h1>📝 Autoebaluazio Galdetegia</h1>
-      <div class="quiz-info">
-        <p>Galdetegi honek 10 galdera ditu. Galdera bakoitzak hiru erantzun aukera ditu, baina bakarra da zuzena. Aukeratu zure erantzuna eta bidali galdetegia amaitutakoan.</p>
-        <div class="counter-badge">
-          Erantzundako galderak: <span class="counter-number" id="contador">0</span>/10
-        </div>
-      </div>
-    </div>
-
     <form id="galdetegiaForm">
       <div class="quiz-container">
+        <!-- Header -->
+        <div class="quiz-header">
+          <h1>📝 Autoebaluazio Galdetegia</h1>
+          <div class="quiz-info">
+            <p>Galdetegi honek 10 galdera ditu. Galdera bakoitzak hiru erantzun aukera ditu, baina bakarra da zuzena. Aukeratu zure erantzuna eta bidali galdetegia amaitutakoan.</p>
+          </div>
+        </div>
       <!-- Galdera 1 -->
       <div class="question-card" id="galdera1">
         <div class="question-header">
@@ -713,7 +691,6 @@
 
   <script>
     const form = document.getElementById("galdetegiaForm");
-    const contador = document.getElementById("contador");
 
     const respuestasCorrectas = {
       q1: 'b',
@@ -739,20 +716,11 @@
     }
 
     function actualizarContador() {
-      let erantzunak = 0;
-      for(let i=1; i<=10; i++){
-        const checked = document.querySelector(`input[name="q${i}"]:checked`);
-        if(checked){
-          erantzunak++;
-        }
-      }
-      contador.textContent = erantzunak;
+      // Función eliminada - ya no se usa el contador
     }
 
     form.addEventListener("change", function(e){
-      if(e.target.name && e.target.name.startsWith("q")){
-        actualizarContador();
-      }
+      // Ya no necesitamos actualizar contador
     });
 
     form.addEventListener("submit", function(e){
@@ -824,7 +792,6 @@
         });
       }
 
-      contador.textContent = "0";
       document.getElementById("emaitza").innerHTML = "";
     }
   </script>
