@@ -30,12 +30,13 @@
 
     /* Header section */
     .quiz-header {
-      background: linear-gradient(135deg, #2c3e50 0%, #34495e 50%, #4a5568 100%);
+      background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #3a3a3a 100%);
       border-radius: 20px;
       padding: 2.5rem;
       margin-bottom: 2rem;
-      box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+      box-shadow: 0 10px 40px rgba(0,0,0,0.3);
       text-align: center;
+      border: 1px solid rgba(255,255,255,0.1);
     }
 
     .quiz-header h1 {
@@ -43,6 +44,7 @@
       font-weight: 700;
       color: #ffffff;
       margin-bottom: 1rem;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
     }
 
     .quiz-info {
@@ -76,20 +78,29 @@
       font-weight: 700;
     }
 
+    /* Main quiz container with dark background */
+    .quiz-container {
+      background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #3a3a3a 100%);
+      border-radius: 20px;
+      padding: 2.5rem;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+
     /* Question cards */
     .question-card {
       background: white;
-      border-radius: 20px;
+      border-radius: 15px;
       padding: 2rem;
       margin-bottom: 1.5rem;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+      box-shadow: 0 5px 20px rgba(0,0,0,0.15);
       transition: all 0.3s ease;
       border: 2px solid transparent;
     }
 
     .question-card:hover {
       transform: translateY(-3px);
-      box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+      box-shadow: 0 8px 30px rgba(0,123,255,0.3);
       border-color: #007bff;
     }
 
@@ -103,9 +114,9 @@
     }
 
     .question-text {
-      font-size: 1.1rem;
+      font-size: 1.05rem;
       font-weight: 600;
-      color: #2d3748;
+      color: #2d2d2d;
       flex: 1;
       line-height: 1.6;
     }
@@ -125,9 +136,9 @@
     }
 
     .btn-clear {
-      background: #fff;
-      border: 2px solid #e53e3e;
-      color: #e53e3e;
+      background: white;
+      border: 2px solid #dc3545;
+      color: #dc3545;
       padding: 0.4rem 1rem;
       border-radius: 20px;
       font-size: 0.85rem;
@@ -138,9 +149,10 @@
     }
 
     .btn-clear:hover {
-      background: #e53e3e;
+      background: #dc3545;
       color: white;
       transform: scale(1.05);
+      box-shadow: 0 4px 12px rgba(220, 53, 69, 0.3);
     }
 
     /* Radio options */
@@ -270,18 +282,18 @@
       font-weight: 600;
       cursor: pointer;
       transition: all 0.3s ease;
-      box-shadow: 0 4px 15px rgba(0, 123, 255, 0.4);
+      box-shadow: 0 4px 20px rgba(0, 123, 255, 0.4);
     }
 
     .btn-submit:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 25px rgba(0, 123, 255, 0.5);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 30px rgba(0, 123, 255, 0.6);
     }
 
     .btn-reset-all {
       background: white;
-      color: #e53e3e;
-      border: 2px solid #e53e3e;
+      color: #dc3545;
+      border: 2px solid #dc3545;
       padding: 1rem 3rem;
       border-radius: 30px;
       font-size: 1.1rem;
@@ -291,9 +303,10 @@
     }
 
     .btn-reset-all:hover {
-      background: #e53e3e;
+      background: #dc3545;
       color: white;
-      transform: translateY(-2px);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 30px rgba(220, 53, 69, 0.4);
     }
 
     /* Results panel */
@@ -418,6 +431,7 @@
     </div>
 
     <form id="galdetegiaForm">
+      <div class="quiz-container">
       <!-- Galdera 1 -->
       <div class="question-card" id="galdera1">
         <div class="question-header">
@@ -672,6 +686,7 @@
       <div class="action-buttons">
         <button type="submit" class="btn-submit">Bidali</button>
         <button type="button" class="btn-reset-all" onclick="resetGaldetegia()">Garbitu dena</button>
+      </div>
       </div>
     </form>
 
