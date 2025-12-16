@@ -1,20 +1,20 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="eu">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>GrAL - About Us</title>
   <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
   <style>
     body {
-      padding-top: 300px; /* altura máxima de la navbar */
       transition: padding-top 0.3s ease;
       background-color: #f8f9fa;
     }
-
+    
     .container {
-      padding-top: 2rem;
-      padding-bottom: 4rem; /* espacio para footer */
+      padding-top: 2rem; 
+      padding-bottom: 4rem;
     }
 
     .section-card {
@@ -32,16 +32,53 @@
       box-shadow: 0 8px 20px rgba(0,0,0,0.15);
     }
 
-    .section-card h1,
-    .section-card h2 {
-      margin-bottom: 1rem;
+    .section-card h1 {
+      margin-bottom: 1.5rem;
       color: #343a40;
     }
 
-    .section-card p {
-      font-size: 1.05rem;
-      line-height: 1.6;
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .info-item {
+      background-color: #f8f9fa;
+      padding: 1.5rem;
+      border-radius: 8px;
+      border-left: 4px solid #007bff;
+      text-align: left;
+    }
+
+    .info-item .icon {
+      font-size: 2rem;
+      color: #007bff;
+      margin-bottom: 0.5rem;
+    }
+
+    .info-item h5 {
+      color: #343a40;
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+    }
+
+    .info-item p {
       color: #495057;
+      font-size: 0.95rem;
+      margin-bottom: 0;
+    }
+
+    .team-info {
+      background-color: #e9ecef;
+      padding: 1rem;
+      border-radius: 8px;
+      margin-top: 1rem;
+    }
+
+    .team-info strong {
+      color: #007bff;
     }
 
     /* Footer */
@@ -65,39 +102,56 @@
     .footer a:hover {
       color: #adb5bd;
     }
+
+    @media (max-width: 768px) {
+      .info-grid {
+        grid-template-columns: 1fr;
+      }
+    }
   </style>
 </head>
 <body>
 
   <!-- Navbar dinámico -->
   <div id="navbar-placeholder"></div>
-  <script src="../components/navbar.js"></script> <!-- <-- usa navbar.js -->
+  <script src="../components/navbar.js"></script>
 
   <div class="container">
     <div class="section-card">
-      <h1>Nor gara?</h1>
-      <p>
-        Web orri honen sortzaileak <strong>UPV/EHUko Informatika Fakultateko</strong> 
-        <strong>Hodei Jauregi</strong>, <strong>Maialen Velazquez</strong> eta <strong>Maitane Rodriguez</strong> 
-        ikasleak dira, bertan irakasten den <strong>Pertsona eta Konputagailuen arteko Elkarrekintza</strong> 
-        irakasgaiaren ikasle bezala.
-      </p>
-    </div>
+      <h1>About Us</h1>
+      
+      <div class="team-info">
+        <strong>UPV/EHUko Informatika Fakultateko</strong> ikasleak: 
+        <strong>Hodei Jauregi</strong>, <strong>Maialen Velazquez</strong> eta <strong>Maitane Rodriguez</strong>
+        <br>
+        <em>Pertsona eta Konputagailuen arteko Elkarrekintza</em> irakasgaia
+      </div>
 
-    <div class="section-card">
-      <h2>Zergatik sortu da web orri hau?</h2>
-      <p>
-        Bertan aurkitzen den guztia eskolan eskatutako lan bat burutzeko eginik dago, besterik ez.
-      </p>
-    </div>
+      <div class="info-grid">
+        <div class="info-item">
+          <div class="icon">
+            <i class="bi bi-question-circle-fill"></i>
+          </div>
+          <h5>Zergatik sortu da web orri hau?</h5>
+          <p>Bertan aurkitzen den guztia eskolan eskatutako lan bat burutzeko eginik dago, besterik ez.</p>
+        </div>
 
-    <div class="section-card">
-      <h2>Zer lortu nahi dugu web orri honekin?</h2>
-      <p>
-        Helburu nagusia, eskolako lana egiteaz aparte, <strong>Gradu Amaierako Lanei buruzko informazioa ematea </strong> da, 
-        kontuan izanda hauek burutzeko hainbat arau eta epe bete behar direla. Informazio asko dagoenez interneten, 
-        ahalik eta gehien laburtzea eta modu ulerterraz batean biltzea da gure nahia.
-      </p>
+        <div class="info-item">
+          <div class="icon">
+            <i class="bi bi-bullseye"></i>
+          </div>
+          <h5>Zer lortu nahi dugu?</h5>
+          <p>Helburu nagusia <strong>Gradu Amaierako Lanei buruzko informazioa ematea</strong> da, kontuan izanda hauek burutzeko hainbat arau eta epe bete behar direla.</p>
+        </div>
+
+        <div class="info-item">
+          <div class="icon">
+            <i class="bi bi-lightbulb-fill"></i>
+          </div>
+          <h5>Gure nahia</h5>
+          <p>Informazio asko dagoenez interneten, ahalik eta gehien laburtzea eta modu ulerterraz batean biltzea da gure nahia.</p>
+        </div>
+      </div>
     </div>
   </div>
 
@@ -105,10 +159,9 @@
   <div id="footer-placeholder"></div>
   <script src="../components/footer.js"></script>
 
-  <!-- Bootstrap JS -->
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script> 
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script> 
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.js"></script>
 
 </body>
 </html>
