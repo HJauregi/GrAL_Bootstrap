@@ -23,8 +23,6 @@ document.getElementById("navbar-placeholder").innerHTML = `
     
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav ml-auto">
-
-        <!-- Hasiera -->
         <li class="nav-item">
           <a class="nav-link" href="${basePath}index.html">
             <i class="bi bi-house-fill"></i>
@@ -32,7 +30,6 @@ document.getElementById("navbar-placeholder").innerHTML = `
           </a>
         </li>
 
-        <!-- Arautegia Dropdown -->
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="${basePath}windows/araudia.html" id="arautegiaDropdown"
              data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -49,7 +46,6 @@ document.getElementById("navbar-placeholder").innerHTML = `
           </div>
         </li>
 
-        <!-- Egutegia -->
         <li class="nav-item">
           <a class="nav-link" href="${basePath}windows/egutegia.html">
             <i class="bi bi-calendar-check-fill"></i>
@@ -57,7 +53,6 @@ document.getElementById("navbar-placeholder").innerHTML = `
           </a>
         </li>
 
-        <!-- Memoriak Dropdown -->
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="${basePath}windows/memoriak.html" id="memoriakDropdown"
              data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -74,7 +69,6 @@ document.getElementById("navbar-placeholder").innerHTML = `
           </div>
         </li>
 
-        <!-- About us -->
         <li class="nav-item">
           <a class="nav-link" href="${basePath}windows/about-us.html">
             <i class="bi bi-people-fill"></i>
@@ -82,14 +76,12 @@ document.getElementById("navbar-placeholder").innerHTML = `
           </a>
         </li>
 
-        <!-- Autoebaluazioa -->
         <li class="nav-item">
           <a class="nav-link nav-link-cta" href="${basePath}windows/galdetegia.html">
             <i class="bi bi-clipboard-check-fill"></i>
             <span>Autoebaluazioa</span>
           </a>
         </li>
-
       </ul>
     </div>
   </div>
@@ -98,54 +90,40 @@ document.getElementById("navbar-placeholder").innerHTML = `
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
 
 <style>
-  /* RESET Y BASE */
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-
   body {
     padding-top: 100px;
-    transition: padding-top 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: padding-top 0.3s ease;
   }
 
-  /* NAVBAR PRINCIPAL */
+  /* NAVBAR */
   .navbar-modern {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-    backdrop-filter: blur(10px);
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    background: linear-gradient(135deg, #1a1a1a 0%, #4a4a4a 100%);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
     padding: 1.5rem 0;
-    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: padding 0.3s ease;
   }
 
   .navbar-shrink {
     padding: 0.5rem 0 !important;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   }
 
   /* BRAND */
   .navbar-brand {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
     color: white !important;
     font-weight: 700;
     font-size: 1.5rem;
-    transition: all 0.3s ease;
-    padding: 0;
+    gap: 0.75rem;
+    transition: transform 0.3s ease;
   }
 
   .navbar-brand:hover {
     transform: translateX(5px);
-    color: #ffd700 !important;
   }
 
   .brand-icon {
     width: 50px;
     height: 50px;
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.15);
     border-radius: 12px;
     display: flex;
     align-items: center;
@@ -160,10 +138,6 @@ document.getElementById("navbar-placeholder").innerHTML = `
     font-size: 1.2rem;
   }
 
-  .brand-text {
-    transition: font-size 0.3s ease;
-  }
-
   .navbar-shrink .brand-text {
     font-size: 1.2rem;
   }
@@ -174,7 +148,7 @@ document.getElementById("navbar-placeholder").innerHTML = `
   }
 
   .nav-link {
-    color: rgba(255, 255, 255, 0.9) !important;
+    color: rgba(255, 255, 255, 0.85) !important;
     font-weight: 500;
     padding: 0.75rem 1.25rem !important;
     border-radius: 8px;
@@ -182,61 +156,37 @@ document.getElementById("navbar-placeholder").innerHTML = `
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .nav-link::before {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    width: 0;
-    height: 2px;
-    background: #ffd700;
-    transform: translateX(-50%);
-    transition: width 0.3s ease;
   }
 
   .nav-link:hover {
-    background: rgba(255, 255, 255, 0.15);
+    background: rgba(255, 255, 255, 0.1);
     color: white !important;
     transform: translateY(-2px);
   }
 
-  .nav-link:hover::before {
-    width: 80%;
-  }
-
   .nav-link i {
     font-size: 1.1rem;
-    transition: transform 0.3s ease;
-  }
-
-  .nav-link:hover i {
-    transform: scale(1.2);
   }
 
   /* CTA BUTTON */
   .nav-link-cta {
-    background: rgba(255, 215, 0, 0.2) !important;
-    border: 2px solid #ffd700;
-    color: #ffd700 !important;
+    background: rgba(255, 255, 255, 0.15) !important;
+    border: 2px solid white;
+    color: white !important;
     font-weight: 600;
   }
 
   .nav-link-cta:hover {
-    background: #ffd700 !important;
-    color: #667eea !important;
-    transform: translateY(-3px) scale(1.05);
+    background: white !important;
+    color: #1a1a1a !important;
   }
 
   /* DROPDOWN */
   .dropdown-menu-modern {
-    background: white;
-    border: none;
+    background: #2a2a2a;
+    border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 12px;
-    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
     padding: 0.5rem;
     margin-top: 0.5rem;
     min-width: 280px;
@@ -249,33 +199,29 @@ document.getElementById("navbar-placeholder").innerHTML = `
     display: flex;
     align-items: center;
     gap: 0.75rem;
-    color: #343a40;
+    color: rgba(255, 255, 255, 0.85);
     font-weight: 500;
   }
 
   .dropdown-item i {
     font-size: 1.2rem;
-    color: #667eea;
-    transition: transform 0.3s ease;
+    color: rgba(255, 255, 255, 0.6);
   }
 
   .dropdown-item:hover {
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: rgba(255, 255, 255, 0.15);
     color: white;
     transform: translateX(5px);
   }
 
   .dropdown-item:hover i {
     color: white;
-    transform: scale(1.2);
   }
 
-  /* TOGGLER PERSONALIZADO */
+  /* TOGGLER */
   .navbar-toggler {
     border: none;
     padding: 0.5rem;
-    position: relative;
-    z-index: 1000;
   }
 
   .navbar-toggler:focus {
@@ -289,11 +235,9 @@ document.getElementById("navbar-placeholder").innerHTML = `
     justify-content: space-between;
     width: 30px;
     height: 22px;
-    cursor: pointer;
   }
 
   .navbar-toggler-icon-custom span {
-    display: block;
     height: 3px;
     background: white;
     border-radius: 3px;
@@ -323,79 +267,27 @@ document.getElementById("navbar-placeholder").innerHTML = `
     }
 
     .navbar-collapse {
-      background: rgba(102, 126, 234, 0.98);
-      backdrop-filter: blur(10px);
+      background: rgba(26, 26, 26, 0.98);
       margin-top: 1rem;
       padding: 1rem;
       border-radius: 12px;
-      max-height: 70vh;
+      max-height: 80vh;
       overflow-y: auto;
-    }
-
-    .navbar-nav {
-      gap: 0.25rem;
     }
 
     .nav-link {
       padding: 1rem !important;
-      justify-content: flex-start;
     }
 
     .dropdown-menu-modern {
-      background: rgba(255, 255, 255, 0.95);
-      border: none;
+      background: rgba(42, 42, 42, 0.95);
       margin-left: 1rem;
     }
-
-    .brand-icon {
-      width: 45px;
-      height: 45px;
-    }
-
-    .navbar-shrink .brand-icon {
-      width: 35px;
-      height: 35px;
-    }
-  }
-
-  /* ANIMACIONES */
-  @keyframes fadeIn {
-    from {
-      opacity: 0;
-      transform: translateY(-10px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  .navbar-collapse.show {
-    animation: fadeIn 0.3s ease;
-  }
-
-  /* SCROLL BAR PERSONALIZADO */
-  .navbar-collapse::-webkit-scrollbar {
-    width: 6px;
-  }
-
-  .navbar-collapse::-webkit-scrollbar-track {
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 10px;
-  }
-
-  .navbar-collapse::-webkit-scrollbar-thumb {
-    background: rgba(255, 255, 255, 0.3);
-    border-radius: 10px;
-  }
-
-  .navbar-collapse::-webkit-scrollbar-thumb:hover {
-    background: rgba(255, 255, 255, 0.5);
   }
 </style>
 `;
 
-// Efecto shrink al hacer scroll con mejor performance
+// Efecto shrink al hacer scroll
 let ticking = false;
 window.addEventListener("scroll", function () {
   if (!ticking) {
