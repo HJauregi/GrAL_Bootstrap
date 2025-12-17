@@ -86,17 +86,14 @@
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
       margin-bottom: 2rem;
       border: 1px solid #e1e8ed;
+      background: #f8f9fa;
     }
 
     @media (max-width: 767px) {
       .pdf-container { 
-        padding-bottom: 75%; 
-        height: 0; 
+        height: 600px;
       }
       .pdf-container iframe { 
-        position: absolute; 
-        top: 0; 
-        left: 0; 
         width: 100%; 
         height: 100%; 
       }
@@ -156,6 +153,15 @@
     .btn-pdf i {
       font-size: 1.4rem;
     }
+
+    .loading-message {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: #6c757d;
+      font-size: 1rem;
+    }
   </style>
 </head>
 <body>
@@ -185,14 +191,17 @@
       <!-- Separador visual -->
       <div class="divider"></div>
       
-      <!-- PDF embebido con iframe para mejor compatibilidad móvil -->
+      <!-- PDF embebido con Google Docs Viewer -->
       <div class="pdf-container">
+        <div class="loading-message">
+          <i class="bi bi-hourglass-split"></i> PDFa kargatzen...
+        </div>
         <iframe 
-          src="/GrAL/media/2025_26_IIG_GrAL_Egutegia_eus_signed.pdf#toolbar=1&navpanes=0&scrollbar=1" 
-          type="application/pdf"
+          src="https://docs.google.com/viewer?url=https://www.ehu.eus/GrAL/media/2025_26_IIG_GrAL_Egutegia_eus_signed.pdf&embedded=true" 
           width="100%"
           height="100%"
-          style="border: none;">
+          style="border: none;"
+          onload="this.previousElementSibling.style.display='none'">
         </iframe>
       </div>
 
